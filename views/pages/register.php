@@ -10,7 +10,7 @@
                 <div class="card-body p-5">
                     <h5 class="card-title text-center">Création de compte <i class="fa fa-pencil"></i></h5>
 
-                    <form>
+                    <form action="#" method="POST" id="form-register-user">
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">

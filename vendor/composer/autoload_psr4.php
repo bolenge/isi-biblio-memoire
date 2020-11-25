@@ -6,8 +6,10 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Models\\' => array($baseDir . '/models'),
     'Ekolo\\Routing\\' => array($vendorDir . '/ekolobuilder/eko-routing/src'),
     'Ekolo\\Http\\' => array($vendorDir . '/ekolobuilder/eko-http/src'),
     'Ekolo\\EkoMagic\\' => array($vendorDir . '/ekolobuilder/eko-magic/src'),
     'Ekolo\\Builder\\' => array($vendorDir . '/ekolobuilder/ekolo/src'),
+    'Core\\' => array($baseDir . '/core'),
 );

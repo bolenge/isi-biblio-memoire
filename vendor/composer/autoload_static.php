@@ -11,6 +11,10 @@ class ComposerStaticInit408f35912c8abacaa0fb1b316ba44e6b
     );
 
     public static $prefixLengthsPsr4 = array (
+        'M' => 
+        array (
+            'Models\\' => 7,
+        ),
         'E' => 
         array (
             'Ekolo\\Routing\\' => 14,
@@ -18,9 +22,17 @@ class ComposerStaticInit408f35912c8abacaa0fb1b316ba44e6b
             'Ekolo\\EkoMagic\\' => 15,
             'Ekolo\\Builder\\' => 14,
         ),
+        'C' => 
+        array (
+            'Core\\' => 5,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'Models\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/models',
+        ),
         'Ekolo\\Routing\\' => 
         array (
             0 => __DIR__ . '/..' . '/ekolobuilder/eko-routing/src',
@@ -37,9 +49,16 @@ class ComposerStaticInit408f35912c8abacaa0fb1b316ba44e6b
         array (
             0 => __DIR__ . '/..' . '/ekolobuilder/ekolo/src',
         ),
+        'Core\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/core',
+        ),
     );
 
     public static $classMap = array (
+        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Core\\Out' => __DIR__ . '/../..' . '/core/Out.php',
+        'Core\\Validator' => __DIR__ . '/../..' . '/core/Validator.php',
         'Ekolo\\Builder\\Bin\\Application' => __DIR__ . '/..' . '/ekolobuilder/ekolo/src/Bin/Application.php',
         'Ekolo\\Builder\\Bin\\Error' => __DIR__ . '/..' . '/ekolobuilder/ekolo/src/Bin/Error.php',
         'Ekolo\\Builder\\Bin\\Model' => __DIR__ . '/..' . '/ekolobuilder/ekolo/src/Bin/Model.php',
@@ -63,6 +82,7 @@ class ComposerStaticInit408f35912c8abacaa0fb1b316ba44e6b
         'Ekolo\\Routing\\Route' => __DIR__ . '/..' . '/ekolobuilder/eko-routing/src/Route.php',
         'Ekolo\\Routing\\RouteRegistar' => __DIR__ . '/..' . '/ekolobuilder/eko-routing/src/RouteRegistar.php',
         'Ekolo\\Routing\\Router' => __DIR__ . '/..' . '/ekolobuilder/eko-routing/src/Router.php',
+        'Models\\UsersModel' => __DIR__ . '/../..' . '/models/UsersModel.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

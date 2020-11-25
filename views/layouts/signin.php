@@ -38,9 +38,10 @@
     <!--  Notifications Plugin    -->
     <script src="/public/js/plugins/bootstrap-notify.js"></script>
     <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
-    <script src="/public/js/api/functions.js"></script>
+    <script src="/public/js/utils/functions.js"></script>
+    <script src="/public/js/api/router.js" type="module"></script>
     <script>
-        //makeSuperLoader($('#card-register-user'))
+        
     </script>
 </body>
 

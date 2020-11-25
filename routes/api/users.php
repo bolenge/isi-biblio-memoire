@@ -8,10 +8,13 @@
 
     $router = new Router;
 
+    /**
+     * Création d'un utilisateur
+     */
     $router->post('/register', function (Request $req, Response $res) {
         $model = new UsersModel;
         $out = new Out;
-        $validator = new Validator;
+        $validator = new Validator($req);
 
         $validator->setRules([
             'name' => 'required|min:2',
@@ -35,8 +38,8 @@
             }
         }else {
             $out->message = implode("<br>", session('errors'));
-            $out->message = str_replace('name', 'Nom');
-            $out->message = str_replace('password', 'Mot de passe');
+            $out->message = str_replace('name', 'Nom', $out->message);
+            $out->message = str_replace('password', 'Mot de passe', $out->messagex);
         }
 
         $res->json($out);

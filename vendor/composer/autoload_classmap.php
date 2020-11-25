@@ -6,6 +6,9 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'Core\\Out' => $baseDir . '/core/Out.php',
+    'Core\\Validator' => $baseDir . '/core/Validator.php',
     'Ekolo\\Builder\\Bin\\Application' => $vendorDir . '/ekolobuilder/ekolo/src/Bin/Application.php',
     'Ekolo\\Builder\\Bin\\Error' => $vendorDir . '/ekolobuilder/ekolo/src/Bin/Error.php',
     'Ekolo\\Builder\\Bin\\Model' => $vendorDir . '/ekolobuilder/ekolo/src/Bin/Model.php',
@@ -29,4 +32,5 @@ return array(
     'Ekolo\\Routing\\Route' => $vendorDir . '/ekolobuilder/eko-routing/src/Route.php',
     'Ekolo\\Routing\\RouteRegistar' => $vendorDir . '/ekolobuilder/eko-routing/src/RouteRegistar.php',
     'Ekolo\\Routing\\Router' => $vendorDir . '/ekolobuilder/eko-routing/src/Router.php',
+    'Models\\UsersModel' => $baseDir . '/models/UsersModel.php',
 );
