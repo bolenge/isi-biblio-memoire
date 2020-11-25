@@ -6,7 +6,7 @@
             <img src="/public/img/signup.png" alt="Illustrator Inscription" class=" w-75">
         </div>
         <div class="col-lg-4">
-            <div class="card card-user">
+            <div class="card card-user" id="card-register-user">
                 <div class="card-body p-5">
                     <h5 class="card-title text-center">Création de compte <i class="fa fa-pencil"></i></h5>
 
