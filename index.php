@@ -9,6 +9,9 @@
     // routers
     $pages = require('./routes/pages.php');
 
+    // Router Api
+    $usersApiRouter = require('./routes/api/users.php');
+
     // set configuration of file folders
     $app->set('views', 'views');
     $app->set('public', 'public');
@@ -18,10 +21,11 @@
         
     });
 
+    // Routing
     $app->use('/', $pages);
-
-    // routing
     
+    // Routing APi
+    $app->use('/api/users', $usersApiRouter);
 
     // error handler
     $app->trackErrors(function ($error, $req, $res) {
