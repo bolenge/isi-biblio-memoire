@@ -16,5 +16,12 @@
             'title' => 'Tableau de bord'
         ]);
     });
-
+    
+    $router->get('/login', function (Request $req, Response $res) {
+        $res->extends('layouts/signin');
+        $res->render('pages/login', [
+            'title' => "Connexion"
+        ]);
+    });
+    
     return $router;
