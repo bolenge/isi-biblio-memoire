@@ -22,6 +22,7 @@
     <link href="/public/demo/demo.css" rel="stylesheet" />
     <link href="/public/css/style.css" rel="stylesheet" />
     <link href="/public/css/loader.css" rel="stylesheet" />
+    <link href="/public/vendor/snackbar/css/snackbar.min.css" rel="stylesheet" />
 </head>
 
 <body class="">
@@ -37,6 +38,7 @@
     <script src="/public/js/plugins/perfect-scrollbar.jquery.min.js"></script>
     <!--  Notifications Plugin    -->
     <script src="/public/js/plugins/bootstrap-notify.js"></script>
+    <script src="/public/vendor/snackbar/js/snackbar.min.js"></script>
     <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
     <script src="/public/js/utils/functions.js"></script>
     <script src="/public/js/api/router.js" type="module"></script>

@@ -61,3 +61,26 @@ function routerRegex (url, callback) {
         callback();
     }
 }
+
+/**
+ * Permet de lancer une alerte
+ * @param {Element} parentTOPrint 
+ * @param {String} message Le message à afficher
+ * @param {String} type Le type de message
+ */
+function alertBootstrap(parentTOPrint, message, type = 'info') {
+    let content = `<div class="alert alert-${type}">
+        ${message}
+    </div>`;
+
+    $(parentTOPrint).children('.alert').remove();
+    $(parentTOPrint).prepend(content);
+}
+
+/**
+ * Permet de faire une redirection vers un autre url
+ * @param {String} url L'url de la redirection
+ */
+function redirect(url) {
+    window.location.pathname = url;
+}

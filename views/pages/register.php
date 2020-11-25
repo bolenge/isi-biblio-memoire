@@ -5,7 +5,8 @@
             <p class="lead">Inscrivez-vous et bénéficiez de toutes les fonctionnalités que vous offre <?= config('app.name') ?> </p>
             <img src="/public/img/signup.png" alt="Illustrator Inscription" class=" w-75">
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4" id="col-register-user">
+            
             <div class="card card-user" id="card-register-user">
                 <div class="card-body p-5">
                     <h5 class="card-title text-center">Création de compte <i class="fa fa-pencil"></i></h5>

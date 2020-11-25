@@ -24,16 +24,16 @@
 
         if ($validator->validator()) {
             $user = [
-                'name' => $req->body->name,
-                'email' => $req->body->email,
-                'password' => bcrypt_hash_password($req->body->password),
+                'name' => $req->body()->name,
+                'email' => $req->body()->email,
+                'password' => bcrypt_hash_password($req->body()->password),
             ];
 
-            if (!empty($userResult = $model->createUser())) {
+            if (!empty($userResult = $model->createUser($user))) {
                 $out->state = true;
-                $out->message = "Votre inscription a réussi !";
-                $out->result = $userResult;
+                $out->message = "Votre inscription a réussi !<br> Un mail d'activation de votre compte a été envoyé à votre Email";
             }else {
+                $out->result = $userResult;
                 $out->message = "Une erreur est survenue lors de l'inscription, réessayez !";
             }
         }else {
