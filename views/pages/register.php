@@ -1,4 +1,4 @@
-<div class="container mt-5 pt-5">
+<div class="container pt-5">
     <div class="row">
         <div class="col-lg-8">
             <h5 class="card-title">Création de compte</h5>
@@ -7,10 +7,9 @@
         </div>
         <div class="col-lg-4">
             <div class="card card-user">
-                <div class="card-header">
-                    <h5 class="card-title text-center">Création de compte <i class="fa fa-pencil"></i></h5>
-                </div>
                 <div class="card-body p-5">
+                    <h5 class="card-title text-center">Création de compte <i class="fa fa-pencil"></i></h5>
+
                     <form>
                         <div class="row">
                             <div class="col-lg-12">
@@ -38,8 +37,9 @@
 
                         <div class="row">
                             <div class="update ml-auto mr-auto">
-                                <button type="submit" class="btn bgc-primary">S'Inscrire <i
-                                        class="fa fa-pencil-square-o"></i></button>
+                                <button type="submit" class="btn bgc-primary">S'Inscrire <i class="fa fa-pencil-square-o"></i></button>
+
+                                <p class="mt-2"><a href="/login">J'ai déjà un compte <i class="fa fa-sign-in"></i></a></p>
                             </div>
                         </div>
                     </form>
