@@ -23,12 +23,5 @@
             'title' => "Connexion"
         ]);
     });
-
-    $router->get('/register', function (Request $req, Response $res) {
-        $res->extends('layouts/signin');
-        $res->render('pages/register', [
-            'title' => "Création de compte"
-        ]);
-    });
     
     return $router;
