@@ -88,5 +88,16 @@
             'active' => 'subscriptions'
         ]);
     });
+
+    $router->get('/notifications', function (Request $req, Response $res) {
+        global $userMiddleware;
+        $userMiddleware['gess']($req, $res);
+
+        $res->extends('layouts/dashboard_user');
+        $res->render('dashboard/user/notifications', [
+            'title' => 'Mes Abonnements',
+            'active' => 'notifications'
+        ]);
+    });
     
     return $router;
