@@ -8,10 +8,16 @@
     $userMiddleware = require('./middlewares/users.php');
 
     $router->get('/', function (Request $req, Response $res) {
+        global $userMiddleware;
+        $userMiddleware['auth']($req, $res);
+
         $res->redirect('/dashboard');
     });
 
     $router->get('/dashboard', function (Request $req, Response $res) {
+        global $userMiddleware;
+        $userMiddleware['auth']($req, $res);
+        
         $res->extends('layouts/dashboard_user');
         $res->render('dashboard/user/dashboard', [
             'title' => 'Tableau de bord'

@@ -1,6 +1,6 @@
 <div class="container mt-5 pt-5">
     <div class="row">
-        <div class="col-lg-4 offset-4" id="col-login-user">
+        <div class="col-lg-4 offset-lg-4" id="col-login-user">
             <div class="card card-user" id="card-login-user">
                 <div class="card-body p-5">
                     <h5 class="card-title text-center mb-4">Connexion</h5>

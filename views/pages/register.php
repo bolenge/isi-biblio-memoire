@@ -1,6 +1,6 @@
 <div class="container pt-5">
     <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-8 d-none d-lg-block">
             <h5 class="card-title">Création de compte</h5>
             <p class="lead">Inscrivez-vous et bénéficiez de toutes les fonctionnalités que vous offre <?= config('app.name') ?> </p>
             <img src="/public/img/signup.png" alt="Illustrator Inscription" class=" w-75">
