@@ -1,6 +1,6 @@
 <div class="content">
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-12 col-xl-8">
             <a href="/my-books" class="btn btn-primary btn-sm"><i class="fa fa-arrow-left"></i> Retour</a>
             <div class="card card-user">
                 <div class="card-header">
@@ -12,7 +12,7 @@
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     <label for="category">Catégorie <span class="text-danger">*</span></label>
-                                    <select name="category" id="category" class="form-control">
+                                    <select name="category" id="category" class="form-control" required>
                                         <option value="#">Catégorie 1</option>
                                         <option value="#">Catégorie 2</option>
                                         <option value="#">Catégorie 3</option>
@@ -23,23 +23,16 @@
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     <label for="title">Titre livre <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" name="title" id="title">
+                                    <input type="text" class="form-control" name="title" id="title" required minlength="2" maxlength="150" />
                                 </div>
                             </div>
 
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     <label for="author">Nom auteur <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" name="author" id="author">
+                                    <input type="text" class="form-control" name="author" id="author" minlength="2" maxlength="" />
                                 </div>
                             </div>
-                            
-                            <!-- <div class="col-md-6 pl-1">
-                                <div class="form-group">
-                                    <label>Date officielle publié <span class="text-danger"></span></label>
-                                    <input type="date" class="form-control" placeholder="Last Name" value="Faker">
-                                </div>
-                            </div> -->
 
                             <div class="col-lg-6">
                                 <div class="form-group">
@@ -64,7 +57,7 @@
 
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label for="date_official">Date officielle publié <span class="text-danger"></span></label>
+                                    <label for="date_official">Date officielle de publication <span class="text-danger"></span></label>
                                     <input type="date" class="form-control" name="date_official" id="date_official">
                                 </div>
                             </div>

@@ -72,7 +72,8 @@
                                             ---
                                         </td>
                                         <td class="text-center">
-                                            <a href="#" class="disabled">Lire</a>
+                                            <a href="#" class="disabled">Lire</a> |
+                                            <a href="#" class="disabled">Détail</a>
                                         </td>
                                         <td class="text-center">
                                             <a href="#">Docs <i class="fa fa-file-word-o"></i></a> |
