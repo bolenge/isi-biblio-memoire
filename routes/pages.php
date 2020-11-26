@@ -17,10 +17,11 @@
     $router->get('/dashboard', function (Request $req, Response $res) {
         global $userMiddleware;
         $userMiddleware['auth']($req, $res);
-        
+
         $res->extends('layouts/dashboard_user');
         $res->render('dashboard/user/dashboard', [
-            'title' => 'Tableau de bord'
+            'title' => 'Tableau de bord',
+            'active' => "dashboard"
         ]);
     });
     
@@ -41,6 +42,17 @@
         $res->extends('layouts/signin');
         $res->render('pages/register', [
             'title' => "Création de compte"
+        ]);
+    });
+
+    $router->get('/my\-books', function (Request $req, Response $res) {
+        global $userMiddleware;
+        $userMiddleware['gess']($req, $res);
+
+        $res->extends('layouts/dashboard_user');
+        $res->render('dashboard/user/my_books', [
+            'title' => 'Mes livres publiés',
+            'active' => 'my-books'
         ]);
     });
     

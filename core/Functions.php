@@ -31,3 +31,15 @@
             return base64_decode($id_encoded) / config('secure.tokenNumber');
         }
     }
+
+    if (!function_exists('get_active_menu')) {
+        /**
+         * Permet de renvoyer une classe active pour activer un onglet du menu
+         * @param string $page
+         * @param string $page_active
+         * @param string $class_active
+         */
+        function get_active_menu (string $page, string $page_active, string $class_active = "active") {
+            return $page == $page_active ? $class_active : "";
+        }
+    }

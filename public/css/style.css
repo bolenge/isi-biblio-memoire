@@ -1,8 +1,16 @@
+.btn-primary,
 .bgc-primary {
     background-color: #28235d !important;
-    color: #ffffff;
+    color: #ffffff !important;
 }
 
-a {
+a,
+.text-primary {
     color: #28235d !important;
+}
+
+.sidebar-wrapper .nav li.active a,
+.sidebar-wrapper .nav li.active a i {
+    color: #ffae13 !important;
+    font-weight: bold !important;
 }

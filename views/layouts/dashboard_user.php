@@ -20,6 +20,8 @@
     <link href="/public/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="/public/demo/demo.css" rel="stylesheet" />
+    <link href="/public/css/style.css" rel="stylesheet" />
+    <link href="/public/css/loader.css" rel="stylesheet" />
 </head>
 
 <body class="">
@@ -38,46 +40,46 @@
             </div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
-                    <li class="active ">
+                    <li class="<?= get_active_menu("dashboard", $active) ?>">
                         <a href="/dashboard">
                             <i class="nc-icon nc-bank"></i>
                             <p>Tableau de bord</p>
                         </a>
                     </li>
 
-                    <li>
+                    <li class="<?= get_active_menu("my-books", $active) ?>">
                         <a href="/my-books">
                             <i class="nc-icon nc-book-bookmark"></i>
                             <p>Mes Livres</p>
                         </a>
                     </li>
 
-                    <li>
+                    <li class="<?= get_active_menu("my-library", $active) ?>">
                         <a href="/my-library">
                             <i class="nc-icon nc-align-left-2"></i>
                             <p>Ma Bibliothèque</p>
                         </a>
                     </li>
 
-                    <li>
-                        <a href="/asubscriptions">
+                    <li class="<?= get_active_menu("subscriptions", $active) ?>">
+                        <a href="/subscriptions">
                             <i class="nc-icon nc-money-coins"></i>
                             <p>Mes Abonnements</p>
                         </a>
                     </li>
-                    <li>
+                    <li class="<?= get_active_menu("notifications", $active) ?>">
                         <a href="/notifications">
                             <i class="nc-icon nc-bell-55"></i>
                             <p>Notifications</p>
                         </a>
                     </li>
-                    <li>
+                    <li class="<?= get_active_menu("profile", $active) ?>">
                         <a href="/profile">
                             <i class="nc-icon nc-single-02"></i>
                             <p>Mon Profile</p>
                         </a>
                     </li>
-                    <li>
+                    <li class="<?= get_active_menu("setting", $active) ?>">
                         <a href="/setting">
                             <i class="fa fa-cog"></i>
                             <p>Paramètres</p>

@@ -75,11 +75,7 @@ export function loginUser() {
                     if (response.state) {
                         $this.reset();
 
-                        alertBootstrap($('#col-login-user'), response.message, 'success');
-
-                        setInterval(function () { 
-                            redirect('/dashboard');
-                        }, 3000)
+                        redirect('/dashboard');
                     } else {
                         alertBootstrap($('#col-login-user'), response.message, 'danger');
                     }

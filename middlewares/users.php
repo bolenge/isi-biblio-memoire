@@ -12,7 +12,7 @@
 
         'gess' => function (Request $req, Response $res)
             {
-            if (session('user')) {
+            if (session('user') && $req->uri() == "/login" && $req->uri() == "/register") {
                 $res->redirect('/dashboard');
             }
         },
