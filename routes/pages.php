@@ -77,5 +77,16 @@
             'active' => 'my-library'
         ]);
     });
+
+    $router->get('/subscriptions', function (Request $req, Response $res) {
+        global $userMiddleware;
+        $userMiddleware['gess']($req, $res);
+
+        $res->extends('layouts/dashboard_user');
+        $res->render('dashboard/user/subscriptions', [
+            'title' => 'Mes Abonnements',
+            'active' => 'subscriptions'
+        ]);
+    });
     
     return $router;
