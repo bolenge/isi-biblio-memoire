@@ -79,12 +79,6 @@
                             <p>Mon Profile</p>
                         </a>
                     </li>
-                    <li class="<?= get_active_menu("setting", $active) ?>">
-                        <a href="/setting">
-                            <i class="fa fa-cog"></i>
-                            <p>Paramètres</p>
-                        </a>
-                    </li>
                 </ul>
             </div>
         </div>

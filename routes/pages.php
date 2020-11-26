@@ -99,5 +99,16 @@
             'active' => 'notifications'
         ]);
     });
+
+    $router->get('/profile', function (Request $req, Response $res) {
+        global $userMiddleware;
+        $userMiddleware['gess']($req, $res);
+
+        $res->extends('layouts/dashboard_user');
+        $res->render('dashboard/user/profile', [
+            'title' => "Profile",
+            'active' => 'profile'
+        ]);
+    });
     
     return $router;
