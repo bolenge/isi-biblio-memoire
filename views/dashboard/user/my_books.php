@@ -42,17 +42,20 @@
                                 <th>
                                     Catégorie
                                 </th>
-                                <th>
+                                <th class="text-center">
                                     Date soumis
                                 </th>
-                                <th>
+                                <th class="text-center">
                                     Etat publication
                                 </th>
-                                <th>
+                                <th class="text-center">
                                     Date publié
                                 </th>
                                 <th class="text-center">
                                     Action
+                                </th>
+                                <th class="text-center">
+                                    Fichiers originals
                                 </th>
                             </thead>
                             <tbody>
@@ -61,17 +64,20 @@
                                         <td><?= $i ?></td>
                                         <td>La chèvre de ma mère</td>
                                         <td>Livre finance</td>
-                                        <td>20/10/2020</td>
-                                        <td>
+                                        <td class="text-center">20/10/2020</td>
+                                        <td class="text-center">
                                             <span class="text-warning">En attente</span>
                                         </td>
-                                        <td>
+                                        <td class="text-center">
                                             ---
                                         </td>
-                                        <th>
-                                            <a href="#" class="disabled">Lire</a> |
-                                            <a href="#">Fichier original</a>
-                                        </th>
+                                        <td class="text-center">
+                                            <a href="#" class="disabled">Lire</a>
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="#">Docs <i class="fa fa-file-word-o"></i></a> |
+                                            <a href="#">Audio <i class="fa fa-play-circle-o"></i></a>
+                                        </td>
                                     </tr>
                                 <?php endfor ?>
                             </tbody>
