@@ -34,7 +34,7 @@
         }else {
             $out->message = implode("<br>", session('errors'));
             $out->message = str_replace('name', 'Nom', $out->message);
-            $out->message = str_replace('password', 'Mot de passe', $out->messagex);
+            $out->message = str_replace('password', 'Mot de passe', $out->message);
         }
 
         $res->json($out);

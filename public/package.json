@@ -1,0 +1,6 @@
+{
+    "dependencies": {
+        "sweetalert": "^2.1.2",
+        "swiper": "^6.3.5"
+    }
+}

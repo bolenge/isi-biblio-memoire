@@ -78,6 +78,17 @@
         ]);
     });
 
+    $router->get('/my\-library/:id', function (Request $req, Response $res) {
+        global $userMiddleware;
+        $userMiddleware['gess']($req, $res);
+
+        $res->extends('layouts/dashboard_user');
+        $res->render('dashboard/user/read_book', [
+            'title' => 'Lecture du livre',
+            'active' => 'my-library'
+        ]);
+    });
+
     $router->get('/subscriptions', function (Request $req, Response $res) {
         global $userMiddleware;
         $userMiddleware['gess']($req, $res);

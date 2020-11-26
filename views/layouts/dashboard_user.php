@@ -18,6 +18,7 @@
     <!-- CSS Files -->
     <link href="/public/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/public/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
+    <link rel="stylesheet" href="/public/node_modules/swiper/swiper-bundle.min.css">
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="/public/demo/demo.css" rel="stylesheet" />
     <link href="/public/css/style.css" rel="stylesheet" />
@@ -191,6 +192,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
     <!-- Chart JS -->
     <script src="/public/js/plugins/chartjs.min.js"></script>
+    <script src="/public/node_modules/swiper/swiper-bundle.min.js"></script>
     <!--  Notifications Plugin    -->
     <script src="/public/js/plugins/bootstrap-notify.js"></script>
     <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
@@ -202,6 +204,23 @@
             // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
             demo.initChartsPages();
         });
+
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 6,
+            direction: getDirection(),
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            
+        });
+
+            function getDirection() {
+                var windowWidth = window.innerWidth;
+                var direction = window.innerWidth <= 760 ? 'vertical' : 'horizontal';
+
+                return direction;
+            }
     </script>
 </body>
 
