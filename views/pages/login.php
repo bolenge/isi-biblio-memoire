@@ -22,7 +22,7 @@
 
                             <div class="col-lg-12">
                                 <div>
-                                    <label><input type="checkbox" name="password" id="password" required />&nbsp;&nbsp;Garder ma session active</label>
+                                    <label for="remember"><input type="checkbox" name="remember" id="remember" required />&nbsp;&nbsp;Garder ma session active</label>
                                 </div>
                             </div>
                         </div>

@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'Core\\Mail' => $baseDir . '/core/Mail.php',
     'Core\\Out' => $baseDir . '/core/Out.php',
     'Core\\Validator' => $baseDir . '/core/Validator.php',
     'Ekolo\\Builder\\Bin\\Application' => $vendorDir . '/ekolobuilder/ekolo/src/Bin/Application.php',

@@ -48,3 +48,49 @@ export function registerUser() {
         })
     })
 }
+
+/**
+ * Inscription d'un nouvel utilisateur
+ */
+export function loginUser() {
+    $('#form-login-user').on('submit', function (e) {
+        e.preventDefault();
+        
+        const $this = this;
+
+        $.ajax({
+            url: "/api/users/login",
+            type: "POST",
+            data: $(this).serialize(),
+            dataType: 'json',
+            beforeSend: () => {
+                makeSuperLoader($('#card-login-user'))
+            },
+            complete: () => {
+                stopSuperLoader($('#card-login-user'))
+            },
+            success: (response) => {
+                console.log(response);
+                if (response) {
+                    if (response.state) {
+                        $this.reset();
+
+                        alertBootstrap($('#col-login-user'), response.message, 'success');
+
+                        setInterval(function () { 
+                            redirect('/login');
+                        }, 3000)
+                    } else {
+                        alertBootstrap($('#col-login-user'), response.message, 'danger');
+                    }
+                } else {
+                    alertBootstrap($('#col-login-user'), "Une erreur est survenue, réessayez", 'danger');
+                }
+            },
+            error: (err) => {
+                console.log(err);
+                alertBootstrap($('#col-login-user'), "Une erreur est survenue, réessayez", 'danger');
+            }
+        })
+    })
+}

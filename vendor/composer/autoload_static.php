@@ -8,6 +8,7 @@ class ComposerStaticInit408f35912c8abacaa0fb1b316ba44e6b
 {
     public static $files = array (
         'da0eb8ff4f3c4b818d3e710e0d157ae6' => __DIR__ . '/..' . '/ekolobuilder/ekolo/src/Functions/Helpers.php',
+        '0212250db3b9d6fe331c700f380e64ce' => __DIR__ . '/../..' . '/core/Functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -57,6 +58,7 @@ class ComposerStaticInit408f35912c8abacaa0fb1b316ba44e6b
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Core\\Mail' => __DIR__ . '/../..' . '/core/Mail.php',
         'Core\\Out' => __DIR__ . '/../..' . '/core/Out.php',
         'Core\\Validator' => __DIR__ . '/../..' . '/core/Validator.php',
         'Ekolo\\Builder\\Bin\\Application' => __DIR__ . '/..' . '/ekolobuilder/ekolo/src/Bin/Application.php',

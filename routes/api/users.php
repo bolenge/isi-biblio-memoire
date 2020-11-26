@@ -56,9 +56,22 @@
 
         if ($validator->validator()) {
             $out = $model->loginUser($req);
+
+            if ($out->state) {
+                session('user', [
+                    'state' => $out->result->state,
+                    'name' => $out->result->name,
+                    'firstName' => $out->result->firstName,
+                    'lastName' => $out->result->lastName,
+                    'email' => $out->result->email
+                ]);
+
+                if ($req->body()->remember) {
+                    setcookie('user_remember', base64_encode(encode_id($out->result->id).'_'.$out->result->email), 3600 * 30, null, null, true, false);
+                }
+            }
         }else {
             $out->message = implode("<br>", session('errors'));
-            $out->message = str_replace('name', 'Nom', $out->message);
             $out->message = str_replace('password', 'Mot de passe', $out->messagex);
         }
 
