@@ -1321,7 +1321,7 @@ textarea.form-control {
 
 .input-group .input-group-btn {
   padding: 0 12px; }
-
+/* 
 .form-group input[type=file] {
   opacity: 0;
   position: absolute;
@@ -1331,7 +1331,7 @@ textarea.form-control {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 100; }
+  z-index: 100; } */
 
 .form-text {
   font-size: 0.8571em; }

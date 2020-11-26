@@ -55,5 +55,16 @@
             'active' => 'my-books'
         ]);
     });
+
+    $router->get('/my\-books/create', function (Request $req, Response $res) {
+        global $userMiddleware;
+        $userMiddleware['gess']($req, $res);
+
+        $res->extends('layouts/dashboard_user');
+        $res->render('dashboard/user/create_book', [
+            'title' => 'Mes livres publiés',
+            'active' => 'my-books'
+        ]);
+    });
     
     return $router;
