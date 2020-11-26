@@ -9,7 +9,7 @@
     $router = new Router;
 
     /**
-     * Création d'un utilisateur
+     * Inscription d'un utilisateur
      */
     $router->post('/register', function (Request $req, Response $res) {
 
@@ -30,7 +30,32 @@
                 'password' => $req->body()->password
             ];
 
-            $out = $model->createUser($user);
+            $out = $model->registerUser($user);
+        }else {
+            $out->message = implode("<br>", session('errors'));
+            $out->message = str_replace('name', 'Nom', $out->message);
+            $out->message = str_replace('password', 'Mot de passe', $out->messagex);
+        }
+
+        $res->json($out);
+    });
+
+     /**
+     * Connexion d'un utilisateur
+     */
+    $router->post('/login', function (Request $req, Response $res) {
+
+        $model = new UsersModel;
+        $out = new Out;
+        $validator = new Validator($req);
+
+        $validator->setRules([
+            'email' => 'required|email',
+            'password' => 'required|min:8'
+        ]);
+
+        if ($validator->validator()) {
+            $out = $model->loginUser($req);
         }else {
             $out->message = implode("<br>", session('errors'));
             $out->message = str_replace('name', 'Nom', $out->message);
