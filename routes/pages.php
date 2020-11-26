@@ -66,5 +66,16 @@
             'active' => 'my-books'
         ]);
     });
+
+    $router->get('/my\-library', function (Request $req, Response $res) {
+        global $userMiddleware;
+        $userMiddleware['gess']($req, $res);
+
+        $res->extends('layouts/dashboard_user');
+        $res->render('dashboard/user/my_library', [
+            'title' => 'Ma bibliothèque',
+            'active' => 'my-library'
+        ]);
+    });
     
     return $router;

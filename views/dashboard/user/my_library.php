@@ -1,7 +1,7 @@
 <div class="content">
     <div class="row">
         <div class="col-lg-12">
-            
+
         </div>
         <div class="col-md-12">
             <div class="card">
@@ -12,12 +12,13 @@
                                 <h4 class="card-title">Liste de mes publications</h4>
                             </div>
                             <div class="col-lg-3">
-                                <a href="/my-books/create" class="btn btn-primary float-right">Publier un livre <i class="fa fa-send"></i></a>
+                                <a href="#" class="btn btn-primary float-right"><i class="fa fa-plus"></i> Ajouter un livre </a>
                             </div>
                             <div class="col-lg-5 mt-2">
                                 <form action="#" method="post">
                                     <div class="input-group">
-                                        <input type="text" value="" class="form-control d-inline-block" placeholder="Recherche..." style="width: 350px;">
+                                        <input type="text" value="" class="form-control d-inline-block"
+                                            placeholder="Recherche..." style="width: 350px;">
                                         <div class="input-group-append">
                                             <div class="input-group-text">
                                                 <i class="nc-icon nc-zoom-split"></i>
@@ -43,43 +44,39 @@
                                     Catégorie
                                 </th>
                                 <th class="text-center">
-                                    Date soumis
+                                    Début lecture
                                 </th>
                                 <th class="text-center">
-                                    Etat publication
+                                    Pages lues
                                 </th>
                                 <th class="text-center">
-                                    Mise en ligne
+                                    Fin lecture
                                 </th>
                                 <th class="text-center">
                                     Action
                                 </th>
-                                <th class="text-center">
-                                    Fichiers originals
-                                </th>
                             </thead>
                             <tbody>
-                                <?php for ($i = 1; $i < 15;$i++) : ?>
-                                    <tr>
-                                        <td><?= $i ?></td>
-                                        <td>La chèvre de ma mère</td>
-                                        <td>Livre finance</td>
-                                        <td class="text-center">20/10/2020</td>
-                                        <td class="text-center">
-                                            <span class="text-warning">En attente</span>
-                                        </td>
-                                        <td class="text-center">
-                                            ---
-                                        </td>
-                                        <td class="text-center">
-                                            <a href="#" class="disabled">Lire</a> |
-                                            <a href="#" class="disabled">Détail</a>
-                                        </td>
-                                        <td class="text-center">
-                                            <a href="#">Docs <i class="fa fa-file-word-o"></i></a> |
-                                            <a href="#">Audio <i class="fa fa-play-circle-o"></i></a>
-                                        </td>
-                                    </tr>
+                                <?php for ($i = 1; $i < 7;$i++) : ?>
+                                <tr>
+                                    <td><?= $i ?></td>
+                                    <td>
+                                        <img src="/public/img/books/semaine-4-heures.jpg" alt="Book cover" class="cover-book-list">
+                                        <span>La chèvre de ma mère</span>
+                                    </td>
+                                    <td>Livre finance</td>
+                                    <td class="text-center">20/10/2020</td>
+                                    <td class="text-center">
+                                        <span class="font-weight-bold">13 / 22</span>
+                                    </td>
+                                    <td class="text-center">
+                                        ---
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a>
+                                        <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
+                                    </td>
+                                </tr>
                                 <?php endfor ?>
                             </tbody>
                         </table>

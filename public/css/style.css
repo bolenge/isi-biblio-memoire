@@ -22,3 +22,13 @@ a,
     color: #ffae13 !important;
     font-weight: bold !important;
 }
+
+.btn-primary,
+.btn-danger,
+.btn-success {
+    color: #ffffff !important;
+}
+
+.cover-book-list {
+    width: 50px;
+}
