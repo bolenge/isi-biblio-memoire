@@ -66,9 +66,9 @@
                     'email' => $out->result->email
                 ]);
 
-                if ($req->body()->remember) {
-                    setcookie('user_remember', base64_encode(encode_id($out->result->id).'_'.$out->result->email), 3600 * 30, null, null, true, false);
-                }
+                // if ($req->body()->remember) {
+                //     setcookie('user_remember', base64_encode(encode_id($out->result->id).'_'.$out->result->email), 3600 * 30);
+                // }
             }
         }else {
             $out->message = implode("<br>", session('errors'));

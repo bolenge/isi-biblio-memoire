@@ -77,9 +77,9 @@ export function loginUser() {
 
                         alertBootstrap($('#col-login-user'), response.message, 'success');
 
-                        setInterval(function () { 
-                            redirect('/login');
-                        }, 3000)
+                        // setInterval(function () { 
+                        //     redirect('/login');
+                        // }, 3000)
                     } else {
                         alertBootstrap($('#col-login-user'), response.message, 'danger');
                     }

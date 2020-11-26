@@ -1,11 +1,11 @@
 <div class="container mt-5 pt-5">
     <div class="row">
-        <div class="col-lg-4 offset-4">
-            <div class="card card-user">
+        <div class="col-lg-4 offset-4" id="col-login-user">
+            <div class="card card-user" id="card-login-user">
                 <div class="card-body p-5">
                     <h5 class="card-title text-center mb-4">Connexion</h5>
 
-                    <form>
+                    <form action="#" method="POST" id="form-login-user">
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
@@ -16,13 +16,13 @@
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label>Mot de passe <span class="text-danger">*</span></label>
-                                    <input type="password" name="password" id="password" class="form-control" required />
+                                    <input type="password" name="password" id="password" class="form-control" required minlength="8" />
                                 </div>
                             </div>
 
                             <div class="col-lg-12">
                                 <div>
-                                    <label for="remember"><input type="checkbox" name="remember" id="remember" required />&nbsp;&nbsp;Garder ma session active</label>
+                                    <label for="remember"><input type="checkbox" name="remember" id="remember" />&nbsp;&nbsp;Garder ma session active</label>
                                 </div>
                             </div>
                         </div>

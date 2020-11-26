@@ -46,11 +46,11 @@
         {
             $out = new Out;
             $user = $this->findOne([
-                'cond' => 'email="'.$email.'"'
+                'cond' => 'email="'.$req->body()->email.'"'
             ]);
-
+// clovisambulasi
             if (!empty($user)) {
-                if (bcrypt_verify_password($password, $user->password)) {
+                if (bcrypt_verify_password($req->body()->password, $user->password)) {
                     $userAgent = $req->server()->get('HTTP_USER_AGENT');
                     $system = "";
 
@@ -62,7 +62,7 @@
                         'id_user' => $user->id,
                         'kit' => $userAgent,
                         'system' => $system
-                    ]);
+                    ], 'session_user');
 
                     if ($logged) {
                         $out->state = true;

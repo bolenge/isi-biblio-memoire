@@ -2,8 +2,8 @@
 <html lang="fr">
 <head>
     <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="/public/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="/public/img/favicon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/public/img/logos/logo-congo-book.png">
+    <link rel="icon" type="image/png" href="/public/img/logos/logo-congo-book.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
         <?=
