@@ -145,18 +145,19 @@
                             </li>
 
                             <li class="nav-item btn-rotate dropdown">
-                                <a class="nav-link dropdown-toggle" href="http://example.com"
+                                <a class="nav-link dropdown-toggle" href="#"
                                     id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">
-                                    <i class="nc-icon nc-single-02"></i>
+                                    <img src="/public/img/default-avatar.png" alt="Default avatar" class="avatar" style="width: 25px;height: 25px;border-radius: 50%;">
                                     <p>
-                                        <span class="d-lg-none d-md-block">Alex Devs</span>
+                                        <span style="text-transform: none !important;"><?= session('user')['firstName'].' '.session('user')['name'] ?></span>
+
                                     </p>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="/profile"><i class="nc-icon nc-single-02 mr-3"></i> Mon Profile</a>
-                                    <a class="dropdown-item" href="#"><i class="nc-icon nc-key-25 mr-3"></i> Changer mot de passe</a>
-                                    <a class="dropdown-item" href="#"><i class="nc-icon nc-button-power mr-3"></i> Déconnexion</a>
+                                    <a class="dropdown-item" href="/reset-password"><i class="nc-icon nc-key-25 mr-3"></i> Changer mot de passe</a>
+                                    <a class="dropdown-item" href="/logout"><i class="nc-icon nc-button-power mr-3"></i> Déconnexion</a>
                                 </div>
                             </li>
                         </ul>

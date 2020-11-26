@@ -5,6 +5,7 @@
 
 
     $router = new Router;
+    $userMiddleware = require('./middlewares/users.php');
 
     $router->get('/', function (Request $req, Response $res) {
         $res->redirect('/dashboard');
@@ -18,6 +19,9 @@
     });
     
     $router->get('/login', function (Request $req, Response $res) {
+        global $userMiddleware;
+        $userMiddleware['gess']($req, $res);
+
         $res->extends('layouts/signin');
         $res->render('pages/login', [
             'title' => "Connexion"
@@ -25,6 +29,9 @@
     });
 
     $router->get('/register', function (Request $req, Response $res) {
+        global $userMiddleware;
+        $userMiddleware['gess']($req, $res);
+
         $res->extends('layouts/signin');
         $res->render('pages/register', [
             'title' => "Création de compte"
