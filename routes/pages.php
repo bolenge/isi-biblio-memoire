@@ -117,12 +117,16 @@
         $userMiddleware['gess']($req, $res);
         $userModel = new UsersModel;
         $user = $userModel->findOneById(session('user')['id']);
+        $countries = $userModel->findActives([], 'countries');
+
+        // debug($countries);
 
         $res->extends('layouts/dashboard_user');
         $res->render('dashboard/user/profile', [
             'title' => "Profile",
             'active' => 'profile',
-            'user' => $user
+            'user' => $user,
+            'countries' => $countries
         ]);
     });
     

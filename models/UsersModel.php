@@ -105,4 +105,45 @@
             return $out;
         }
 
+        /**
+         * Modification compte utilisateur
+         * @param Request $req
+         * @param int $id
+         */
+        public function updateUser(Request $req, $id)
+        {
+            $out = new Out;
+            $data = [
+                'id' => (int) $id,
+                'name' => $req->body()->name,
+                'firstName' => $req->body()->firstName,
+                'email' => $req->body()->email,
+                'phone' => $req->body()->phone,
+                'id_country' => $req->body()->country,
+                'town' => $req->body()->town,
+                'adress' => $req->body()->adress,
+                'avatar' => $req->body()->avatar,
+                'about' => $req->body()->about
+            ];
+
+            $emailUsed = $this->findOne([
+                'cond' => 'email = "'.$data['email'].'" AND id != '.$id.' AND flag="true"'
+            ]);
+            
+
+            if (empty($emailUsed)) {
+                if (!empty($result = $this->update($user))) {
+                    $out->state = true;
+                    $out->message = "Mise à jour réussie !";
+                    $out->result = $result;
+                }else {
+                    $out->message = "Une erreur est survenue lors de la mise à jour";
+                }
+            }else {
+                $out->message = "Cette adresse email est déjà utilisé";
+            }
+
+            return $out;
+        }
+
     }

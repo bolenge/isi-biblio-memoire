@@ -40,18 +40,29 @@
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="town">Pays <span class="text-danger">*</span></label>
-                                        <select class="form-control" name="town" id="town" required>
-                                            <option value="CD">RD Congo</option>
-                                            <option value="CD">RD Congo</option>
+                                        <label for="country">Pays <span class="text-danger">*</span></label>
+                                        <select class="form-control" name="country" id="country" required>
+                                            <option value="">Sélectionez votre pays</option>
+                                            <?php if (!empty($countries)) : ?>
+                                                <?php foreach ($countries as $country) : ?>
+                                                    <option value="<?= $country->id ?>" <?= $country->id == $user->id_country ? 'selected' : '' ?>><?= $country->name ?></option>
+                                                <?php endforeach ?>
+                                            <?php endif ?>
                                         </select>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
+                                        <label for="town">Ville <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" name="town" id="town" required value="<?= $user->town ?>" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
                                         <label for="adress">Adresse <span class="text-danger">*</span></label>
-                                        <input type="adress" class="form-control" name="adress" id="adress" required value="<?= $user->adress ?>" />
+                                        <input type="text" class="form-control" name="adress" id="adress" required value="<?= $user->adress ?>" />
                                     </div>
                                 </div>
                             </div>
