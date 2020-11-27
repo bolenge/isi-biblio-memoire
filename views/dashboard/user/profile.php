@@ -13,28 +13,28 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="name">Nom <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" name="name" id="name" />
+                                        <input type="text" class="form-control" name="name" id="name" value="<?= $user->name ?>" />
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="firstName">Prénom <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" name="firstName" id="firstName" />
+                                        <input type="text" class="form-control" name="firstName" id="firstName" value="<?= $user->firstName ?>" />
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="phone">Téléphone <span class="text-danger">*</span></label>
-                                        <input type="tel" class="form-control" name="phone" id="phone" required minlength="10" maxlength="16" />
+                                        <input type="tel" class="form-control" name="phone" id="phone" required minlength="10" maxlength="16" value="<?= $user->phone ?>" />
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="email">Email <span class="text-danger">*</span></label>
-                                        <input type="email" class="form-control" name="email" id="email" required />
+                                        <input type="email" class="form-control" name="email" id="email" required value="<?= $user->email ?>" />
                                     </div>
                                 </div>
 
@@ -51,7 +51,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="adress">Adresse <span class="text-danger">*</span></label>
-                                        <input type="adress" class="form-control" name="adress" id="adress" required />
+                                        <input type="adress" class="form-control" name="adress" id="adress" required value="<?= $user->adress ?>" />
                                     </div>
                                 </div>
                             </div>
@@ -59,7 +59,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Biographie (Parlez-nous un peu de vous)</label>
-                                        <textarea class="form-control textarea"></textarea>
+                                        <textarea class="form-control textarea"><?= $user->about ?></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -81,14 +81,14 @@
                         <div class="author">
                             <a href="#">
                                 <img class="avatar border-gray" src="/public/img/mike.jpg" alt="...">
-                            <h5 class="title"><?= session('user')['name'] ?></h5>
+                            <h5 class="title"><?= $user->firstName.' '.$user->name ?></h5>
                             </a>
                             <p class="description">
-                                @bolenge
+                                @<?= $user->name ?>
                             </p>
                         </div>
                         <p class="description text-center">
-                            Développeur...
+                            <?= !empty($user->about) ? $user->about : '---' ?>
                         </p>
                     </div>
                     <div class="card-footer">

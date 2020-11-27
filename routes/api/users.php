@@ -98,5 +98,25 @@
 
         $res->json($out);
     });
+
+    /**
+     * Récupération des informations d'un utilisateur
+     */
+    $router->get('/infos/:id', function (Request $req, Response $res) {
+
+        $model = new UsersModel;
+
+        $out = $model->logout([
+            'id_user' => session('user')['id'],
+            'dateLogout' => date('Y-m-d h:i:s')
+        ]);
+
+        if ($out->state) {
+            session('user', null);
+            session()->remove('user');
+        }
+
+        $res->json($out);
+    });
     
     return $router;

@@ -2,6 +2,7 @@
     use Ekolo\Builder\Routing\Router;
     use Ekolo\Builder\Http\Request;
     use Ekolo\Builder\Http\Response;
+    use Models\UsersModel;
 
 
     $router = new Router;
@@ -114,11 +115,14 @@
     $router->get('/profile', function (Request $req, Response $res) {
         global $userMiddleware;
         $userMiddleware['gess']($req, $res);
+        $userModel = new UsersModel;
+        $user = $userModel->findOneById(session('user')['id']);
 
         $res->extends('layouts/dashboard_user');
         $res->render('dashboard/user/profile', [
             'title' => "Profile",
-            'active' => 'profile'
+            'active' => 'profile',
+            'user' => $user
         ]);
     });
     
