@@ -150,6 +150,8 @@
             $out->message = str_replace('country', 'Pays', $out->message);
             $out->message = str_replace('town', 'Ville', $out->message);
             $out->message = str_replace('adress', 'Adresse', $out->message);
+
+            session()->remove('errors');
         }
 
         $res->json($out);

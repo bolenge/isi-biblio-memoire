@@ -43,3 +43,22 @@
             return $page == $page_active ? $class_active : "";
         }
     }
+
+    if (!function_exists('get_icon_alert')) {
+        /**
+         * Permet de renvoyer l'icon pour le message d'alert
+         * @param string $type
+         * @return string
+         */
+        function get_icon_alert (string $type = 'info') {
+
+            $icons = [
+                "success" => "nc-check-2",
+                "danger" => "nc-alert-circle-i",
+                "warning" => "nc-alert-circle-i",
+                "info" => "nc-alert-circle-i",
+            ];
+
+            return $icons[$type];
+        }
+    }

@@ -8,6 +8,7 @@
 
     // routers
     $pages = require('./routes/pages.php');
+    $users = require('./routes/users.php');
 
     // Router Api
     $usersApiRouter = require('./routes/api/users.php');
@@ -25,6 +26,7 @@
 
     // Routing
     $app->use('/', $pages);
+    $app->use('/users', $users);
     
     // Routing APi
     $app->use('/api/users', $usersApiRouter);

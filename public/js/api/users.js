@@ -149,3 +149,49 @@ export function logOutUser() {
         })
     })
 }
+
+/**
+ * Mise à jour infos d'un utilisateur
+ */
+export function updateUser() {
+    $('#form-update-user').on('submit', function (e) {
+        e.preventDefault();
+        
+        const $this = this;
+
+        $.ajax({
+            url: "/api/users/update",
+            type: "PUT",
+            data: $(this).serialize(),
+            dataType: 'json',
+            beforeSend: () => {
+                makeSuperLoader($('#card-update-user'))
+            },
+            complete: () => {
+                stopSuperLoader($('#card-update-user'))
+            },
+            success: (response) => {
+                console.log(response);
+                if (response) {
+                    if (response.state) {
+                        $this.reset();
+
+                        alertBootstrap($('#col-update-user'), response.message, 'success');
+
+                        setInterval(function () { 
+                            redirect('/login');
+                        }, 3000)
+                    } else {
+                        alertBootstrap($('#col-update-user'), response.message, 'danger');
+                    }
+                } else {
+                    alertBootstrap($('#col-update-user'), "Une erreur est survenue, réessayez", 'danger');
+                }
+            },
+            error: (err) => {
+                console.log(err);
+                alertBootstrap($('#col-update-user'), "Une erreur est survenue, réessayez", 'danger');
+            }
+        })
+    })
+}

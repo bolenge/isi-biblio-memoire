@@ -132,7 +132,7 @@
             
 
             if (empty($emailUsed)) {
-                if (!empty($result = $this->update($user))) {
+                if (!empty($result = $this->update($data))) {
                     $out->state = true;
                     $out->message = "Mise à jour réussie !";
                     $out->result = $result;

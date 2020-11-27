@@ -69,8 +69,12 @@ function routerRegex (url, callback) {
  * @param {String} type Le type de message
  */
 function alertBootstrap(parentTOPrint, message, type = 'info') {
-    let content = `<div class="alert alert-${type}">
-        ${message}
+    let content = `<div class="alert alert-${type} alert-with-icon alert-dismissible fade show" data-notify="container">
+        <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+        <i class="nc-icon nc-simple-remove"></i>
+        </button>
+        <span data-notify="icon" class="nc-icon ${getIconAlert(type)}"></span>
+        <span data-notify="message">${message}</span>
     </div>`;
 
     $(parentTOPrint).children('.alert').remove();
@@ -78,7 +82,7 @@ function alertBootstrap(parentTOPrint, message, type = 'info') {
 
     setTimeout(() => {
         $(parentTOPrint).children('.alert').remove();
-    }, 7000);
+    }, 17000);
 }
 
 /**
@@ -87,4 +91,19 @@ function alertBootstrap(parentTOPrint, message, type = 'info') {
  */
 function redirect(url) {
     window.location.pathname = url;
+}
+
+/**
+ * Renvoi l'icon de l'alert
+ * @param {String} type Le type de notification
+ */
+function getIconAlert(type) {
+    let icons = {
+        success: "nc-check-2",
+        danger: "nc-alert-circle-i",
+        warning: "nc-alert-circle-i",
+        info: "nc-alert-circle-i",
+    }
+
+    return icons[type];
 }

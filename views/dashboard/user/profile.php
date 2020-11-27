@@ -2,13 +2,27 @@
     <div class="container">
         
         <div class="row">
-            <div class="col-lg-8">
-                <div class="card card-user">
+            <div class="col-lg-8" id="col-update-user">
+                <?php if (!empty(session()->has('flash'))) : ?>
+                    <?php 
+                        $flash = session()->get('flash'); 
+                        session()->remove('flash');
+                    ?>
+                    <div class="alert alert-<?= $flash['type'] ?> alert-with-icon alert-dismissible fade show" data-notify="container">
+                        <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+                            <i class="nc-icon nc-simple-remove"></i>
+                        </button>
+                        <span data-notify="icon" class="nc-icon <?= get_icon_alert($flash['type']) ?>"></span>
+                        <span data-notify="message"><?= $flash['message'] ?></span>
+                    </div>
+                <?php endif ?>
+
+                <div class="card card-user" id="card-update-user">
                     <div class="card-header">
                             <h5 class="card-title">Profile utilisateur</h5>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form id="form-update-user" method="POST" action="/users/update">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -69,8 +83,8 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>Biographie (Parlez-nous un peu de vous)</label>
-                                        <textarea class="form-control textarea"><?= $user->about ?></textarea>
+                                        <label for="about">Biographie (Parlez-nous un peu de vous)</label>
+                                        <textarea class="form-control textarea" name="about" id="about"><?= $user->about ?></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -95,7 +109,7 @@
                             <h5 class="title"><?= $user->firstName.' '.$user->name ?></h5>
                             </a>
                             <p class="description">
-                                @<?= $user->name ?>
+                                <span class="text-lowercase">@<?= $user->name ?></span>
                             </p>
                         </div>
                         <p class="description text-center">
