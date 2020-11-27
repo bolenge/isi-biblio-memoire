@@ -186,15 +186,18 @@
     <div class="row">
         <?php for ($i = 0; $i < 8;$i++ ) : ?>
         <div class="col-xl-3 col-lg-4 col-md-4">
-            <div class="card ">
-                <div class="card-header ">
-                    <h6 class="card-title">La Semaine de 4 Heures</h6>
-                    <p class="card-category">Philosophie</p>
+            <div class="card">
+                <div class="card-body text-center p-2 pb-0">
+                    <a href="#">
+                        <img src="/public/img/books/semaine-4-heures.jpg" alt="Livre la semaine de 4 heures" class="img-book" />
+                    </a>
+
+                    <div class="description pt-3">
+                        <h6 class="title-book">La semaine de 4 heures</h6>
+                        <p class="pb-0 mb-0">Tim Ferriss</p>
+                    </div>
                 </div>
-                <div class="card-body py-0">
-                    <img src="/public/img/books/semaine-4-heures.jpg" alt="Livre la semaine de 4 heures" />
-                </div>
-                <div class="card-footer ">
+                <div class="card-footer p-2">
                     <div class="legend text-center">
                         <i class="fa fa-star text-warning"></i>
                         <i class="fa fa-star text-warning"></i>

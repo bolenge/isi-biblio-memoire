@@ -56,3 +56,13 @@ a,
     font-size: 3px;
     height: 190px;
 }
+
+.img-book {
+    width: 130px;
+}
+
+.title-book {
+    font-weight: 500;
+    font-size: 15px;
+    text-transform: none !important;
+}
