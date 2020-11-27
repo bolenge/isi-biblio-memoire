@@ -8,6 +8,9 @@
 
     $router = new Router;
 
+    /**
+     * Route de création de catégorie
+     */
     $router->post('/create', function (Request $req, Response $res) {
         $model = new CategoriesModel;
         $out = new Out;
@@ -29,6 +32,10 @@
         }
 
         $res->json($out);
+    });
+
+    $router->get('/all/actives', function (Request $req, Response $res){
+        $res->json((new CategoriesModel)->allActives());
     });
 
     return $router;

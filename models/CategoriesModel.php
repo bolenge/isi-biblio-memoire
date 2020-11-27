@@ -1,7 +1,7 @@
 <?php
     namespace Models;
 
-    use Ekolo\Builder\Bin\Model;
+    use Core\Model;
     use Core\Out;
     use Ekolo\Builder\Http\Request;
 
@@ -41,11 +41,22 @@
             return $out;
         }
 
+        /**
+         * Récupération de catégories actives
+         */
         public function allActives()
         {
             $out = new Out;
-            $categories = $this->findAll([
-                'cond' => ""
-            ]);
+            $categories = $this->findActives();
+
+            if (!empty($categories)) {
+                $out->state = true;
+                $out->message = "Catégories récupérées avec succès";
+                $out->result = $categories;
+            }else {
+                $out->message = "Aucune catégorie trouvée";
+            }
+
+            return $out;
         }
     }
