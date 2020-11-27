@@ -80,9 +80,9 @@ function alertBootstrap(parentTOPrint, message, type = 'info') {
     $(parentTOPrint).children('.alert').remove();
     $(parentTOPrint).prepend(content);
 
-    setTimeout(() => {
-        $(parentTOPrint).children('.alert').remove();
-    }, 17000);
+    // setTimeout(() => {
+    //     $(parentTOPrint).children('.alert').remove();
+    // }, 17000);
 }
 
 /**
