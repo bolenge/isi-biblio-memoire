@@ -40,4 +40,12 @@
 
             return $out;
         }
+
+        public function allActives()
+        {
+            $out = new Out;
+            $categories = $this->findAll([
+                'cond' => ""
+            ]);
+        }
     }

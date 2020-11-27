@@ -1,8 +1,8 @@
 <?php
     namespace Models;
 
-    use Ekolo\Builder\Bin\Model;
     use Core\Out;
+    use Core\Model;
     use Ekolo\Builder\Http\Request;
 
     class UsersModel extends Model {

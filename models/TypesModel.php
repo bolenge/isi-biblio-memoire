@@ -1,7 +1,7 @@
 <?php
     namespace Models;
 
-    use Ekolo\Builder\Bin\Model;
+    use Core\Model;
     use Core\Out;
     use Ekolo\Builder\Http\Request;
 
