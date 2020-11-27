@@ -12,6 +12,7 @@
     // Router Api
     $usersApiRouter = require('./routes/api/users.php');
     $typesApiRouter = require('./routes/api/types.php');
+    $categoriesApiRouter = require('./routes/api/categories.php');
 
     // set configuration of file folders
     $app->set('views', 'views');
@@ -28,6 +29,7 @@
     // Routing APi
     $app->use('/api/users', $usersApiRouter);
     $app->use('/api/types', $typesApiRouter);
+    $app->use('/api/categories', $categoriesApiRouter);
 
     // error handler
     $app->trackErrors(function ($error, $req, $res) {

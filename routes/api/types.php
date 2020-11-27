@@ -22,7 +22,7 @@
             $out = $model->create($req);
         }else {
             $out->message = implode("<br>", session('errors'));
-            $out->message = str_replace('intituled', 'Intitulé', $out->messagex);
+            $out->message = str_replace('intituled', 'Intitulé', $out->message);
         }
 
         $res->json($out);
