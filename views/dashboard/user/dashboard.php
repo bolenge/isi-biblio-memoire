@@ -163,7 +163,7 @@
                         <div class="col-7 col-md-8">
                             <div class="numbers">
                                 <p class="card-category">Nos Catégories</p>
-                                <p class="card-title">40<p>
+                                <p class="card-title" id="count-category"><i class="fa fa-spinner fa-pulse"></i><p>
                             </div>
                         </div>
                     </div>
