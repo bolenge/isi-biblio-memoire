@@ -59,4 +59,23 @@
 
             return $out;
         }
+
+        /**
+         * Récupération du nombre de catégories actives
+         */
+        public function countAllActives()
+        {
+            $out = new Out;
+            $categories = $this->countActives();
+
+            if ($categories > 0) {
+                $out->state = true;
+                $out->message = "Nombre de catégories récupérées avec succès";
+                $out->result = $categories;
+            }else {
+                $out->message = "Aucune catégorie trouvée";
+            }
+
+            return $out;
+        }
     }

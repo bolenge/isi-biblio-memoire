@@ -34,8 +34,18 @@
         $res->json($out);
     });
 
+    /**
+     * Route de récupération de catégories actives
+     */
     $router->get('/all/actives', function (Request $req, Response $res){
         $res->json((new CategoriesModel)->allActives());
+    });
+
+    /**
+     * Route de récupération du nombre de catégories actives
+     */
+    $router->get('/count/actives', function (Request $req, Response $res){
+        $res->json((new CategoriesModel)->countAllActives());
     });
 
     return $router;
