@@ -48,7 +48,7 @@
             $user = $this->findOne([
                 'cond' => 'email="'.$req->body()->email.'"'
             ]);
-// clovisambulasi
+            
             if (!empty($user)) {
                 if (bcrypt_verify_password($req->body()->password, $user->password)) {
                     $userAgent = $req->server()->get('HTTP_USER_AGENT');
@@ -76,6 +76,30 @@
                 }
             }else {
                 $out->message = "Email ou Mot de passe incorrect !";
+            }
+
+            return $out;
+        }
+
+        /**
+         * Déconnexion d'un utilisateur
+         * @param array $data
+         * @return Out
+         */
+        public function logout(array $data)
+        {
+            $out = new Out;
+            $user = $this->update([
+                'id_user' => $data['id_user'],
+                'dateLogout' => $data['dateLogout']
+            ], 'session_user', 'id_user');
+            
+            if ($user) {
+                $out->state = true;
+                $out->message = "Vous êtes déconnecté avec succès";
+                $out->result = $user;
+            }else {
+                $out->message = "Une erreur est survenue lors de la déconnexion !";
             }
 
             return $out;

@@ -63,7 +63,8 @@
                     'name' => $out->result->name,
                     'firstName' => $out->result->firstName,
                     'lastName' => $out->result->lastName,
-                    'email' => $out->result->email
+                    'email' => $out->result->email,
+                    'id' => $out->result->id
                 ]);
 
                 // if ($req->body()->remember) {
@@ -73,6 +74,26 @@
         }else {
             $out->message = implode("<br>", session('errors'));
             $out->message = str_replace('password', 'Mot de passe', $out->messagex);
+        }
+
+        $res->json($out);
+    });
+
+    /**
+     * Déconnexion d'un utilisateur
+     */
+    $router->put('/logout', function (Request $req, Response $res) {
+
+        $model = new UsersModel;
+
+        $out = $model->logout([
+            'id_user' => session('user')['id'],
+            'dateLogout' => date('Y-m-d h:i:s')
+        ]);
+
+        if ($out->state) {
+            session('user', null);
+            session()->remove('user');
         }
 
         $res->json($out);

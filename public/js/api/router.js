@@ -1,4 +1,6 @@
-import { loginUser, registerUser } from "./users.js";
+import { loginUser, logOutUser, registerUser } from "./users.js";
+
+logOutUser();
 
 router('/register', () => {
     registerUser()

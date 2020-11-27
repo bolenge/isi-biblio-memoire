@@ -154,7 +154,7 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="/profile"><i class="nc-icon nc-single-02 mr-3"></i> Mon Profile</a>
                                     <a class="dropdown-item" href="/reset-password"><i class="nc-icon nc-key-25 mr-3"></i> Changer mot de passe</a>
-                                    <a class="dropdown-item" href="/logout"><i class="nc-icon nc-button-power mr-3"></i> Déconnexion</a>
+                                    <a class="dropdown-item logout-user" href="/logout"><i class="nc-icon nc-button-power mr-3"></i> Déconnexion</a>
                                 </div>
                             </li>
                         </ul>
@@ -189,38 +189,41 @@
     <script src="/public/js/core/bootstrap.min.js"></script>
     <script src="/public/js/plugins/perfect-scrollbar.jquery.min.js"></script>
     <!--  Google Maps Plugin    -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> -->
     <!-- Chart JS -->
     <script src="/public/js/plugins/chartjs.min.js"></script>
     <script src="/public/node_modules/swiper/swiper-bundle.min.js"></script>
+    <script src="/public/node_modules/sweetalert/dist/sweetalert.min.js"></script>
     <!--  Notifications Plugin    -->
     <script src="/public/js/plugins/bootstrap-notify.js"></script>
     <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="/public/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>
+    <script src="/public/js/paper-dashboard.js" type="text/javascript"></script>
     <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
     <script src="/public/demo/demo.js"></script>
+    <script src="/public/js/utils/functions.js"></script>
+    <script src="/public/js/api/router.js" type="module"></script>
     <script>
-        $(document).ready(function () {
-            // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
-            demo.initChartsPages();
-        });
+        // $(document).ready(function () {
+        //     // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
+        //     demo.initChartsPages();
+        // });
 
-        var swiper = new Swiper('.swiper-container', {
-            slidesPerView: 6,
-            direction: getDirection(),
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
+        // var swiper = new Swiper('.swiper-container', {
+        //     slidesPerView: 6,
+        //     direction: getDirection(),
+        //     navigation: {
+        //         nextEl: '.swiper-button-next',
+        //         prevEl: '.swiper-button-prev',
+        //     },
             
-        });
+        // });
 
-            function getDirection() {
-                var windowWidth = window.innerWidth;
-                var direction = window.innerWidth <= 760 ? 'vertical' : 'horizontal';
+        //     function getDirection() {
+        //         var windowWidth = window.innerWidth;
+        //         var direction = window.innerWidth <= 760 ? 'vertical' : 'horizontal';
 
-                return direction;
-            }
+        //         return direction;
+        //     }
     </script>
 </body>
 

@@ -90,3 +90,62 @@ export function loginUser() {
         })
     })
 }
+
+/**
+ * D"connexion utilisateur
+ */
+export function logOutUser() {
+    $('.logout-user').on('click', function (e) {
+        let node = this.nodeName.toLowerCase();
+
+        if (node === 'a') {
+            e.preventDefault();
+        }
+
+        swal({
+            title: "Voulez-vous vraiment vous déconnecter ?",
+            text: "",
+            icon: "warning",
+            dangerMode: true,
+            buttons: ["Non","Oui"]
+        }).then((yes) => {
+            if (yes) {
+                $.ajax({
+                    type: "PUT",
+                    url: "/api/users/logout",
+                    dataType: "json",
+                    success: function (response) {
+                        console.log(response);
+                        if (response) {
+                            if (response.state) {
+                                redirect('/login');
+                            } else {
+                                swal({
+                                    title: "Alert !",
+                                    text: response.message,
+                                    button: "Ok",
+                                    icon: "warning"
+                                })
+                            }
+                        }else {
+                            swal({
+                                title: "Alert !",
+                                text: "Une erreur est survnue, réessayez",
+                                button: "Ok"
+                            })
+                        }
+                    },
+                    error: function (err) {
+                        console.log(err);
+
+                        swal({
+                            title: "Alert !",
+                            text: "Une erreur est survnue, réessayez",
+                            button: "Ok"
+                        })
+                    }
+                });
+            }
+        })
+    })
+}
