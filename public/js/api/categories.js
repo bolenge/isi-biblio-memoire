@@ -4,7 +4,7 @@
  */
 
 /**
- * Récuperation nombre de catégories
+ * Récuperation nombre de catégories actives
  * @param {Function} callback 
  */
 export function getCountCategoriesActives(callback) {
@@ -25,6 +25,28 @@ export function getCountCategoriesActives(callback) {
         },
         error: function () {
             callback(0);
+        }
+    });
+}
+
+/**
+ * Récuperation de catégories actives
+ * @param {Function} callback 
+ */
+export function getCategoriesActives(callback) {
+    $.ajax({
+        type: "GET",
+        url: "/api/categories/all/actives",
+        dataType: "json",
+        success: function (response) {
+            callback(response);
+        },
+        error: function (err) {
+            callback({
+                state: false,
+                message: "Une erreur est survenue lors de la récupération de catégories",
+                result: null
+            });
         }
     });
 }

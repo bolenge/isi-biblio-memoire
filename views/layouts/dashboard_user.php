@@ -124,11 +124,8 @@
                                         <span>Catégories</span>
                                     </p>
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Travaux de fin d'études</a>
-                                    <a class="dropdown-item" href="#">Livres</a>
-                                    <a class="dropdown-item" href="#">Romans</a>
-                                    <a class="dropdown-item" href="#">Poèmes</a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink" id="menu-list-categories">
+                                    
                                 </div>
                             </li>
 
