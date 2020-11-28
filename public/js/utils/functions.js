@@ -107,3 +107,43 @@ function getIconAlert(type) {
 
     return icons[type];
 }
+
+/**
+ * Permet de faire l'upload d'un média
+ * @param {Element} element L'élément du fichier à uploader
+ * @param {Function} callback 
+ */
+function uploadMedia(element, callback) {
+    let form = document.createElement('form');
+    let file = $(element).clone();
+
+    $(file).attr('name', 'media');
+
+    $(form).append(file);
+
+    let formData = new FormData($(form)[0]);
+
+    $.ajax({
+        url: '/api/medias/create',
+        type: 'POST',
+        data: formData,
+        dataType: 'json',
+        success: function (res) {
+            callback(res);
+        },
+        error: function (err) {
+            if (err) {
+                // callback(null, err);
+                callback({
+                    state: false,
+                    message: "Une erreur est survenue lors de l'upload",
+                    result: null
+                });
+            }
+        },
+        mimeType: 'multipart/form-data',
+        cache: false,
+        contentType: false,
+        processData: false
+    });
+}

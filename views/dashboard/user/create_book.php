@@ -35,16 +35,17 @@
                             </div>
 
                             <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="cover">Fichier de couverture <span class="text-danger">*</span></label>
-                                    <input type="file" class="form-control" name="cover" id="cover">
+                                <div class="form-group position-relative">
+                                    <i class="fa fa-spinner fa-pulse loader-upload-file"></i>
+                                    <label for="file_doc">Fichier document <span class="text-danger">*</span></label>
+                                    <input type="file" class="form-control" name="file_doc" id="file_doc">
                                 </div>
                             </div>
 
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label for="file_doc">Fichier document <span class="text-danger">*</span></label>
-                                    <input type="file" class="form-control" name="file_doc" id="file_doc">
+                                    <label for="cover">Fichier de couverture</label>
+                                    <input type="file" class="form-control" name="cover" id="cover">
                                 </div>
                             </div>
 
