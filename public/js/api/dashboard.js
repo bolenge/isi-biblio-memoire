@@ -20,7 +20,6 @@ export function initDashboard() {
  */
 export function loadCategoriesOnNavbar() {
     getCategoriesActives(function (response) {
-        console.log(response);
         if (response) {
             if (response.state) {
                 if (response.result.length > 0) {

@@ -59,7 +59,7 @@
                     }
 
                     $logged = $this->add([
-                        'id_user' => $user->id,
+                        'idUser' => $user->id,
                         'kit' => $userAgent,
                         'system' => $system
                     ], 'session_user');
@@ -90,7 +90,7 @@
         {
             $out = new Out;
             $user = $this->update([
-                'id_user' => $data['id_user'],
+                'idUser' => $data['id_user'],
                 'dateLogout' => $data['dateLogout']
             ], 'session_user', 'id_user');
             

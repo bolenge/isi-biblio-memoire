@@ -22,7 +22,7 @@
 
             if ($this->exists('id', (int) $req->body()->type, 'types')) {
                 $category = $this->add([
-                    'id_type' => (int) $req->body()->type,
+                    'idType' => (int) $req->body()->type,
                     'intituled' => $req->body()->intituled,
                     'description' => $req->body()->description
                 ], 'categories');

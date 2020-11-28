@@ -72,5 +72,12 @@ a,
     right: 12px;
     top: 57%;
     font-size: 20px;
+}
+
+.text-warning {
     color: #ffae13 !important;
+}
+
+.form-group {
+    overflow: hidden !important;
 }

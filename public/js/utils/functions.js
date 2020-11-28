@@ -147,3 +147,15 @@ function uploadMedia(element, callback) {
         processData: false
     });
 }
+
+function loaderUploadFile(formGroup) {
+    $(formGroup).children('.loader-upload-file').remove();
+    $(formGroup).addClass('position-relative');
+    $(formGroup).prepend(`<i class="fa fa-spinner fa-pulse loader-upload-file text-warning"></i>`);
+}
+
+function stopLoaderUploadFile(formGroup) {
+    $(formGroup).children('.form-control').addClass('border-success');
+    $(formGroup).children('.loader-upload-file').remove();
+    $(formGroup).prepend(`<i class="fa fa-check text-success loader-upload-file"></i>`);
+}

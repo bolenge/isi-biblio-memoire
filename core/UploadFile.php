@@ -29,14 +29,12 @@
             $extension = $file_info['extension'];
             $out = new Out;
 
-			if (!\in_array($extension, $types_required)) {
-				if (self::$file['error'] == 0) {
+			if (self::$file['error'] == 0) {
 	                
 	                $filename = date('d-m-Y-h-i-s-t') . '.' . $extension;
 	                $destination = $folder.'/'.$filename;
 
-	                if (in_array($extension, self::types[$type])) {
-	                	$array_folder = explode('/', $folder);
+	                $array_folder = explode('/', $folder);
 	                	$i = 0;
 	                	$fold = '';
 
@@ -61,17 +59,10 @@
                             'type' => $type,
                             'filename' => $filename
                         ];
-
-                    }else{
-                        $out->message = 'Extension non prise en charge, veuillez réessayer !';
-                    }
 	                
 	            }else {
 	                $out->message = 'Fichier invalide';
 	            }
-	        }else {
-	        	$out->message = 'Type de fichier n\'est pas supporté';
-	        }
 
 	        return $out;
 		}

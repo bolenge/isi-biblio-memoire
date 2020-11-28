@@ -3,8 +3,9 @@
     use Ekolo\Builder\Http\Request;
     use Ekolo\Builder\Http\Response;
     use Models\UsersModel;
+    use Core\Model;
 
-
+    $model = new Model;
     $router = new Router;
     $userMiddleware = require('./middlewares/users.php');
 
@@ -58,13 +59,15 @@
     });
 
     $router->get('/my\-books/create', function (Request $req, Response $res) {
+        global $model;
         global $userMiddleware;
         $userMiddleware['gess']($req, $res);
 
         $res->extends('layouts/dashboard_user');
         $res->render('dashboard/user/create_book', [
             'title' => 'Mes livres publiés',
-            'active' => 'my-books'
+            'active' => 'my-books',
+            'categories' => $model->findActives([], 'categories')
         ]);
     });
 
