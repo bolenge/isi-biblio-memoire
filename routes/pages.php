@@ -29,7 +29,8 @@
         $res->render('dashboard/user/dashboard', [
             'title' => 'Tableau de bord',
             'active' => "dashboard",
-            'new_books' => $booksModel->getNewBooks()->result
+            'new_books' => $booksModel->getNewBooks()->result,
+            'count_user_books' => $booksModel->getCountUserBooks(session('user')['id'])->result
         ]);
     });
     

@@ -13,7 +13,9 @@
                         <div class="col-7 col-md-8">
                             <div class="numbers">
                                 <p class="card-category">Mes Livres</p>
-                                <p class="card-title">35<p>
+                                <p class="card-title">
+                                    <?= $count_user_books ?>
+                                <p>
                             </div>
                         </div>
                     </div>

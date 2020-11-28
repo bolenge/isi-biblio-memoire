@@ -110,4 +110,37 @@
 
             return $this->out;
         }
+
+        /**
+         * Récupération de nombre de livres d'un user
+         * @param int $id_user
+         * @return Out
+         */
+        public function getCountUserBooks(int $id_user)
+        {
+            $sql = 'SELECT B.id, B.title, B.description, B.createdAt, B.updatedAt, B.state, B.flag, B.statePub, 
+                           B.idUserOwner, B.idCategory, B.fileDoc, B.fileAudio, B.cover, B.dateOfficial, B.datePub,
+                           C.intituled AS category, C.description AS descCategory
+                    FROM books AS B, categories AS C
+                    WHERE B.idUserOwner = :owner
+                      AND B.idCategory = C.id
+                      AND B.flag="true"
+                      AND B.state="true"';
+
+            $q = $this->db->prepare($sql);
+            $q->execute([
+                'owner' => $id_user
+            ]);
+            $books = $q->fetchAll(\PDO::FETCH_OBJ);
+
+            if (!empty($books)) {
+                $this->out->state = true;
+                $this->out->message = "Livres trouvés avec succès";
+                $this->out->result = !empty($books) ? count($books) : 0;
+            }else {
+                $this->out->message = "Aucun livre trouvé pour cet utilisateur";
+            }
+
+            return $this->out;
+        }
     }
