@@ -41,4 +41,10 @@
         $res->json($out);
     });
 
+    $router->get('/news', function (Request $req, Response $res) {
+        $model = new BooksModel;
+
+        $out = new Out;
+    });
+
     return $router;

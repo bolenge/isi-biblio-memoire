@@ -53,10 +53,12 @@
         {
             $sql = 'SELECT B.id, B.title, B.description, B.createdAt, B.updatedAt, B.state, B.flag, B.statePub, 
                            B.idUserOwner, B.idCategory, B.fileDoc, B.fileAudio, B.cover, B.dateOfficial, B.datePub,
-                           C.intituled AS category
+                           C.intituled AS category, C.description AS descCategory
                     FROM books AS B, categories AS C
                     WHERE B.idUserOwner = :owner
-                      AND B.idCategory = C.id';
+                      AND B.idCategory = C.id
+                      AND B.flag="true"
+                      AND B.state="true"';
 
             $q = $this->db->prepare($sql);
             $q->execute([
@@ -70,6 +72,40 @@
                 $this->out->result = $books;
             }else {
                 $this->out->message = "Aucun livre trouvé pour cet utilisateur";
+            }
+
+            return $this->out;
+        }
+
+        /**
+         * Récupération de nouveaux livres
+         * @param int $id_user
+         * @return Out
+         */
+        public function getNewBooks(int $limit = null)
+        {
+            $sql = 'SELECT B.id, B.title, B.description, B.createdAt, B.updatedAt, B.state, B.flag, B.statePub, B.other, 
+                           B.idUserOwner, B.idCategory, B.fileDoc, B.fileAudio, B.cover, B.dateOfficial, B.datePub,
+                           C.intituled AS category, C.description AS descCategory
+                    FROM books AS B, categories AS C
+                    WHERE B.idCategory = C.id
+                      AND B.flag="true"
+                      AND B.statePub="true"
+                      AND B.state="true"';
+
+            $sql .= ' ORDER BY id DESC';
+            $sql .= !empty($limit) ? ' LIMIT '.$limit : '';
+
+            $q = $this->db->prepare($sql);
+            $q->execute();
+            $books = $q->fetchAll(\PDO::FETCH_OBJ);
+
+            if (!empty($books)) {
+                $this->out->state = true;
+                $this->out->message = "Livres trouvés avec succès";
+                $this->out->result = $books;
+            }else {
+                $this->out->message = "Aucun nouveau livre trouvé";
             }
 
             return $this->out;

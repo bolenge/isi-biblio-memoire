@@ -21,10 +21,15 @@
         global $userMiddleware;
         $userMiddleware['auth']($req, $res);
 
+        $booksModel = new BooksModel;
+
+        // debug($booksModel->getNewBooks());
+
         $res->extends('layouts/dashboard_user');
         $res->render('dashboard/user/dashboard', [
             'title' => 'Tableau de bord',
-            'active' => "dashboard"
+            'active' => "dashboard",
+            'new_books' => $booksModel->getNewBooks()->result
         ]);
     });
     
