@@ -11,14 +11,16 @@
         {
             parent::__construct();
             $this->setTable('books');
+            $this->out = new Out;
         }
 
         /**
          * Création d'un type de catégorie
+         * @param Request $req
+         * @return Out
          */
         public function create(Request $req)
         {
-            $out = new Out;
             $book = $this->add([
                 'title' => $req->body()->title,
                 'description' => $req->body()->description,
@@ -32,13 +34,44 @@
             ]);
 
             if ($book) {
-                $out->state = true;
-                $out->message = "Book créé avec succès";
-                $out->result = $book;
+                $this->out->state = true;
+                $this->out->message = "Book créé avec succès";
+                $this->out->result = $book;
             }else {
-                $out->message = "Une erreur est survenue lors de la création du book";
+                $this->out->message = "Une erreur est survenue lors de la création du book";
             }
 
-            return $out;
+            return $this->out;
+        }
+
+        /**
+         * Récupération de livres d'un user
+         * @param int $id_user
+         * @return Out
+         */
+        public function getUserBooks(int $id_user)
+        {
+            $sql = 'SELECT B.id, B.title, B.description, B.createdAt, B.updatedAt, B.state, B.flag, B.statePub, 
+                           B.idUserOwner, B.idCategory, B.fileDoc, B.fileAudio, B.cover, B.dateOfficial, B.datePub,
+                           C.intituled AS category
+                    FROM books AS B, categories AS C
+                    WHERE B.idUserOwner = :owner
+                      AND B.idCategory = C.id';
+
+            $q = $this->db->prepare($sql);
+            $q->execute([
+                'owner' => $id_user
+            ]);
+            $books = $q->fetchAll(\PDO::FETCH_OBJ);
+
+            if (!empty($books)) {
+                $this->out->state = true;
+                $this->out->message = "Livres trouvés avec succès";
+                $this->out->result = $books;
+            }else {
+                $this->out->message = "Aucun livre trouvé pour cet utilisateur";
+            }
+
+            return $this->out;
         }
     }

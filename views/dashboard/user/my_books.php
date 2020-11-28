@@ -55,32 +55,36 @@
                                     Action
                                 </th>
                                 <th class="text-center">
-                                    Fichiers originals
+                                    Fichiers
                                 </th>
                             </thead>
                             <tbody>
-                                <?php for ($i = 1; $i < 15;$i++) : ?>
-                                    <tr>
-                                        <td><?= $i ?></td>
-                                        <td>La chèvre de ma mère</td>
-                                        <td>Livre finance</td>
-                                        <td class="text-center">20/10/2020</td>
-                                        <td class="text-center">
-                                            <span class="text-warning">En attente</span>
-                                        </td>
-                                        <td class="text-center">
-                                            ---
-                                        </td>
-                                        <td class="text-center">
-                                            <a href="#" class="disabled">Lire</a> |
-                                            <a href="#" class="disabled">Détail</a>
-                                        </td>
-                                        <td class="text-center">
-                                            <a href="#">Docs <i class="fa fa-file-word-o"></i></a> |
-                                            <a href="#">Audio <i class="fa fa-play-circle-o"></i></a>
-                                        </td>
-                                    </tr>
-                                <?php endfor ?>
+                                <?php if (!empty($books)) : ?>
+                                    <?php $i = 1 ?>
+                                    <?php foreach ($books as $book) : ?>
+                                        <tr>
+                                            <td><?= $i ?></td>
+                                            <td><?= sub_string($book->title, 20) ?></td>
+                                            <td><?= $book->category ?></td>
+                                            <td class="text-center"><?= date_format(new \DateTime($book->createdAt), 'd/m/Y', ) ?></td>
+                                            <td class="text-center">
+                                                <span class="text-<?= $book->statePub == 'true' ? "success" :  "warning" ?>"><?= $book->statePub == 'true' ? "Publié" :  "En attente" ?></span>
+                                            </td>
+                                            <td class="text-center">
+                                                <?= $book->datePub ? date_format(new \DateTime($book->datePub), 'd/m/Y', ) :  "---" ?>
+                                            </td>
+                                            <td class="text-center">
+                                                <a href="<?= $book->statePub == 'true' ? "/books/".$book->id :  "#" ?>" <?= $book->statePub != 'true' ? 'onclick="alertNoReadUnPubBook()"' :  "" ?>  class="disabled">Lire</a> |
+                                                <a href="#" class="disabled">Détail</a>
+                                            </td>
+                                            <td class="text-center">
+                                                <a href="/<?= $book->fileDoc ?>" download="/<?= $book->fileDoc ?>" target="_blank">Docs <i class="fa fa-file-word-o"></i></a> |
+                                                <a href="#">Audio <i class="fa fa-play-circle-o"></i></a>
+                                            </td>
+                                        </tr>
+                                        <?php $i++ ?>
+                                    <?php endforeach ?>
+                                <?php endif ?>
                             </tbody>
                         </table>
                     </div>

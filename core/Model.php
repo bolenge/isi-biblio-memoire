@@ -2,11 +2,18 @@
     namespace Core;
 
     use Ekolo\Builder\Bin\Model as ORM;
+    use Core\Out;
 
     /**
      * Model principal
      */
     class Model extends ORM {
+
+        /**
+         * @var Out
+         * Objet de retour de données
+         */
+        protected $out;
 
         /**
          * Récupération de données qui existent

@@ -148,14 +148,34 @@ function uploadMedia(element, callback) {
     });
 }
 
+/**
+ * Permet d'ajouter un petit loader quand on upload un fichier
+ * @param {Element} formGroup Le form-group du champ file
+ */
 function loaderUploadFile(formGroup) {
     $(formGroup).children('.loader-upload-file').remove();
     $(formGroup).addClass('position-relative');
     $(formGroup).prepend(`<i class="fa fa-spinner fa-pulse loader-upload-file text-warning"></i>`);
 }
 
+/**
+ * Stop le loader
+ * @param {Element} formGroup form-group
+ */
 function stopLoaderUploadFile(formGroup) {
     $(formGroup).children('.form-control').addClass('border-success');
     $(formGroup).children('.loader-upload-file').remove();
     $(formGroup).prepend(`<i class="fa fa-check text-success loader-upload-file"></i>`);
+}
+
+/**
+ * Message d'alert sur un livre à ne pas lire
+ */
+function alertNoReadUnPubBook() {
+    swal({
+        title: "Alert !",
+        text: "Vous ne pouvez pas lire ce livre parce qu'il n'est pas encore publié ou il est inactif",
+        icon: "warning",
+        button: "Ok"
+    })
 }

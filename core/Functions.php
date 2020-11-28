@@ -62,3 +62,15 @@
             return $icons[$type];
         }
     }
+
+    if (!function_exists('sub_string')) {
+        /**
+         * Permet de couper un text long et rajouter de pointillés
+         * @param string $string
+         * @return string
+         */
+        function sub_string (string $string, $nbr = 15) {
+
+            return strlen($string) > $nbr ? mb_substr($string, 0, $nbr).'...' : $string;
+        }
+    }

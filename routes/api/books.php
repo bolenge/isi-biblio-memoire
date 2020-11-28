@@ -15,7 +15,7 @@
 
         $validator->setRules([
                 'title' => "required|min:2|max:150",
-                'description' => "required|min:5|max:300",
+                'description' => "required|min:5|max:500",
                 'category' => "required|int",
                 'other' => "required|min:2",
                 'file_doc' => "required",

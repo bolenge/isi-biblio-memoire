@@ -8,7 +8,7 @@
                 </div>
                 <div class="card-body">
                     <form id="form-create-book" action="#" method="POST">
-                        <input type="hidden" name="user" value="<?= session('user')['id'] ?>" />
+                        <input type="hidden" name="owner" value="<?= session('user')['id'] ?>" />
                         <div class="row">
                             <div class="col-lg-4">
                                 <div class="form-group">
