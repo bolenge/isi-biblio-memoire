@@ -14,7 +14,7 @@
                             <div class="numbers">
                                 <p class="card-category">Mes Livres</p>
                                 <p class="card-title">
-                                    <?= $count_user_books ?>
+                                    <?= is_array($count_user_books) ? 0 : $count_user_books ?>
                                 <p>
                             </div>
                         </div>

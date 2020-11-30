@@ -109,81 +109,61 @@
             </div>
         </nav>
         <!-- End Navbar -->
+
         <div class="content content-read-book mt-5 pt-3">
-            <div class="card-header bg-primary px-10">
-                <img src="/public/img/books/semaine-4-heures.jpg" alt="" class="float-left w-100px mr-5" />
-                <h2 class="card-title font-weight-bold">La chèvre de ma mère</h2>
-                <p class="card-card-description">
-                    Education financière <br>
-                    Par : Jean Claude
-                </p>
-            </div>
+            <?php if (!empty($book)) : ?>
+                <div class="card-header bg-primary px-10">
+                    <img src="/public/img/books/semaine-4-heures.jpg" alt="" class="float-left w-100px mr-5" />
+                    <h2 class="card-title font-weight-bold"><?= $book->title ?></h2>
+                    <p class="card-card-description">
+                        Catégorie : <?= !empty($book->category) ? $book->category->intituled : "" ?> <br>
+                        Par : <?= $book->other ?>
+                    </p>
+                </div>
 
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="row">
-                            <div class="col-lg-3">
-                                <div class="card mt-5">
-                                    <div class="card-header bg-primary">
-                                        <h6 class="card-title text-center">CHAPITRES</h6>
-                                    </div>
-                                    <div class="card-body">
-                                        <ul>
-                                            <li><a href="#">Dédicace</a></li>
-                                            <li><a href="#">Remerciements</a></li>
-                                            <li><a href="#">Introduction</a></li>
-                                            <li><a href="#">Chapitre premier : Actes</a></li>
-                                        </ul>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <div class="card mt-5">
+                                        <div class="card-header bg-primary">
+                                            <h6 class="card-title text-center">CHAPITRES</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <ul>
+                                                <?php foreach ($chapters as $chapter) : ?>
+                                                    <li><a href="/books/<?= $book->id.'/chapters/'. $chapter->id ?>"><?= $chapter->title ?></a></li>
+                                                <?php endforeach ?>
+                                            </ul>
 
-                                        <div class="text-center">
-                                            <a href="#" class="btn btn-primary-light btn-sm"><i class="fa fa-download"></i> Télécharger le pdf</a>
-                                            <a href="/my-library" class="btn btn-primary btn-sm"><i class="fa fa-arrow-left"></i> Tableau de bord</a>
+                                            <div class="text-center">
+                                                <a href="#" class="btn btn-primary-light btn-sm"><i class="fa fa-download"></i> Télécharger le pdf</a>
+                                                <a href="/my-library" class="btn btn-primary btn-sm"><i class="fa fa-arrow-left"></i> Tableau de bord</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="col-lg-9">
-                                <div class="card shadow-none mt-3">
-                                    <div class="card-body" style="">
+                                <div class="col-lg-9">
+                                    <div class="card shadow-none mt-3">
+                                        <div class="card-body" style="">
 
-                                        <div class="mb-5">
-                                            <h1>Chapitre premier</h1>
+                                            <div class="mb-5">
+                                                <h1><?= $chapters[0]->title ?></h1>
+                                                
+                                                <div>
+                                                    <?php if (file_exists($chapters[0]->filename)) : ?>
+                                                        <?php include('./'.$chapters[0]->filename) ?>
+                                                    <?php endif ?>
+                                                </div>
+                                            </div>
 
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda esse numquam vero nostrum. Quas sunt libero ratione nobis eveniet corrupti a aliquam esse natus quod. Incidunt dolores exercitationem eum! Sunt!</p>
+                                            <div class="mt-5 pt-5">
+                                                <a href="#" class="btn btn-primary float-left"><i class="fa fa-chevron-left"></i> &nbsp;&nbsp;Introduction</a>
 
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda esse numquam vero nostrum. Quas sunt libero ratione nobis eveniet corrupti a aliquam esse natus quod. Incidunt dolores exercitationem eum! Sunt!</p>
-
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda esse numquam vero nostrum. Quas sunt libero ratione nobis eveniet corrupti a aliquam esse natus quod. Incidunt dolores exercitationem eum! Sunt!</p>
-
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda esse numquam vero nostrum. Quas sunt libero ratione nobis eveniet corrupti a aliquam esse natus quod. Incidunt dolores exercitationem eum! Sunt!</p>
-
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda esse numquam vero nostrum. Quas sunt libero ratione nobis eveniet corrupti a aliquam esse natus quod. Incidunt dolores exercitationem eum! Sunt!</p>
-
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda esse numquam vero nostrum. Quas sunt libero ratione nobis eveniet corrupti a aliquam esse natus quod. Incidunt dolores exercitationem eum! Sunt!</p>
-
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda esse numquam vero nostrum. Quas sunt libero ratione nobis eveniet corrupti a aliquam esse natus quod. Incidunt dolores exercitationem eum! Sunt!</p>
-
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda esse numquam vero nostrum. Quas sunt libero ratione nobis eveniet corrupti a aliquam esse natus quod. Incidunt dolores exercitationem eum! Sunt!</p>
-
-                                            <h2>Deuxieme petit chapitre</h2>
-
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda esse numquam vero nostrum. Quas sunt libero ratione nobis eveniet corrupti a aliquam esse natus quod. Incidunt dolores exercitationem eum! Sunt!</p>
-
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda esse numquam vero nostrum. Quas sunt libero ratione nobis eveniet corrupti a aliquam esse natus quod. Incidunt dolores exercitationem eum! Sunt!</p>
-
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda esse numquam vero nostrum. Quas sunt libero ratione nobis eveniet corrupti a aliquam esse natus quod. Incidunt dolores exercitationem eum! Sunt!</p>
-
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda esse numquam vero nostrum. Quas sunt libero ratione nobis eveniet corrupti a aliquam esse natus quod. Incidunt dolores exercitationem eum! Sunt!</p>
-
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda esse numquam vero nostrum. Quas sunt libero ratione nobis eveniet corrupti a aliquam esse natus quod. Incidunt dolores exercitationem eum! Sunt!</p>
-                                        </div>
-
-                                        <div class="mt-5 pt-5">
-                                            <a href="#" class="btn btn-primary float-left"><i class="fa fa-chevron-left"></i> &nbsp;&nbsp;Introduction</a>
-
-                                            <a href="#" class="btn btn-primary float-right">Chapitre premier : Actes &nbsp;&nbsp;<i class="fa fa-chevron-right"></i> </a>
+                                                <a href="#" class="btn btn-primary float-right">Chapitre premier : Actes &nbsp;&nbsp;<i class="fa fa-chevron-right"></i> </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -191,7 +171,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            <?php endif ?>
         </div>
 
         <footer class="footer footer-black  footer-white ">

@@ -116,10 +116,20 @@
         global $userMiddleware;
         $userMiddleware['gess']($req, $res);
 
+        global $booksModel;
+        $result = $booksModel->getBookWithChapters((int) $req->params()->get('id'))->result;
+        $chapters = null;
+
+        if (!empty($result)) {
+            $chapters = !empty($result->chapters) ? $result->chapters : null;
+        }
+
         $res->extends('layouts/blank');
         $res->render('dashboard/user/read_book', [
             'title' => 'Lecture du livre',
-            'active' => 'my-library'
+            'active' => 'dashboard',
+            'book' => $result,
+            'chapters' => $chapters
         ]);
     });
 

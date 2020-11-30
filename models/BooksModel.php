@@ -376,7 +376,7 @@
 
                 $book->chapters = $this->findActives([
                     'cond' => 'id_book='.$id_book
-                ]);
+                ], 'book_chapters');
 
                 $this->out->state = true;
                 $this->out->message = "Book trouvé";
@@ -386,5 +386,6 @@
                 $this->out->message = "Aucu Book trouvé";
             }
             
+            return $this->out;
         }
     }
