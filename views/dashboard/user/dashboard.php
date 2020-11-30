@@ -45,7 +45,7 @@
                         <div class="col-7 col-md-8">
                             <div class="numbers">
                                 <p class="card-category">Livres lus</p>
-                                <p class="card-title">0<p>
+                                <p class="card-title"><?= $count_user_books_read ?><p>
                             </div>
                         </div>
                     </div>

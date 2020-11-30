@@ -258,4 +258,27 @@
 
             return $this->out;
         }
+
+        /**
+         * Récupération de nombre de books que l'utilisateur a lu, ou en cours de lecture
+         * @param int $id_user
+         * @return Out
+         */
+        public function getCountUserBooksRead(int $id_user)
+        {
+            $count = $this->countActives([
+                'cond' => 'id_user='.$id_user
+            ], 'books_read');
+
+            if ($count > 0) {
+                $this->out->state = true;
+                $this->out->message = "Livres trouvés";
+                $this->out->result = $count;
+            }else {
+                $this->out->message = "Cet utilisateur n'a lu aucun livre";
+                $this->out->result = 0;
+            }
+
+            return $this->out;
+        }
     }
