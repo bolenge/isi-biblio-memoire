@@ -36,19 +36,25 @@
                                 </th>
                             </thead>
                             <tbody>
-                                <?php for ($i = 1; $i < 3;$i++) : ?>
-                                <tr>
-                                    <td><?= $i ?></td>
-                                    <td>Premium</td>
-                                    <td class="text-center">30 $</td>
-                                    <td class="text-center">30 Jours</td>
-                                    <td class="text-center">20/10/2020</td>
-                                    <td class="text-center">19/11/2020</td>
-                                    <td class="text-center">
-                                        <span class="text-success">Actif</span>
-                                    </td>
-                                </tr>
-                                <?php endfor ?>
+                                <?php if (!empty($subscriptions)) : ?>
+                                    <?php foreach ($subscriptions as $subscription) : ?>
+                                        <tr>
+                                            <td><?= $i ?></td>
+                                            <td>Premium</td>
+                                            <td class="text-center">30 $</td>
+                                            <td class="text-center">30 Jours</td>
+                                            <td class="text-center">20/10/2020</td>
+                                            <td class="text-center">19/11/2020</td>
+                                            <td class="text-center">
+                                                <span class="text-success">Actif</span>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach ?>
+                                <?php else : ?>
+                                    <tr>
+                                        <td colspan="7">Vous n'avez souscrit à aucun abonnment...</td>
+                                    </tr>
+                                <?php endif ?>
                             </tbody>
                         </table>
                     </div>

@@ -91,4 +91,14 @@
             return $this->count($req, $table);
         }
 
+        /**
+         * Récupération d'une entré qui est active
+         * @param array $req Les contraintes sur les données à récupérer
+         * @param string $table La table où récuperer (par défaut ca prend la table assigné au model)
+         * @return object
+         */
+        public function findOneActive(array $req = [], string $table = null)
+        {
+            return \current($this->findActives($req, $table));
+        }
     }

@@ -234,4 +234,28 @@
 
             return $this->out;
         }
+
+        /**
+         * Récupération de books par catégorie
+         * @param int $id_category
+         * @return Out
+         */
+        public function getBooksByCategory(int $id_category)
+        {
+            $category = $this->findOneActive([
+                'cond' => 'id='.$id_category
+            ], 'categories');
+
+            if (!empty($category)) {
+                $category->books = $this->findActives([
+                    'cond' => 'idCategory='.$id_category
+                ], 'books');
+                
+                $this->out->result = $category;
+            }else {
+                $this->out->message = "Catégorie envoyée est invalide";
+            }
+
+            return $this->out;
+        }
     }

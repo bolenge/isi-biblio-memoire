@@ -164,6 +164,9 @@
         ]);
     });
 
+    /**
+     * Route de la page profile de l'utilisateur
+     */
     $router->get('/profile', function (Request $req, Response $res) {
         global $userMiddleware;
         $userMiddleware['gess']($req, $res);
@@ -179,6 +182,25 @@
             'active' => 'profile',
             'user' => $user,
             'countries' => $countries
+        ]);
+    });
+
+    /**
+     * Route de la page profile des books d'une catégorie
+     */
+    $router->get('/categories/:id', function (Request $req, Response $res) {
+        global $userMiddleware;
+        $userMiddleware['gess']($req, $res);
+        
+        global $booksModel;
+
+        $result = $booksModel->getBooksByCategory((int) $req->params()->get('id'))->result;
+
+        $res->extends('layouts/dashboard_user');
+        $res->render('dashboard/user/categories', [
+            'title' => !empty($result) ? $result->intituled : "Livres par catégorie",
+            'active' => 'dashboard',
+            'category' => $result
         ]);
     });
     
