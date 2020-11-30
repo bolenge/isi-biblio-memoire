@@ -356,4 +356,35 @@
 
             return $this->out;
         }
+
+        /**
+         * Récupération diu livre avec les chapitres
+         * @param Request $req
+         * @param string $filename
+         * @return Out
+         */
+        public function getBookWithChapters(int $id_book)
+        {
+            $book = $this->findOneActive([
+                'cond' => 'id='.$id_book
+            ]);
+
+            if (!empty($book)) {
+                $book->category = $this->findOneActive([
+                    'cond' => 'id='.$book->idCategory
+                ], 'categories');
+
+                $book->chapters = $this->findActives([
+                    'cond' => 'id_book='.$id_book
+                ]);
+
+                $this->out->state = true;
+                $this->out->message = "Book trouvé";
+                $this->out->result = $book;
+                
+            } else {
+                $this->out->message = "Aucu Book trouvé";
+            }
+            
+        }
     }
