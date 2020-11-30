@@ -9,6 +9,7 @@
     $model = new Model;
     $router = new Router;
     $userMiddleware = require('./middlewares/users.php');
+    $booksModel = new BooksModel;
 
     $router->get('/', function (Request $req, Response $res) {
         global $userMiddleware;
@@ -21,9 +22,7 @@
         global $userMiddleware;
         $userMiddleware['auth']($req, $res);
 
-        $booksModel = new BooksModel;
-
-        // debug($booksModel->getNewBooks());
+        global $booksModel;
 
         $res->extends('layouts/dashboard_user');
         $res->render('dashboard/user/dashboard', [
@@ -57,7 +56,8 @@
     $router->get('/my\-books', function (Request $req, Response $res) {
         global $userMiddleware;
         $userMiddleware['gess']($req, $res);
-        $booksModel = new BooksModel;
+        
+        global $booksModel;
 
         $res->extends('layouts/dashboard_user');
         $res->render('dashboard/user/my_books', [
@@ -68,9 +68,10 @@
     });
 
     $router->get('/my\-books/create', function (Request $req, Response $res) {
-        global $model;
         global $userMiddleware;
         $userMiddleware['gess']($req, $res);
+
+        global $model;
 
         $res->extends('layouts/dashboard_user');
         $res->render('dashboard/user/create_book', [
@@ -84,10 +85,13 @@
         global $userMiddleware;
         $userMiddleware['gess']($req, $res);
 
+        global $booksModel;
+
         $res->extends('layouts/dashboard_user');
         $res->render('dashboard/user/my_library', [
             'title' => 'Ma bibliothèque',
-            'active' => 'my-library'
+            'active' => 'my-library',
+            'books' => $booksModel->getUserLibraryBooks(session('user')['id'])->result
         ]);
     });
 

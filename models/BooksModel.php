@@ -143,4 +143,55 @@
 
             return $this->out;
         }
+
+        /**
+         * Signalisation de la lecture d'un livre
+         * @param int $id_user
+         * @param int $id_user
+         * @return Out
+         */
+        public function readBook(int $id_user, int $id_book)
+        {
+            # code...
+        }
+
+        /**
+         * Récupération de books de la librairie de l'utilisateur
+         * @param int $id_user
+         * @return Out
+         */
+        public function getUserLibraryBooks(int $id_user)
+        {
+            $sql = 'SELECT B.id, B.title, B.description, B.createdAt, B.updatedAt, B.state, B.flag, B.statePub, B.other, 
+                           B.idUserOwner, B.idCategory, B.fileDoc, B.fileAudio, B.cover, B.dateOfficial, B.datePub,
+                           C.intituled AS category, C.description AS descCategory, 
+                           L.id AS id_user_libray, L.createdAt AS createdUserLibray, L.updatedAd AS updatedUserLibrary
+                    FROM books AS B, categories AS C, user_library AS L
+                    WHERE B.idCategory = C.id
+                      AND B.id=L.id_book
+                      AND L.id_user=:user
+                      AND B.flag="true"
+                      AND B.statePub="true"
+                      AND B.state="true"';
+
+            $sql .= ' ORDER BY id DESC';
+            $sql .= !empty($limit) ? ' LIMIT '.$limit : '';
+
+            $q = $this->db->prepare($sql);
+            $q->execute([
+                'user' => $id_user
+            ]);
+            
+            $books = $q->fetchAll(\PDO::FETCH_OBJ);
+
+            if (!empty($books)) {
+                $this->out->state = true;
+                $this->out->message = "Livres trouvés avec succès";
+                $this->out->result = $books;
+            }else {
+                $this->out->message = "Aucun nouveau livre trouvé";
+            }
+
+            return $this->out;
+        }
     }
