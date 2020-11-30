@@ -281,4 +281,27 @@
 
             return $this->out;
         }
+
+        /**
+         * Récupération de nombre de books que l'utilisateur est encours de lecture
+         * @param int $id_user
+         * @return Out
+         */
+        public function getCountUserBooksReading(int $id_user)
+        {
+            $count = $this->countActives([
+                'cond' => 'id_user='.$id_user.' AND dateEndRead=null'
+            ], 'books_read');
+
+            if ($count > 0) {
+                $this->out->state = true;
+                $this->out->message = "Livres trouvés";
+                $this->out->result = $count;
+            }else {
+                $this->out->message = "Cet utilisateur n'est encoure d'aucun livre";
+                $this->out->result = 0;
+            }
+
+            return $this->out;
+        }
     }

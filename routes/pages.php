@@ -23,7 +23,7 @@
         $userMiddleware['auth']($req, $res);
 
         global $booksModel;
-
+        
         $res->extends('layouts/dashboard_user');
         $res->render('dashboard/user/dashboard', [
             'title' => 'Tableau de bord',
@@ -31,6 +31,7 @@
             'new_books' => $booksModel->getNewBooks()->result,
             'count_user_books' => $booksModel->getCountUserBooks(session('user')['id'])->result,
             'count_user_books_read' => $booksModel->getCountUserBooksRead(session('user')['id'])->result,
+            'count_user_books_reading' => $booksModel->getCountUserBooksReading(session('user')['id'])->result,
         ]);
     });
     

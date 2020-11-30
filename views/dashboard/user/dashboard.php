@@ -75,7 +75,7 @@
                         <div class="col-7 col-md-8">
                             <div class="numbers">
                                 <p class="card-category">En cours de lecture</p>
-                                <p class="card-title">0<p>
+                                <p class="card-title"><?= $count_user_books_reading ?><p>
                             </div>
                         </div>
                     </div>
