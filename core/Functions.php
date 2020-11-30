@@ -92,7 +92,7 @@
 
     if (!function_exists('remove_days_in_date')) {
         /**
-         * Ajoute de jours dans une date
+         * Cette fonction permet de supprimer quelque nombre de jours dans une date
          * @param \DateTime $date La date dans laquelle il faut ajouter les jours
          * @param int $n_day Le nombre de jour à ajouter
          * @return \DateTime
