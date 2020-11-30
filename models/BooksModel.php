@@ -326,4 +326,33 @@
 
             return $this->out;
         }
+
+        /**
+         * Création d'un chapitre du livre
+         * @param Request $req
+         * @return Out
+         */
+        public function createChapter(Request $req)
+        {
+            if ($this->exists('id', $req->body()->admin, 'admins')) {
+                $chapter = $this->add([
+                    'title' => $req->body()->title,
+                    'content' => $req->body()->content,
+                    'id_admin' => (int) $req->body()->admin,
+                    'id_book' => (int) $req->body()->book,
+                ], 'book_chapters');
+
+                if ($chapter) {
+                    $this->out->state = true;
+                    $this->out->message = "Chapitre créé avec succès";
+                    $this->out->result = $chapter;
+                }else {
+                    $this->out->message = "Une erreur est survenue lors de la création du chapitre";
+                }
+            } else {
+                $this->out->message = "Admin invalide";
+            }
+
+            return $this->out;
+        }
     }

@@ -7,10 +7,13 @@
     use Models\BooksModel;
 
     $router = new Router;
+    $modelBooks = new BooksModel;
+    $out = new Out;
 
     $router->post('/create', function (Request $req, Response $res) {
-        $model = new BooksModel;
-        $out = new Out;
+        global $modelBooks;
+        global $out;
+
         $validator = new Validator($req);
 
         $validator->setRules([
@@ -23,7 +26,7 @@
         ]);
 
         if ($validator->validator()) {
-            $out = $model->create($req);
+            $out = $modelBooks->create($req);
         }else {
             session('errors')['category'] = "Catégorie invalide";
             
@@ -33,6 +36,40 @@
             $out->message = str_replace('other', 'Auteur', $out->message);
             $out->message = str_replace('file_doc', 'Fichier docmuent du livre', $out->message);
             $out->message = str_replace('date_official', 'Date de officielle du livre', $out->message);
+
+            session("errors", null);
+            session()->remove("errors");
+        }
+
+        $res->json($out);
+    });
+
+    /**
+     * Route création d'un chapitre pour un livre
+     */
+    $router->post('/chapters/create', function (Request $req, Response $res) {
+        global $modelBooks;
+        global $out;
+
+        $validator = new Validator($req);
+
+        $validator->setRules([
+            'admin' => "required|int",
+            'book' => "required|int",
+            'title' => "required|min:2|max:150",
+            'content' => "required|min:5",
+        ]);
+
+        if ($validator->validator()) {
+            $out = $modelBooks->createChapter($req);
+        }else {
+            session('errors')['admin'] = "Admin invalide";
+            session('errors')['book'] = "Livre invalide";
+            
+            $out->message = implode("<br>", session('errors'));
+            $out->message = str_replace('title', 'Titre', $out->message);
+            $out->message = str_replace('book', 'Livre', $out->message);
+            $out->message = str_replace('content', 'Contenu', $out->message);
 
             session("errors", null);
             session()->remove("errors");
