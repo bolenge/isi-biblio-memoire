@@ -105,7 +105,7 @@
         $res->render('dashboard/user/my_reader', [
             'title' => 'Ma bibliothèque',
             'active' => 'my-reader',
-            'books' => $booksModel->getUserLibraryBooks(session('user')['id'])->result
+            'books' => $booksModel->getUserBooksRead(session('user')['id'])->result
         ]);
     });
 

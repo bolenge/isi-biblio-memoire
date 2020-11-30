@@ -194,4 +194,44 @@
 
             return $this->out;
         }
+
+        /**
+         * Récupération de books que l'utilisateur a lu, ou en cours de lecture
+         * @param int $id_user
+         * @return Out
+         */
+        public function getUserBooksRead(int $id_user)
+        {
+            $sql = 'SELECT B.id, B.title, B.description, B.createdAt, B.updatedAt, B.state, B.flag, B.statePub, B.other, 
+                           B.idUserOwner, B.idCategory, B.fileDoc, B.fileAudio, B.cover, B.dateOfficial, B.datePub, B.idUserOwner,
+                           C.intituled AS category, C.description AS descCategory, 
+                           BR.id AS id_book_read, BR.dateRead, BR.dateEndRead, BR.nbrChapter, BR.nbrChapterRead, BR.id_user
+                    FROM books AS B, categories AS C, books_read AS BR
+                    WHERE B.idCategory = C.id
+                      AND B.id=BR.id_book
+                      AND BR.id_user=:user
+                      AND B.flag="true"
+                      AND B.statePub="true"
+                      AND B.state="true"';
+
+            $sql .= ' ORDER BY id DESC';
+            $sql .= !empty($limit) ? ' LIMIT '.$limit : '';
+
+            $q = $this->db->prepare($sql);
+            $q->execute([
+                'user' => $id_user
+            ]);
+            
+            $books = $q->fetchAll(\PDO::FETCH_OBJ);
+
+            if (!empty($books)) {
+                $this->out->state = true;
+                $this->out->message = "Livres trouvés avec succès";
+                $this->out->result = $books;
+            }else {
+                $this->out->message = "Aucun nouveau livre trouvé";
+            }
+
+            return $this->out;
+        }
     }

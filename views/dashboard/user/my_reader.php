@@ -55,28 +55,29 @@
                             </thead>
                             <tbody>
                                 <?php if (!empty($books)) : ?>
+                                    <?php $i = 1; ?>
                                     <?php foreach ($books as $book) : ?>
                                     <tr>
                                         <td><?= $i ?></td>
                                         <td>
-                                            <img src="/public/img/books/semaine-4-heures.jpg" alt="Book cover"
-                                                class="cover-book-list">
+                                            <img src="<?= $book->cover ? $book->cover : "public/img/books/default-bookcover.png" ?>" alt="Couverture de <?= $book->title ?>" class="cover-book-list">
                                             <span><?= sub_string($book->title, 30) ?></span>
                                         </td>
                                         <td><?= sub_string($book->category, 30) ?></td>
-                                        <td class="text-center"><?= $book->createdUserLibray ?></td>
+                                        <td class="text-center"><?= $book->dateRead ?></td>
                                         <td class="text-center">
-                                            <span class="font-weight-bold">10 %</span>
+                                            <span class="font-weight-bold"><?= ($book->nbrChapterRead * 100) / $book->nbrChapter ?> %</span>
                                         </td>
                                         <td class="text-center">
-                                            ---
+                                            <?= $book->dateEndRead ? format_date($book->dateEndRead) : "---" ?>
                                         </td>
                                         <td class="text-center">
                                             <a href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a>
-                                            <a href="/my-library/<?= $i ?>" class="btn btn-success btn-sm"><i
+                                            <a href="/books/<?= $book->id ?>" class="btn btn-success btn-sm"><i
                                                     class="fa fa-eye"></i></a>
                                         </td>
                                     </tr>
+                                    <?php $i++; ?>
                                     <?php endforeach ?>
                                 <?php else: ?>
                                     <tr>
