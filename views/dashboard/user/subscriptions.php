@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <a href="/my-books/create" class="btn btn-primary float-right"><i class="fa fa-plus"></i> Se réabonner</a>
+                    <a href="/subscribe" class="btn btn-primary float-right"><i class="fa fa-plus"></i> Se réabonner</a>
                     <h4 class="card-title">Mes abonnements</h4>
                 </div>
                 <div class="card-body">

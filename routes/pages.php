@@ -123,7 +123,7 @@
     /**
      * Route de souscriptions de l'utilisateur
      */
-    $router->get('/my\-subscriptions', function (Request $req, Response $res) {
+    $router->get('/subscriptions', function (Request $req, Response $res) {
         global $userMiddleware;
         $userMiddleware['gess']($req, $res);
 
@@ -134,6 +134,25 @@
         ]);
     });
 
+    /**
+     * Route de souscriptions
+     */
+    $router->get('/subscribe', function (Request $req, Response $res) {
+        global $userMiddleware;
+        $userMiddleware['gess']($req, $res);
+
+        $res->extends('layouts/dashboard_user');
+        $res->render('dashboard/user/subscribe', [
+            'title' => "S'abonner",
+            'active' => 'subscribe',
+            'back_link' => $req->server()->get('HTTP_REFERER')
+        ]);
+    });
+
+
+    /**
+     * Reoute de notification de l'user
+     */
     $router->get('/notifications', function (Request $req, Response $res) {
         global $userMiddleware;
         $userMiddleware['gess']($req, $res);

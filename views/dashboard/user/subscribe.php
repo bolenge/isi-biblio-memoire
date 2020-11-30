@@ -1,7 +1,7 @@
 <div class="content">
     <div class="row">
         <div class="col-lg-12 col-xl-10">
-            <a href="/my-books" class="btn btn-primary btn-sm"><i class="fa fa-arrow-left"></i> Retour</a>
+            <a href="<?= $back_link ?>" class="btn btn-primary btn-sm"><i class="fa fa-arrow-left"></i> Retour</a>
             <div class="card card-user">
                 <div class="card-header">
                     <h5 class="card-title">Abonnemenet</h5>
