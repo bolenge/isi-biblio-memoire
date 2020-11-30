@@ -15,6 +15,12 @@
          */
         protected $out;
 
+        public function __construct()
+        {
+            parent::__construct();
+            $this->out = new Out;
+        }
+
         /**
          * Récupération de données qui existent
          * @param array $req Les contraintes sur les données à récupérer

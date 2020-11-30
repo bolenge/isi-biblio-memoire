@@ -16,6 +16,7 @@
     $categoriesApiRouter = require('./routes/api/categories.php');
     $mediasApiRouter = require('./routes/api/medias.php');
     $booksApiRouter = require('./routes/api/books.php');
+    $adminsApiRouter = require('./routes/api/admins.php');
 
     // set configuration of file folders
     $app->set('views', 'views');
@@ -36,6 +37,7 @@
     $app->use('/api/categories', $categoriesApiRouter);
     $app->use('/api/medias', $mediasApiRouter);
     $app->use('/api/books', $booksApiRouter);
+    $app->use('/api/admins', $adminsApiRouter);
 
     // error handler
     $app->trackErrors(function ($error, $req, $res) {
