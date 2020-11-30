@@ -250,7 +250,7 @@
                 $category->books = $this->findActives([
                     'cond' => 'idCategory='.$id_category
                 ], 'books');
-                
+
                 $this->out->result = $category;
             }else {
                 $this->out->message = "Catégorie envoyée est invalide";
