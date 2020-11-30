@@ -151,7 +151,7 @@
                                     aria-expanded="false">
                                     <img src="/public/img/default-avatar.png" alt="Default avatar" class="avatar" style="width: 25px;height: 25px;border-radius: 50%;">
                                     <p>
-                                        <span style="text-transform: none !important;"><?= session('user')['firstName'].' '.session('user')['name'] ?></span>
+                                        <span style="text-transform: none !important;"><?= session('user')['name'] ?></span>
 
                                     </p>
                                 </a>
