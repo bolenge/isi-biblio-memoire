@@ -12,13 +12,20 @@
                     <div>
                         <table class="table">
                             <tbody>
-                                <?php for ($i = 1; $i < 3;$i++) : ?>
-                                <tr>
-                                    <td>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus inventore sit, aspernatur, nesciunt corrupti quod deleniti eaque dolorum tenetur rerum ut. Illo iure laboriosam nam aut omnis eligendi ipsam tempore? <a href="#">adipisicing</a> elit. Sed quod <strong>impedit deleniti</strong>
-                                    </td>
-                                </tr>
-                                <?php endfor ?>
+                                <?php if (!empty($notifications)) : ?>
+                                    <?php foreach ($notifications as $notification) : ?>
+                                        <tr>
+                                            <td>
+                                                <?= $notification->content ?>
+                                                <br><br><a href="#" class="text-danger">Supprimer <i class="fa fa-trash"></i></a>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach ?>
+                                <?php else : ?>
+                                    <tr>
+                                        <td>Vous n'avez aucune notification pour l'instant...</td>
+                                    </tr>
+                                <?php endif ?>
                             </tbody>
                         </table>
                     </div>
