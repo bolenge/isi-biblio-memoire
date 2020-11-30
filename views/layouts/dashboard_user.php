@@ -57,8 +57,15 @@
 
                     <li class="<?= get_active_menu("my-library", $active) ?>">
                         <a href="/my-library">
-                            <i class="nc-icon nc-align-left-2"></i>
+                            <i class="nc-icon nc-bookmark-2"></i>
                             <p>Ma Bibliothèque</p>
+                        </a>
+                    </li>
+
+                    <li class="<?= get_active_menu("my-reader", $active) ?>">
+                        <a href="/my-reader">
+                            <i class="nc-icon nc-align-left-2"></i>
+                            <p>Mes lectures</p>
                         </a>
                     </li>
 

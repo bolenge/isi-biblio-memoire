@@ -165,7 +165,7 @@
             $sql = 'SELECT B.id, B.title, B.description, B.createdAt, B.updatedAt, B.state, B.flag, B.statePub, B.other, 
                            B.idUserOwner, B.idCategory, B.fileDoc, B.fileAudio, B.cover, B.dateOfficial, B.datePub,
                            C.intituled AS category, C.description AS descCategory, 
-                           L.id AS id_user_libray, L.createdAt AS createdUserLibray, L.updatedAd AS updatedUserLibrary
+                           L.id AS id_user_libray, L.createdAt AS createdUserLibray, L.updatedAt AS updatedUserLibrary
                     FROM books AS B, categories AS C, user_library AS L
                     WHERE B.idCategory = C.id
                       AND B.id=L.id_book

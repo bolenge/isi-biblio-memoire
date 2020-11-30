@@ -95,6 +95,20 @@
         ]);
     });
 
+    $router->get('/my\-reader', function (Request $req, Response $res) {
+        global $userMiddleware;
+        $userMiddleware['gess']($req, $res);
+
+        global $booksModel;
+
+        $res->extends('layouts/dashboard_user');
+        $res->render('dashboard/user/my_reader', [
+            'title' => 'Ma bibliothèque',
+            'active' => 'my-reader',
+            'books' => $booksModel->getUserLibraryBooks(session('user')['id'])->result
+        ]);
+    });
+
     $router->get('/my\-library/:id', function (Request $req, Response $res) {
         global $userMiddleware;
         $userMiddleware['gess']($req, $res);
