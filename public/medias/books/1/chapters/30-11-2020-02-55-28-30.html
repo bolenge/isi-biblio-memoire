@@ -1,0 +1,138 @@
+Au niveau de ce chapitre nous allons présenter les notions fondamentales des différentes
+technologies utilisées durant la réalisation de notre projet.
+Dans une première étape nous présontons la notion de virtualisation et ces différents
+types et techniques. La deuxième partie sera consacré au cloud computing, principes,
+différents services qu’il fournit, modèles de déploiement ainsi que ses avantages et
+inconvénients. Finalement nous attaquons les notions de sécurité d’un système d’information.
+1. La virtualisation
+1.1. Présentation
+Dans le monde de l'informatique, la virtualisation est définie comme un ensemble de
+techniques visant à faire fonctionner plusieurs systèmes d'exploitation sur le même matériel
+en partageant les ressources de celui-ci.
+En d'autres termes, c'est une technique qui consiste à réaliser une abstraction des
+caractéristiques physiques de ressources informatiques afin de les présenter à des systèmes,
+des applications ou des utilisateurs.
+A l'heure actuelle, la virtualisation semble être en effet la seule solution viable pour
+réduire réellement les coûts liés au SI (Système d'Information).
+La Virtualisation impacte trois domaines majeurs, qui sont les suivants
+ Le système d'exploitation
+ Les applications
+ Le stockage
+La virtualisation impacte aussi d'autres domaines comme
+ Le réseau
+ La sécurité
+Le but recherché par la virtualisation est de faire croire au système d'exploitation
+virtualisé (ou système hôte) qu'il est installé sur une machine physique.
+1.2. Types de virtualisation
+La figure ci-dessous montre un aperçu des principaux types de virtualisation : 
+Université Virtuelle de Tunis Mastère N2TR
+Ben Hmida Slah 4
+Figure I.1 : Différents types de virtualisation
+ La virtualisation système : a pour rôle de virtualiser un système d’exploitation. Nous
+pouvons distinguer deux catégories :
+ Les systèmes non modifiés : C’est le type de virtualisation le plus utilisé aujourd’hui.
+VMware, Virtual Pc, Virtual Box et bien d’autres appartiennent à cette catégorie. On
+distingue la virtualisation matérielle assistée de la virtualisation totale car cette
+dernière est améliorée grâce aux processeurs Intel-V et AMD-V qui implantent la
+virtualisation matérielle dans leurs produits.
+ Les systèmes modifiés : La virtualisation nécessite de modifier et d’adapter le noyau
+d’un système (Linux, BSD, Solaris). On parle alors de para virtualisation.
+ La virtualisation de processus : contrairement à la virtualisation système, ne virtualise pas
+l’intégralité du système d’exploitation. Mais uniquement un programme particulier au sein de
+son environnement.
+ L’émulation : qui est une imitation du comportement physique d’un matériel par un logiciel.
+1.3. Techniques de virtualisation système
+Si on dit virtualisation on a donc recours à un logiciel qui se chargera de la création et
+gestion de cette tâche on l’appel Hyperviseur et on distingue deux types. [1]
+1.3.1. Hyperviseur type 1 ou bare-metal
+Un hyperviseur de type 1 est un système qui s’installe directement sur la couche
+matérielle du serveur. Ces systèmes sont allégés de manière à se concentrer sur la gestion des
+systèmes d’exploitation invités c’est-à-dire ceux utilisés par les machines virtuelles qu’ils
+contiennent. Ceci permet de libérer le plus de ressources possible pour les machines virtuelles.
+Toutefois, il est possible d’exécuter uniquement un hyper viseur à la fois sur un serveur. [2] 
+Université Virtuelle de Tunis Mastère N2TR
+Ben Hmida Slah 5
+Parmi les hyperviseurs de type 1 on trouve des systèmes comme Xen, VMware et ESXi.
+Figure I.2 : Couches de l'Hyperviseur type1
+1.3.2. Hyperviseur type 2
+Un hyperviseur de type 2 est un logiciel qui s’installe et s’exécute sur un système
+d’exploitation déjà en place. De ce fait, plus de ressources sont utilisées étant donné qu’on
+fait tourner l’hyperviseur et le système d’exploitation qui le supporte, il y a donc moins de
+ressources disponible pour les machines virtuelles. L’intérêt qu’on peut trouver c’est le fait
+de pouvoir exécuter plusieurs hyperviseurs simultanément vu qu’ils ne sont pas liés à la
+couche matérielle. Parmi les hyperviseurs de type2, on trouve VMware Workstation,
+VirtualPC et VirtualBox.
+Figure I.3 : Couches Hyperviseur type 2
+Université Virtuelle de Tunis Mastère N2TR
+Ben Hmida Slah 6
+2. Le Cloud Computing
+2.1. Présentation
+Il est communément admis que le concept de cloud computing a été initié par le géant
+Amazon en 2002. Le cybermarchand avait alors investi dans un parc informatique afin de
+pallier les surcharges des serveurs dédiés au commerce en ligne constatées durant les fêtes de
+fin d’année. A ce moment-là, Internet comptait moins de 600 millions d’utilisateurs mais la
+fréquentation de la toile et les achats en ligne étaient en pleine augmentation.
+Avant la naissance du terme de cloud computing, utilisé par les informaticiens pour
+qualifier l’immense nébuleuse du net, des services de cloud étaient déjà utilisés comme le
+webmail2, le stockage de données en ligne (photos, vidéos, etc.) ou encore le partage
+d’informations sur les réseaux sociaux.
+Le cloud computing ou l’informatique en nuage est l'exploitation de la puissance de
+calcul ou de stockage de serveurs informatiques distants par l'intermédiaire d'un réseau,
+généralement Internet. Ces serveurs sont loués à la demande, le plus souvent par tranche
+d'utilisation selon des critères techniques (puissance, bande passante, etc.) mais également au
+forfait. [3]
+Le cloud computing est l'accès via un réseau de télécommunications, à la demande et en
+libre-service, à des ressources informatiques partagées configurables. Il s'agit donc d'une
+délocalisation de l'infrastructure informatique. De cette façon, les applications et les données
+ne se trouvent plus sur des serveurs locaux ou sur le poste de l'utilisateur. Mais dans le cloud
+composé d'un certain nombre de serveurs distants, interconnectés au moyen d'une large bande
+passante. Les utilisateurs peuvent déployer des machines virtuelles dans ce nuage, ce qui leur
+permet d'utiliser un certain nombre de ressources (espace disque, mémoire vive, ou encore du
+CPU) et bénéficier de multiple services accessibles à partir d’un ordinateur, d’un téléphone,
+d’une tablette ou tout autre appareil ou moyens pouvant s’en servir.
+Université Virtuelle de Tunis Mastère N2TR
+Ben Hmida Slah 7
+Figure I.4 : Le concept du cloud computing
+2.2. Caractéristiques du cloud
+Le cloud se caractérise par les caractéristiques suivantes :[4]
+ Accès aux services à la demande :
+La mise en œuvre des systèmes est entièrement automatisée et c’est l’utilisateur, au moyen
+d’une console de commande, qui met en place et gère la configuration à distance.
+ Accès réseau large bande :
+Ces centres de traitement sont généralement raccordés directement sur le backbone Internet
+pour bénéficier d’une excellente connectivité. Les grands fournisseurs répartissent les
+centres de traitement sur la planète pour fournir un accès aux systèmes en moins de 50 ms
+de n’importe quel endroit.
+ Réservoir de ressource :
+La plupart de ces centres comportent des dizaines de milliers des serveurs et des moyens
+de stockage pour permettre des montées en charge rapides. Il est souvent possible de choisir
+une zone géographique pour mettre les données « près » des utilisateurs.
+ Redimensionnement rapide :
+La mise en ligne d’une nouvelle instance d’un serveur est réalisée en quelques minutes,
+l’arrêt et le redémarrage en quelques secondes. Toutes ces opérations peuvent s’effectuer
+automatiquement par des scripts. 
+Université Virtuelle de Tunis Mastère N2TR
+Ben Hmida Slah 8
+ Facturation à l’usage :
+Il n’y a généralement pas de coût de mise en service (c’est l’utilisateur qui réalise les
+opérations). La facturation est calculée en fonction de la durée et de la quantité de
+ressources utilisées. Une unité de traitement stoppée n’est pas facturée.
+2.3. Modèles du cloud
+Le cloud computing peut être décomposé en trois technologies de services : [5]
+ Application en tant que service (Saas, Software as a service)
+ Plateforme en tant que service (Paas, Plateforme as a service)
+ Infrastructure en tant que service (Iaas, Infrastructure as a service)
+ Réseau en tant que service (Naas, Network as a service)
+La figure ci-après illustre la plupart des experts que s'accordent sur un modèle pyramidal
+du cloud computing sur lequel les différents domaines sont représentés comme des couches
+successives.
+Figure I.5 : Services du Cloud Computing
+2.3.1. Application en tant que service (SaaS)
+Les SaaS (Software as a Service) : Le matériel, l’hébergement, le Framework
+d’application et le logiciel sont dématérialisés et hébergés dans un des datacentres du
+fournisseur. Les utilisateurs consomment les logiciels à la demande sans les acheter, avec une
+facturation à l’usage réel. Il n’est plus nécessaire pour l’utilisateur d’effectuer les
+installations, les mises à jour ou encore les migrations de données.
+Les solutions SaaS constituent la forme la plus répandue de cloud computing.
+ Avantages :
+Pas d'installation, pas de mi

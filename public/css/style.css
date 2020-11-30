@@ -1,5 +1,6 @@
 .btn-primary,
-.bgc-primary{
+.bgc-primary,
+.bg-primary{
     background-color: #581c7e !important;
     color: #ffffff !important;
 }
@@ -80,4 +81,23 @@ a,
 
 .form-group {
     overflow: hidden !important;
+}
+
+.content-read-book {
+
+}
+
+.px-10 {
+    padding-left: 7rem !important;
+    padding-right: 7rem !important;
+}
+
+.w-100px {
+    width: 100px !important;
+}
+
+.btn-primary-light {
+    background-color: #fff !important;
+    color: #581c7e !important;
+    border: 1px solid #581c7e !important;
 }
