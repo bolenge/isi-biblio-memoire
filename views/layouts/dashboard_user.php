@@ -69,8 +69,8 @@
                         </a>
                     </li>
 
-                    <li class="<?= get_active_menu("subscriptions", $active) ?>">
-                        <a href="/subscriptions">
+                    <li class="<?= get_active_menu("my-subscriptions", $active) ?>">
+                        <a href="/my-subscriptions">
                             <i class="nc-icon nc-money-coins"></i>
                             <p>Mes Abonnements</p>
                         </a>

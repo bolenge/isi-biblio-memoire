@@ -120,7 +120,10 @@
         ]);
     });
 
-    $router->get('/subscriptions', function (Request $req, Response $res) {
+    /**
+     * Route de souscriptions de l'utilisateur
+     */
+    $router->get('/my\-subscriptions', function (Request $req, Response $res) {
         global $userMiddleware;
         $userMiddleware['gess']($req, $res);
 
