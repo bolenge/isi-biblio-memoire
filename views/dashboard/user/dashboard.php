@@ -105,7 +105,7 @@
                         <div class="col-7 col-md-8">
                             <div class="numbers">
                                 <p class="card-category">Nouveautés</p>
-                                <p class="card-title">2<p>
+                                <p class="card-title"><?= $count_new_books ?><p>
                             </div>
                         </div>
                     </div>
@@ -135,7 +135,7 @@
                         <div class="col-7 col-md-8">
                             <div class="numbers">
                                 <p class="card-category">Les plus Populaires</p>
-                                <p class="card-title">0<p>
+                                <p class="card-title"><?= 0 ?><p>
                             </div>
                         </div>
                     </div>

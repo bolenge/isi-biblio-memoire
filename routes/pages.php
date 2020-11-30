@@ -32,6 +32,7 @@
             'count_user_books' => $booksModel->getCountUserBooks(session('user')['id'])->result,
             'count_user_books_read' => $booksModel->getCountUserBooksRead(session('user')['id'])->result,
             'count_user_books_reading' => $booksModel->getCountUserBooksReading(session('user')['id'])->result,
+            'count_new_books' => $booksModel->getCountNewBooks()->result,
         ]);
     });
     

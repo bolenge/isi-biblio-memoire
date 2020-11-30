@@ -74,3 +74,18 @@
             return strlen($string) > $nbr ? mb_substr($string, 0, $nbr).'...' : $string;
         }
     }
+
+    if (!function_exists('add_days_in_date')) {
+        /**
+         * Ajoute de jours dans une date
+         * @param \DateTime $date_string La date dans laquelle il faut ajouter les jours
+         * @param int $n_day Le nombre de jour à ajouter
+         * @return \DateTime
+         */
+        function add_days_in_date($date_string = null, int $n_day) {
+            $date = $date_string ? new \DateTime($date_string) : new \DateTime();
+            $date->add(new \DateInterval('P'.$n_day.'D'));
+
+            return $date;
+        }
+    }

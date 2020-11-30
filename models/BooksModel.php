@@ -304,4 +304,26 @@
 
             return $this->out;
         }
+
+        /**
+         * Récupération de nombre de nouveaux books
+         * @return Out
+         */
+        public function getCountNewBooks()
+        {
+            $count = $this->countActives([
+                'cond' => 'statePub="true" AND (datePub BETWEEN "'.(new \DateTime).'" AND "'.\add_days_in_date((new \DateTime), 10).'")'
+            ], 'books');
+
+            if ($count > 0) {
+                $this->out->state = true;
+                $this->out->message = "Livres trouvés";
+                $this->out->result = $count;
+            }else {
+                $this->out->message = "Aucun nouveau livre";
+                $this->out->result = 0;
+            }
+
+            return $this->out;
+        }
     }
