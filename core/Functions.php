@@ -106,6 +106,48 @@
         }
     }
 
-    
+    if (!function_exists('write_file')) {
+        /**
+         * Cette fonction permet d'écrire des informations dans un fichier
+         * @param string $filename Le lien du fichier
+         * @param string $content Le contenu à insérer dans le fichier
+         * @return bool
+         */
+        function write_file(string $filename, string $content) {
+            $success = true;
+            $file = fopen($filename, "w") or $success = false;
 
+            fwrite($file, $content);
+            fclose($file);
+
+            return $success;
+        }
+    }
+
+    if (!function_exists('create_folder')) {
+        /**
+         * Cette fonction permet de créer un dossier
+         * @param string $folder
+         * @return bool
+         */
+        function create_folder(string $folder) {
+            $array_folder = explode('/', $folder);
+            $i = 0;
+            $fold = '';
+
+            if (!file_exists($folder)) {
+                while (!file_exists($folder)) {
+                    $fold .= $array_folder[$i].= '/';
+
+                    if (!file_exists($fold)) {
+                        mkdir($fold);
+                    }
+
+                    $i++;
+                }
+            }
+
+            return file_exists($folder);
+        }
+    }
 

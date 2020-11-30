@@ -61,7 +61,17 @@
         ]);
 
         if ($validator->validator()) {
-            $out = $modelBooks->createChapter($req);
+            $folder_content = "public/medias/books/".$req->body()->book.'/chapters';
+
+            create_folder($folder_content);
+
+            $filename = $folder_content.'/'.date('d-m-Y-h-i-s-t').'.html';
+
+            if (write_file($filename, $req->body()->content)) {
+                $out = $modelBooks->createChapter($req, $filename);
+            }else {
+                $out->message = "Une erreur est survenue, réessayez";
+            }
         }else {
             session('errors')['admin'] = "Admin invalide";
             session('errors')['book'] = "Livre invalide";

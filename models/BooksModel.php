@@ -330,14 +330,15 @@
         /**
          * Création d'un chapitre du livre
          * @param Request $req
+         * @param string $filename
          * @return Out
          */
-        public function createChapter(Request $req)
+        public function createChapter(Request $req, string $filename)
         {
             if ($this->exists('id', $req->body()->admin, 'admins')) {
                 $chapter = $this->add([
                     'title' => $req->body()->title,
-                    'content' => $req->body()->content,
+                    'filename' => $filename,
                     'id_admin' => (int) $req->body()->admin,
                     'id_book' => (int) $req->body()->book,
                 ], 'book_chapters');
