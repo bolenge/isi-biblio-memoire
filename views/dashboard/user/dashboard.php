@@ -45,7 +45,7 @@
                         <div class="col-7 col-md-8">
                             <div class="numbers">
                                 <p class="card-category">Livres lus</p>
-                                <p class="card-title">35<p>
+                                <p class="card-title">0<p>
                             </div>
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                         <div class="col-7 col-md-8">
                             <div class="numbers">
                                 <p class="card-category">En cours de lecture</p>
-                                <p class="card-title">15<p>
+                                <p class="card-title">0<p>
                             </div>
                         </div>
                     </div>
@@ -105,7 +105,7 @@
                         <div class="col-7 col-md-8">
                             <div class="numbers">
                                 <p class="card-category">Nouveautés</p>
-                                <p class="card-title">23<p>
+                                <p class="card-title">2<p>
                             </div>
                         </div>
                     </div>
@@ -135,7 +135,7 @@
                         <div class="col-7 col-md-8">
                             <div class="numbers">
                                 <p class="card-category">Les plus Populaires</p>
-                                <p class="card-title">1 500<p>
+                                <p class="card-title">0<p>
                             </div>
                         </div>
                     </div>
@@ -183,40 +183,40 @@
         </div>
     </div>
 
-    <h5 class="card-title my-5">Découvrez notre nouvelle collection</h5>
+    <?php if (!empty($new_books)) : ?>
+        <h5 class="card-title my-5">Découvrez notre nouvelle collection</h5>
 
-    <div class="row">
-        <!-- new_products -->
-        <?php if (!empty($new_books)) : ?>
-            <?php foreach ($new_books as $book) : ?>
-                <div class="col-xl-3 col-lg-4 col-md-4">
-                    <div class="card">
-                        <div class="card-body text-center p-2 pb-0">
-                            <a href="/books/<?= $book->id ?>">
-                                <img src="/<?= !empty($book->cover) ? $book->cover : "public/img/books/default-book-cover.png" ?>" alt="Image de <?= $book->title ?>" class="img-book" />
-                            </a>
+        <div class="row">
+            <!-- new_products -->
+                <?php foreach ($new_books as $book) : ?>
+                    <div class="col-xl-3 col-lg-4 col-md-4">
+                        <div class="card">
+                            <div class="card-body text-center p-2 pb-0">
+                                <a href="/books/<?= $book->id ?>">
+                                    <img src="/<?= !empty($book->cover) ? $book->cover : "public/img/books/default-book-cover.png" ?>" alt="Image de <?= $book->title ?>" class="img-book" />
+                                </a>
 
-                            <div class="description pt-3">
-                                <h6 class="title-book"><?= sub_string($book->title, 35) ?></h6>
-                                <p class="pb-0 mb-0"><?= sub_string($book->other, 35) ?></p>
+                                <div class="description pt-3">
+                                    <h6 class="title-book"><?= sub_string($book->title, 35) ?></h6>
+                                    <p class="pb-0 mb-0"><?= sub_string($book->other, 35) ?></p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="card-footer p-2">
-                            <div class="legend text-center">
-                                <i class="fa fa-star text-warning"></i>
-                                <i class="fa fa-star text-warning"></i>
-                                <i class="fa fa-star text-warning"></i>
-                                <i class="fa fa-star-half-o text-warning"></i>
-                                <i class="fa fa-star-o text-warning"></i>
-                            </div>
-                            <hr>
-                            <div class="stats text-center">
-                                <a href="/books/<?= $book->id ?>"><i class="fa fa-book"></i> eBook</a><?= $book->fileAudio ? ' | <a href="/'.$book->fileAudio.'"><i class="fa fa-play-circle"></i> Audio</a>' : "" ?>
+                            <div class="card-footer p-2">
+                                <div class="legend text-center">
+                                    <i class="fa fa-star text-warning"></i>
+                                    <i class="fa fa-star text-warning"></i>
+                                    <i class="fa fa-star text-warning"></i>
+                                    <i class="fa fa-star-half-o text-warning"></i>
+                                    <i class="fa fa-star-o text-warning"></i>
+                                </div>
+                                <hr>
+                                <div class="stats text-center">
+                                    <a href="/books/<?= $book->id ?>"><i class="fa fa-book"></i> eBook</a><?= $book->fileAudio ? ' | <a href="/'.$book->fileAudio.'"><i class="fa fa-play-circle"></i> Audio</a>' : "" ?>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            <?php endforeach ?>
-        <?php endif ?>
-    </div>
+                <?php endforeach ?>
+        </div>
+    <?php endif ?>
 </div>

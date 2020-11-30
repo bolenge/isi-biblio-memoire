@@ -144,7 +144,7 @@
         $res->extends('layouts/dashboard_user');
         $res->render('dashboard/user/subscribe', [
             'title' => "S'abonner",
-            'active' => 'subscribe',
+            'active' => 'subscriptions',
             'back_link' => $req->server()->get('HTTP_REFERER')
         ]);
     });
