@@ -89,3 +89,23 @@
             return $date;
         }
     }
+
+    if (!function_exists('remove_days_in_date')) {
+        /**
+         * Ajoute de jours dans une date
+         * @param \DateTime $date La date dans laquelle il faut ajouter les jours
+         * @param int $n_day Le nombre de jour à ajouter
+         * @return \DateTime
+         */
+        function remove_days_in_date(\DateTime $date, int $n_day) {
+            
+            date_sub($date,date_interval_create_from_date_string("$n_day days"));
+            date_format($date,"Y-m-d h:i:s");
+
+            return date_format($date,"Y-m-d h:i:s");
+        }
+    }
+
+    
+
+

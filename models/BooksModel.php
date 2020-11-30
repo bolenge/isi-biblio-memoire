@@ -312,7 +312,7 @@
         public function getCountNewBooks()
         {
             $count = $this->countActives([
-                'cond' => 'statePub="true" AND (datePub BETWEEN "'.(new \DateTime).'" AND "'.\add_days_in_date((new \DateTime), 10).'")'
+                'cond' => 'statePub="true" AND (datePub BETWEEN "'.\remove_days_in_date(new \DateTime, 10).'" AND "'.\date_format((new \DateTime), 'Y-m-d h:i:s').'")'
             ], 'books');
 
             if ($count > 0) {
