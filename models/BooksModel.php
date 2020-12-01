@@ -358,9 +358,8 @@
         }
 
         /**
-         * Récupération diu livre avec les chapitres
-         * @param Request $req
-         * @param string $filename
+         * Récupération du livre avec les chapitres
+         * @param int $id_book
          * @return Out
          */
         public function getBookWithChapters(int $id_book)
@@ -383,7 +382,28 @@
                 $this->out->result = $book;
                 
             } else {
-                $this->out->message = "Aucu Book trouvé";
+                $this->out->message = "Aucun Book trouvé";
+            }
+            
+            return $this->out;
+        }
+
+        /**
+         * Récupération du chapitre d'un livre par id du chapitre
+         * @param int $id_chapter
+         * @return Out
+         */
+        public function getBookChapterByIdChapter(int $id_chapter)
+        {
+            $chapter = $this->findOneActiveById($id_chapter, 'book_chapters');
+
+            if (!empty($chapter)) {
+                $this->out->state = true;
+                $this->out->message = "Chapitre trouvé";
+                $this->out->result = $chapter;
+                
+            } else {
+                $this->out->message = "Aucun Book trouvé";
             }
             
             return $this->out;

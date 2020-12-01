@@ -134,7 +134,7 @@
                                             <?php if (!empty($chapters)) : ?>
                                                 <ul>
                                                     <?php foreach ($chapters as $chapter) : ?>
-                                                        <li><a href="/books/<?= $book->id.'/chapters/'. $chapter->id ?>"><?= $chapter->title ?></a></li>
+                                                        <li class="<?= $chapter->id === $chapters[0]->id ? 'active-chapter' : '' ?>"><a href="/books/<?= $book->id.'/chapters/'. $chapter->id ?>"><?= $chapter->title ?></a></li>
                                                     <?php endforeach ?>
                                                 </ul>
                                             <?php else : ?>

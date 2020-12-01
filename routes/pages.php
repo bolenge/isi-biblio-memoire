@@ -86,7 +86,7 @@
 
     $router->get('/my\-books', function (Request $req, Response $res) {
         global $userMiddleware;
-        $userMiddleware['gess']($req, $res);
+        $userMiddleware['auth']($req, $res);
         
         global $booksModel;
 
@@ -100,7 +100,7 @@
 
     $router->get('/my\-books/create', function (Request $req, Response $res) {
         global $userMiddleware;
-        $userMiddleware['gess']($req, $res);
+        $userMiddleware['auth']($req, $res);
 
         global $model;
 
@@ -114,7 +114,7 @@
 
     $router->get('/my\-library', function (Request $req, Response $res) {
         global $userMiddleware;
-        $userMiddleware['gess']($req, $res);
+        $userMiddleware['auth']($req, $res);
 
         global $booksModel;
 
@@ -128,7 +128,7 @@
 
     $router->get('/my\-reader', function (Request $req, Response $res) {
         global $userMiddleware;
-        $userMiddleware['gess']($req, $res);
+        $userMiddleware['auth']($req, $res);
 
         global $booksModel;
 
@@ -140,9 +140,12 @@
         ]);
     });
 
+    /**
+     * Route de la lecture d'un livre
+     */
     $router->get('/books/:id', function (Request $req, Response $res) {
         global $userMiddleware;
-        $userMiddleware['gess']($req, $res);
+        $userMiddleware['auth']($req, $res);
 
         global $booksModel;
         $result = $booksModel->getBookWithChapters((int) $req->params()->get('id'))->result;
@@ -158,6 +161,32 @@
             'active' => 'dashboard',
             'book' => $result,
             'chapters' => $chapters
+        ]);
+    });
+
+    /**
+     * Route de la lecture d'un livre
+     */
+    $router->get('/books/:id/chapters/:id_chapter', function (Request $req, Response $res) {
+        global $userMiddleware;
+        $userMiddleware['auth']($req, $res);
+
+        global $booksModel;
+        $result = $booksModel->getBookWithChapters((int) $req->params()->get('id'))->result;
+        $chapters = null;
+
+        if (!empty($result)) {
+            $chapters = !empty($result->chapters) ? $result->chapters : null;
+        }
+
+        $res->extends('layouts/blank');
+        $res->render('dashboard/user/read_book_chapter', [
+            'title' => 'Lecture du livre',
+            'active' => 'dashboard',
+            'book' => $result,
+            'chapters' => $chapters,
+            'key_active' => 0,
+            'chapter_active' => $booksModel->getBookChapterByIdChapter((int) $req->params()->get('id_chapter'))->result
         ]);
     });
 
