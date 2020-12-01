@@ -164,3 +164,16 @@
                     : $_COOKIE;
         }
     }
+
+    if (!function_exists('format_date')) {
+        /**
+         * Permet de formater une date
+         * @param string $date_string
+         * @return array|string
+         */
+        function format_date(string $date_string = null, $format = 'd/m/Y') {
+            return date_format(new \DateTime($date_string), $format);
+        }
+    }
+
+    

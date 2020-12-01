@@ -66,7 +66,7 @@
                                             <td><?= $i ?></td>
                                             <td><?= sub_string($book->title, 20) ?></td>
                                             <td><?= $book->category ?></td>
-                                            <td class="text-center"><?= date_format(new \DateTime($book->createdAt), 'd/m/Y', ) ?></td>
+                                            <td class="text-center"><?= date_format(new \DateTime($book->createdAt), 'd/m/Y') ?></td>
                                             <td class="text-center">
                                                 <span class="text-<?= $book->statePub == 'true' ? "success" :  "warning" ?>"><?= $book->statePub == 'true' ? "Publié" :  "En attente" ?></span>
                                             </td>

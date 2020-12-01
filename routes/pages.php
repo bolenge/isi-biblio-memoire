@@ -153,6 +153,11 @@
 
         if (!empty($result)) {
             $chapters = !empty($result->chapters) ? $result->chapters : null;
+            $booksModel->readBook(session('user')['id'], (int) $req->params()->get('id'));
+
+            if (!empty($chapters)) {
+                $booksModel->readBookChapter(session('user')['id'], (int) $req->params()->get('id'), $chapters[0]->id);
+            }
         }
 
         $res->extends('layouts/blank');
@@ -165,7 +170,7 @@
     });
 
     /**
-     * Route de la lecture d'un livre
+     * Route de la lecture du chqpitre d4un livre
      */
     $router->get('/books/:id/chapters/:id_chapter', function (Request $req, Response $res) {
         global $userMiddleware;
@@ -177,6 +182,12 @@
 
         if (!empty($result)) {
             $chapters = !empty($result->chapters) ? $result->chapters : null;
+
+            $booksModel->readBook(session('user')['id'], (int) $req->params()->get('id'));
+
+            if (!empty($chapters)) {
+                $booksModel->readBookChapter(session('user')['id'], (int) $req->params()->get('id'), (int) $req->params()->get('id_chapter'));
+            }
         }
 
         $res->extends('layouts/blank');

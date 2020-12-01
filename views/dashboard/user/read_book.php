@@ -37,7 +37,7 @@
                             <span class="navbar-toggler-bar bar3"></span>
                         </button>
                     </div>
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="/dashboard">
                         <div class="logo-image-small">
                             <img src="/public/img/logos/logo-congo-book.png" alt="Logo de <?= config('app.name') ?>" style="width: 30px;" /> <?= config('app.name') ?>
                         </div>
