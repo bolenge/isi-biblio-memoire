@@ -131,11 +131,15 @@
                                             <h6 class="card-title text-center">CHAPITRES</h6>
                                         </div>
                                         <div class="card-body">
-                                            <ul>
-                                                <?php foreach ($chapters as $chapter) : ?>
-                                                    <li><a href="/books/<?= $book->id.'/chapters/'. $chapter->id ?>"><?= $chapter->title ?></a></li>
-                                                <?php endforeach ?>
-                                            </ul>
+                                            <?php if (!empty($chapters)) : ?>
+                                                <ul>
+                                                    <?php foreach ($chapters as $chapter) : ?>
+                                                        <li><a href="/books/<?= $book->id.'/chapters/'. $chapter->id ?>"><?= $chapter->title ?></a></li>
+                                                    <?php endforeach ?>
+                                                </ul>
+                                            <?php else : ?>
+                                                <p class="text-center">Ce livre n'a aucun chapitre</p>
+                                            <?php endif ?>
 
                                             <div class="text-center">
                                                 <a href="#" class="btn btn-primary-light btn-sm"><i class="fa fa-download"></i> Télécharger le pdf</a>
@@ -150,19 +154,24 @@
                                         <div class="card-body" style="">
 
                                             <div class="mb-5">
-                                                <h1><?= $chapters[0]->title ?></h1>
-                                                
-                                                <div>
-                                                    <?php if (file_exists($chapters[0]->filename)) : ?>
-                                                        <?php include('./'.$chapters[0]->filename) ?>
-                                                    <?php endif ?>
-                                                </div>
+                                                <?php if (!empty($chapters)) : ?>
+                                                    <h1><?= $chapters[0]->title ?></h1>
+                                                    
+                                                    <div>
+                                                        <?php if (file_exists($chapters[0]->filename)) : ?>
+                                                            <?php include('./'.$chapters[0]->filename) ?>
+                                                        <?php endif ?>
+                                                    </div>
+                                                <?php else : ?>
+                                                    <h3 class="text-center font-weight-bold">Ce livre n'a aucun chapitre...</h3>
+                                                <?php endif ?>
                                             </div>
 
                                             <div class="mt-5 pt-5">
-                                                <a href="#" class="btn btn-primary float-left"><i class="fa fa-chevron-left"></i> &nbsp;&nbsp;Introduction</a>
-
-                                                <a href="#" class="btn btn-primary float-right">Chapitre premier : Actes &nbsp;&nbsp;<i class="fa fa-chevron-right"></i> </a>
+                                                            
+                                                <?php if (!empty($chapters[1])) : ?>
+                                                    <a href="/books/<?= $book->id.'/chapters/'. $chapters[1]->id ?>" class="btn btn-primary float-right"><?= $chapters[1]->title ?> &nbsp;&nbsp;<i class="fa fa-chevron-right"></i> </a>
+                                                <?php endif ?>
                                             </div>
                                         </div>
                                     </div>
