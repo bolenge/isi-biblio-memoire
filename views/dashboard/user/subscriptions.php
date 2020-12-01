@@ -52,7 +52,7 @@
                                     <?php endforeach ?>
                                 <?php else : ?>
                                     <tr>
-                                        <td colspan="7">Vous n'avez souscrit à aucun abonnment...</td>
+                                        <td colspan="7" class="text-center lead">Vous n'avez souscrit à aucun abonnment...</td>
                                     </tr>
                                 <?php endif ?>
                             </tbody>
