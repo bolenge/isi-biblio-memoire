@@ -10,6 +10,7 @@
     $router = new Router;
     $userMiddleware = require('./middlewares/users.php');
     $booksModel = new BooksModel;
+    $userModel = new UsersModel;
 
     $router->get('/', function (Request $req, Response $res) {
         global $userMiddleware;
@@ -40,6 +41,33 @@
         global $userMiddleware;
         $userMiddleware['gess']($req, $res);
 
+        global $userModel;
+
+        $user_remember_cookie = getcookie('user_remember');
+
+        if (!empty($user_remember_cookie)) {
+            $token_user_remember = explode('_', base64_decode($user_remember_cookie));
+            $email_user = $token_user_remember[1];
+            $id_user = decode_id($token_user_remember[0]);
+
+            $outUser = $userModel->getUserById((int) $id_user);
+
+            if (!empty($outUser->state)) {
+                if ($email_user == $outUser->result->email) {
+                    session('user', [
+                        'state' => $outUser->result->state,
+                        'name' => $outUser->result->name,
+                        'firstName' => $outUser->result->firstName,
+                        'lastName' => $outUser->result->lastName,
+                        'email' => $outUser->result->email,
+                        'id' => $outUser->result->id
+                    ]);
+
+                    $res->redirect('/dashboard');
+                }
+            }
+        }
+        
         $res->extends('layouts/signin');
         $res->render('pages/login', [
             'title' => "Connexion"
@@ -183,7 +211,8 @@
     $router->get('/profile', function (Request $req, Response $res) {
         global $userMiddleware;
         $userMiddleware['gess']($req, $res);
-        $userModel = new UsersModel;
+
+        global $userModel;
         $user = $userModel->findOneById(session('user')['id']);
         $countries = $userModel->findActives([], 'countries');
 

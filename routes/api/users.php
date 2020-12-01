@@ -67,9 +67,9 @@
                     'id' => $out->result->id
                 ]);
 
-                // if ($req->body()->remember) {
-                //     setcookie('user_remember', base64_encode(encode_id($out->result->id).'_'.$out->result->email), 3600 * 30);
-                // }
+                if ($req->body()->remember) {
+                    setcookie('user_remember', base64_encode(encode_id($out->result->id).'_'.$out->result->email), time() + (86400 * 30), "/");
+                }
             }
         }else {
             $out->message = implode("<br>", session('errors'));
@@ -94,6 +94,7 @@
         if ($out->state) {
             session('user', null);
             session()->remove('user');
+            setcookie('user_remember', null, -1, '/');
         }
 
         $res->json($out);

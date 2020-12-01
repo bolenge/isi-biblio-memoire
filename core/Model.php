@@ -107,4 +107,17 @@
         {
             return \current($this->findActives($req, $table));
         }
+
+        /**
+         * Récupération d'une entré qui est active par son id
+         * @param int $id L'ID de la ressource
+         * @param string $table La table où récuperer (par défaut ca prend la table assigné au model)
+         * @return object
+         */
+        public function findOneActiveById(int $id, string $table = null)
+        {
+            return $this->findOneActive([
+                'cond' => 'id='.$id
+            ], $table);
+        }
     }

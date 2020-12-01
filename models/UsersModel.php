@@ -92,7 +92,7 @@
             $user = $this->update([
                 'idUser' => $data['id_user'],
                 'dateLogout' => $data['dateLogout']
-            ], 'session_user', 'id_user');
+            ], 'session_user', 'idUser');
             
             if ($user) {
                 $out->state = true;
@@ -146,4 +146,23 @@
             return $out;
         }
 
+        /**
+         * Module qui permet de récuperer un utilisateur par son ID
+         * @param int $id_user L'ID de l'utilisateur en question
+         * @return Out
+         */
+        public function getUserById(int $id_user)
+        {
+            $user = $this->findOneActiveById($id_user);
+
+            if (!empty($user)) {
+                $this->out->state = true;
+                $this->out->message = "Utilisateur trouvé !";
+                $this->out->result = $user;
+            }else {
+                $this->out->message = "Aucun utilisateur trouvé !";
+            }
+
+            return $this->out;
+        }
     }
