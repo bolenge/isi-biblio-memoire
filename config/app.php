@@ -5,5 +5,6 @@
      */
     return [
         'name' => 'Congo Book',
-        'webiste_url' => 'http://localhost:3000'
+        'webiste_url' => 'http://localhost:3000',
+        'locale' => 'fr'
     ];

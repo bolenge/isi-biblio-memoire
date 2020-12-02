@@ -10,6 +10,9 @@
     $pages = require('./routes/pages.php');
     $users = require('./routes/users.php');
 
+    // Routers admin
+    $pagesAdminRouter = require('./routes/admin/pages.php');
+
     // Router Api
     $usersApiRouter = require('./routes/api/users.php');
     $typesApiRouter = require('./routes/api/types.php');
@@ -30,6 +33,9 @@
     // Routing
     $app->use('/', $pages);
     $app->use('/users', $users);
+
+    // Routing admin
+    $app->use('/admin', $pagesAdminRouter);
     
     // Routing APi
     $app->use('/api/users', $usersApiRouter);
