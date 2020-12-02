@@ -111,3 +111,6 @@ a,
     height: 40px;
     border-radius: 100%;
 }
+.current a {
+    color: #fff !important;
+}

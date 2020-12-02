@@ -42,7 +42,10 @@
 <body>
     <div class="main-menu">
         <header class="header">
-            <a href="index.html" class="logo">NinjaTeam</a>
+            <a href="index.html" class="logo text-white">
+                <img src="/public/img/logos/logo-congo-book.png" alt="Logo de <?= config('app.name') ?>" width="40">
+                <?= config('app.name') ?>
+            </a>
             <button type="button" class="button-close fa fa-times js__menu_close"></button>
             <div class="user">
                 <a href="#" class="avatar"><img src="/public/img/default-avatar.png" alt=""><span
@@ -330,9 +333,8 @@
             <footer class="footer">
                 <ul class="list-inline">
                     <li>&copy; <?= date('Y').' '.config('app.name') ?> </li>
-                    <li><a href="#">Privacy</a></li>
-                    <li><a href="#">Terms</a></li>
-                    <li><a href="#">Help</a></li>
+
+                    <li class=" pull-right">Powred by <a href="#"><strong>Ümoja Foundation</strong></a></li>
                 </ul>
             </footer>
         </div>
