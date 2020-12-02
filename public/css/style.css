@@ -113,4 +113,22 @@ a,
 }
 .current a {
     color: #fff !important;
+    background: #581c7e !important;
+}
+
+.fixed-navbar {
+    background: #581c7e !important;
+}
+
+.fixed-navbar a,
+.fixed-navbar a .ico-item {
+    color: #fff !important;
+}
+
+.header .logo {
+    background: #581c7e !important;
+}
+
+.menu-mobile-button {
+    background:  #ffae13 !important;
 }

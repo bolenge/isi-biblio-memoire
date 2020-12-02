@@ -88,7 +88,7 @@
                                 class="menu-icon fa fa-book"></i><span>Livres</span><span
                                 class="menu-arrow fa fa-angle-down"></span></a>
                         <ul class="sub-menu js__content">
-                            <li><a href="icons-font-awesome-icons.html">En attentes</a></li>
+                            <li><a href="icons-font-awesome-icons.html"><i class="fa fa-clock-o"></i> En attentes</a></li>
                             <li><a href="icons-fontello.html">Publiés</a></li>
                         </ul>
                     </li>
@@ -135,8 +135,8 @@
         </div>
         <!-- /.pull-left -->
         <div class="pull-right">
-            <!-- /.ico-item -->
-            <a href="#" class="ico-item pulse"><span class="ico-item fa fa-bell notice-alarm js__toggle_open"
+            <!-- /.ico-item  pulse : Pour l'effet -->
+            <a href="#" class="ico-item "><span class="ico-item fa fa-bell notice-alarm js__toggle_open"
                     data-target="#notification-popup"></span></a>   
             <a href="#" class="ico-item fa fa-power-off js__logout"></a>
         </div>
