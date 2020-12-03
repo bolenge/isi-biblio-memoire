@@ -1,7 +1,7 @@
 <div class="row small-spacing">
     <div class="col-sm-4 col-xs-12">
         <div class="box-content card white">
-            <h4 class="box-title">Nouveau type</h4>
+            <h4 class="box-title">Nouvelle catégorie</h4>
             <!-- /.box-title -->
             <div class="card-content">
                 <form>
@@ -35,8 +35,8 @@
     </div>
     <div class="col-sm-8 col-xs-12">
         <div class="box-content">
-            <h3 class="box-title">Liste de types de catégories</h3>
-            <table id="table-types-categories" class="display" style="width: 100%">
+            <h3 class="box-title">Liste de catégories de livres</h3>
+            <table id="table-categories" class="display" style="width: 100%">
                 <thead>
                     <tr>
                         <th class="text-center">#</th>

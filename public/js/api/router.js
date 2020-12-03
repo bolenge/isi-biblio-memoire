@@ -45,3 +45,23 @@ router('/admin/types', () => {
 		$('#table-types-categories').editableTableWidget();
 	}
 })
+
+router('/admin/categories', () => {
+    if ($('#table-categories').length){
+        $('#table-categories').DataTable({
+            "language": {
+                "search": "Recherche",
+                "lengthMenu": "Affiche _MENU_ categories par page",
+                "zeroRecords": "Aucune information enregistrée pour l'instant",
+                "info": "Affichage _PAGE_ sur _PAGES_",
+                "infoEmpty": "Aucune information disponible",
+                "infoFiltered": "(filtered from _MAX_ total records)",
+                "paginate": {
+                    "next": "Suivant",
+                    "previous": "Précédent"
+                }
+            }
+        });
+		$('#table-categories').editableTableWidget();
+	}
+})
