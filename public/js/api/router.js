@@ -65,3 +65,23 @@ router('/admin/categories', () => {
 		$('#table-categories').editableTableWidget();
 	}
 })
+
+router('/admin/books/published', () => {
+    if ($('#table-books-published').length){
+        $('#table-books-published').DataTable({
+            "language": {
+                "search": "Recherche",
+                "lengthMenu": "Affiche _MENU_ livres par page",
+                "zeroRecords": "Aucun livre enregistrée pour l'instant",
+                "info": "Affichage _PAGE_ sur _PAGES_",
+                "infoEmpty": "Aucune information disponible",
+                "infoFiltered": "(filtered from _MAX_ total records)",
+                "paginate": {
+                    "next": "Suivant",
+                    "previous": "Précédent"
+                }
+            }
+        });
+		$('#table-books-published').editableTableWidget();
+	}
+})

@@ -1,7 +1,9 @@
 <div class="row small-spacing">
     <div class="col-xs-12">
         <div class="box-content">
-            <table id="example-edit" class="display" style="width: 100%">
+            <h3>Liste de livres publiés</h3><br>
+
+            <table id="table-books-published" class="display" style="width: 100%">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -9,7 +11,9 @@
                         <th>Catégorie</th>
                         <th>Auteur</th>
                         <th>Date soumise</th>
+                        <th>Date publié</th>
                         <th>Fichiers</th>
+                        <th class="text-center">Actions</th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -18,8 +22,10 @@
                         <th>Titre</th>
                         <th>Catégorie</th>
                         <th>Auteur</th>
-                        <th>Date soumise</th>
+                        <th>Date soumis</th>
+                        <th>Date publié</th>
                         <th>Fichiers</th>
+                        <th class="text-center">Actions</th>
                     </tr>
                 </tfoot>
                 <tbody>
@@ -30,9 +36,14 @@
                         <td>Alex</td>
                         <td>Memoire</td>
                         <td>12/10/2009</td>
+                        <td>12/10/2009</td>
                         <td>
                             <a href="#">Docs <i class="fa fa-file-word-o"></i></a> |
                             <a href="#">Audio <i class="fa fa-play"></i></a>
+                        </td>
+                        <td class="text-center">
+                            <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>
                         </td>
                     </tr>
                     <?php endfor ?>
