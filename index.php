@@ -12,6 +12,7 @@
 
     // Routers admin
     $pagesAdminRouter = require('./routes/admin/pages.php');
+    $booksAdminRouter = require('./routes/admin/books.php');
 
     // Router Api
     $usersApiRouter = require('./routes/api/users.php');
@@ -36,6 +37,7 @@
 
     // Routing admin
     $app->use('/admin', $pagesAdminRouter);
+    $app->use('/admin/books', $booksAdminRouter);
     
     // Routing APi
     $app->use('/api/users', $usersApiRouter);

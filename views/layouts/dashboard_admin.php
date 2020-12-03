@@ -30,6 +30,8 @@
     <!-- Chartist Chart -->
     <link rel="stylesheet" href="/public/admin/plugin/chart/chartist/chartist.min.css">
 
+    <link rel="stylesheet" href="/public/admin/plugin/datatables/media/css/jquery.dataTables.min.css">
+
     <!-- FullCalendar -->
     <link rel="stylesheet" href="/public/admin/plugin/fullcalendar/fullcalendar.min.css">
     <link rel="stylesheet" href="/public/admin/plugin/fullcalendar/fullcalendar.print.css" media='print'>
@@ -72,24 +74,24 @@
             <div class="navigation">
                 <!-- /.title --> 
                 <ul class="menu js__accordion">
-                    <li class="current">
+                    <li class="<?= get_active_menu('dashboard', $active, 'current') ?>">
                         <a class="waves-effect" href="index.html"><i
                                 class="menu-icon fa fa-home"></i><span>Dashboard</span></a>
                     </li>
 
-                    <li>
-                        <a class="waves-effect" href="index.html"><i class="menu-icon fa fa-th-large"></i><span>Catégories</span></a>
+                    <li class="<?= get_active_menu('categories', $active, 'current') ?>">
+                        <a class="waves-effect" href="/admin/categories"><i class="menu-icon fa fa-th-large"></i><span>Catégories</span></a>
                     </li>
 
 
-                    <li>
+                    <li class="<?= get_active_menu('books', $active, 'current') ?>">
                         
                         <a class="waves-effect parent-item js__control" href="#"><i
                                 class="menu-icon fa fa-book"></i><span>Livres</span><span
                                 class="menu-arrow fa fa-angle-down"></span></a>
                         <ul class="sub-menu js__content">
-                            <li><a href="icons-font-awesome-icons.html"><i class="fa fa-clock-o"></i> En attentes</a></li>
-                            <li><a href="icons-fontello.html">Publiés</a></li>
+                            <li><a href="/admin/books/waiting"><i class="fa fa-clock-o"></i>&nbsp;&nbsp;En attentes</a></li>
+                            <li><a href="/admin/books/published"><i class="fa fa-send"></i>&nbsp;&nbsp;Publiés</a></li>
                         </ul>
                     </li>
 
@@ -373,6 +375,12 @@
     <script src="/public/admin/plugin/moment/moment.js"></script>
     <script src="/public/admin/plugin/fullcalendar/fullcalendar.min.js"></script>
     <script src="/public/admin/scripts/fullcalendar.init.js"></script>
+
+    <!-- Data Tables -->
+    <script src="/public/admin/plugin/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="/public/admin/plugin/datatables/media/js/dataTables.bootstrap.min.js"></script>
+    <script src="/public/admin/plugin/editable-table/mindmup-editabletable.js"></script>
+    <script src="/public/admin/scripts/datatables.demo.min.js"></script>
 
     <script src="/public/admin/scripts/main.min.js"></script>
     <script src="/public/admin/color-switcher/color-switcher.min.js"></script>

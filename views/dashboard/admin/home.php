@@ -121,7 +121,7 @@
     <!-- Catégories -->
     <div class="col-lg-4 col-xs-12">
         <div class="box-content">
-            <h4 class="box-title text-success">Catégories</h4>
+            <h4 class="box-title text-info">Catégories</h4>
             <div class="dropdown js__drop_down">
                 <a href="#" class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
                 <ul class="sub-menu">
@@ -130,12 +130,12 @@
             </div>
             <div class="content widget-stat">
                 <div class="left-content">
-                    <i class="fa fa-th-large fa-4x text-success"></i>
+                    <i class="fa fa-th-large fa-4x text-info"></i>
                 </div>
 
                 <div class="right-content">
-                    <h2 class="counter text-success">15</h2>
-                    <p class="text text-success">Catégories de livres</p>
+                    <h2 class="counter text-info">15</h2>
+                    <p class="text text-info">Catégories de livres</p>
                 </div>
             </div>
         </div>
