@@ -23,10 +23,25 @@
         
     });
 
+    /**
+     * Route de type de catégorie
+     */
     $router->get('/types', function (Request $req, Response $res) {
         $res->extends('layouts/dashboard_admin');
         $res->render('dashboard/admin/types', [
             'title' => "Liste de type de catégories",
+            'active' => 'categories'
+        ]);
+        
+    });
+
+    /**
+     * Route de catégorie
+     */
+    $router->get('/categories', function (Request $req, Response $res) {
+        $res->extends('layouts/dashboard_admin');
+        $res->render('dashboard/admin/categories', [
+            'title' => "Liste de catégories de livres",
             'active' => 'categories'
         ]);
         

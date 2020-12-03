@@ -116,6 +116,10 @@ a,
     background: #581c7e !important;
 }
 
+.current a i {
+    color: #fff !important;
+}
+
 .fixed-navbar {
     background: #581c7e !important;
 }
