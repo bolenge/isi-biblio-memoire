@@ -80,7 +80,15 @@
                     </li>
 
                     <li class="<?= get_active_menu('categories', $active, 'current') ?>">
-                        <a class="waves-effect" href="/admin/categories"><i class="menu-icon fa fa-th-large"></i><span>Catégories</span></a>
+
+                        <a class="waves-effect parent-item js__control" href="#"><i
+                                class="menu-icon fa fa-th-large"></i><span>Types & Catégories</span><span
+                                class="menu-arrow fa fa-angle-down"></span></a>
+                        <ul class="sub-menu js__content">
+                            <li><a href="/admin/types"><i class="fa fa-bars"></i>&nbsp;&nbsp;Types</a>
+                            </li>
+                            <li><a href="/admin/categories"><i class="fa fa-th-large"></i>&nbsp;&nbsp;Catégories</a></li>
+                        </ul>
                     </li>
 
 
@@ -271,51 +279,6 @@
                         <span class="time">30 min</span>
                     </a>
                 </li>
-                <li>
-                    <a href="#">
-                        <span class="avatar"><img src="http://placehold.it/128x128" alt=""></span>
-                        <span class="name">Jennifer</span>
-                        <span class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit facere
-                            repellat voluptates.</span>
-                        <span class="time">45 min</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="avatar"><img src="http://placehold.it/80x80" alt=""></span>
-                        <span class="name">Helen Candy</span>
-                        <span class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit facere
-                            repellat voluptates.</span>
-                        <span class="time">45 min</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="avatar"><img src="http://placehold.it/128x128" alt=""></span>
-                        <span class="name">Anna Cavan</span>
-                        <span class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit facere
-                            repellat voluptates.</span>
-                        <span class="time">1 hour ago</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="avatar bg-success"><i class="fa fa-user"></i></span>
-                        <span class="name">Jenny Betty</span>
-                        <span class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit facere
-                            repellat voluptates.</span>
-                        <span class="time">1 day ago</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="avatar"><img src="http://placehold.it/128x128" alt=""></span>
-                        <span class="name">Denise Peterson</span>
-                        <span class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit facere
-                            repellat voluptates.</span>
-                        <span class="time">1 year ago</span>
-                    </a>
-                </li>
             </ul>
             <!-- /.notice-list -->
             <a href="#" class="notice-read-more">See more messages <i class="fa fa-angle-down"></i></a>
@@ -384,6 +347,9 @@
 
     <script src="/public/admin/scripts/main.min.js"></script>
     <script src="/public/admin/color-switcher/color-switcher.min.js"></script>
+    
+    <script src="/public/js/utils/functions.js"></script>
+    <script src="/public/js/api/router.js" type="module"></script>
 </body>
 
 </html>
