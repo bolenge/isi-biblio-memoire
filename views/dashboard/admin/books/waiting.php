@@ -1,7 +1,7 @@
 <div class="row small-spacing">
     <div class="col-xs-12">
         <div class="box-content">
-            <table id="example-edit" class="display" style="width: 100%">
+            <table id="table-books-waiting" class="display" style="width: 100%">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -10,6 +10,7 @@
                         <th>Auteur</th>
                         <th>Date soumise</th>
                         <th>Fichiers</th>
+                        <th class="text-center">Actions</th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -20,6 +21,7 @@
                         <th>Auteur</th>
                         <th>Date soumise</th>
                         <th>Fichiers</th>
+                        <th class="text-center">Actions</th>
                     </tr>
                 </tfoot>
                 <tbody>
@@ -33,6 +35,11 @@
                             <td>
                                 <a href="#">Docs <i class="fa fa-file-word-o"></i></a> |
                                 <a href="#">Audio <i class="fa fa-play"></i></a>
+                            </td>
+                            <td class="text-center">
+                                <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                                <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>
+                                <a href="#" class="btn btn-success btn-xs">Valider et Publier</a>
                             </td>
                         </tr>
                     <?php endfor ?>
