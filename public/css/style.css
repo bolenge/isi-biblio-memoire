@@ -83,10 +83,6 @@ a,
     overflow: hidden !important;
 }
 
-.content-read-book {
-
-}
-
 .px-10 {
     padding-left: 7rem !important;
     padding-right: 7rem !important;
@@ -116,6 +112,9 @@ a,
     background: #581c7e !important;
 }
 
+.current a .sub-menu .active a {
+    background: red;
+}
 .current a i {
     color: #fff !important;
 }

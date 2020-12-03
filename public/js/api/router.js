@@ -105,3 +105,23 @@ router('/admin/books/waiting', () => {
 		$('#table-books-waiting').editableTableWidget();
 	}
 })
+
+router('/admin/others', () => {
+    if ($('#table-list-others').length){
+        $('#table-list-others').DataTable({
+            "language": {
+                "search": "Recherche",
+                "lengthMenu": "Affiche _MENU_ auteurs par page",
+                "zeroRecords": "Aucun auteur enregistrée pour l'instant",
+                "info": "Affichage _PAGE_ sur _PAGES_",
+                "infoEmpty": "Aucune information disponible",
+                "infoFiltered": "(filtered from _MAX_ total records)",
+                "paginate": {
+                    "next": "Suivant",
+                    "previous": "Précédent"
+                }
+            }
+        });
+		$('#table-list-others').editableTableWidget();
+	}
+})

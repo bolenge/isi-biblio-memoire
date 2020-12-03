@@ -46,5 +46,17 @@
         ]);
         
     });
+
+    /**
+     * Route des auteurs
+     */
+    $router->get('/others', function (Request $req, Response $res) {
+        $res->extends('layouts/dashboard_admin');
+        $res->render('dashboard/admin/others', [
+            'title' => "Liste de catégories de livres",
+            'active' => 'others'
+        ]);
+        
+    });
     
     return $router;

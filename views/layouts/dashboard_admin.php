@@ -98,23 +98,23 @@
                                 class="menu-icon fa fa-book"></i><span>Livres</span><span
                                 class="menu-arrow fa fa-angle-down"></span></a>
                         <ul class="sub-menu js__content">
-                            <li><a href="/admin/books/waiting"><i class="fa fa-clock-o"></i>&nbsp;&nbsp;En attentes</a></li>
+                            <li class="active"><a href="/admin/books/waiting"><i class="fa fa-clock-o"></i>&nbsp;&nbsp;En attentes</a></li>
                             <li><a href="/admin/books/published"><i class="fa fa-send"></i>&nbsp;&nbsp;Publiés</a></li>
                         </ul>
                     </li>
 
-                    <li>
-                        <a class="waves-effect" href="index.html"><i
+                    <li class="<?= get_active_menu('others', $active, 'current') ?>">
+                        <a class="waves-effect" href="/admin/others"><i
                                 class="menu-icon fa fa-user"></i><span>Auteurs</span></a>
                     </li>
 
-                    <li>
-                        <a class="waves-effect" href="index.html"><i
+                    <li class="<?= get_active_menu('users', $active, 'current') ?>">
+                        <a class="waves-effect" href="/admin/users"><i
                                 class="menu-icon fa fa-users"></i><span>Utilisateurs</span></a>
                     </li>
 
-                    <li>
-                        <a class="waves-effect" href="index.html"><i
+                    <li class="<?= get_active_menu('subscriptions', $active, 'current') ?>">
+                        <a class="waves-effect" href="/admin/subscriptions"><i
                                 class="menu-icon fa fa-money"></i><span>Abonnement</span></a>
                     </li>
 
