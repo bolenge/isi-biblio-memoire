@@ -12,7 +12,7 @@
                         </div>
                         <div class="col-7 col-md-8">
                             <div class="numbers">
-                                <p class="card-category">Mes Livres</p>
+                                <p class="card-category"><a href="/my-books">Mes Livres</a></p>
                                 <p class="card-title">
                                     <?= is_array($count_user_books) ? 0 : $count_user_books ?>
                                 <p>
@@ -23,7 +23,7 @@
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                        <a href="#">
+                        <a href="/my-books">
                             <i class="fa fa-eye"></i>
                             Voir
                         </a>
@@ -44,7 +44,7 @@
                         </div>
                         <div class="col-7 col-md-8">
                             <div class="numbers">
-                                <p class="card-category">Livres lus</p>
+                                <p class="card-category"><a href="/my-reader">Livres lus</a></p>
                                 <p class="card-title"><?= $count_user_books_read ?><p>
                             </div>
                         </div>
@@ -53,7 +53,7 @@
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                        <a href="#">
+                        <a href="/my-reader">
                             <i class="fa fa-eye"></i>
                             Voir
                         </a>
@@ -74,7 +74,7 @@
                         </div>
                         <div class="col-7 col-md-8">
                             <div class="numbers">
-                                <p class="card-category">En cours de lecture</p>
+                                <p class="card-category"><a href="/my-reader">En cours de lecture</a></p>
                                 <p class="card-title"><?= $count_user_books_reading ?><p>
                             </div>
                         </div>
@@ -83,7 +83,7 @@
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                        <a href="#">
+                        <a href="/my-reader">
                             <i class="fa fa-eye"></i>
                             Voir
                         </a>
@@ -104,7 +104,7 @@
                         </div>
                         <div class="col-7 col-md-8">
                             <div class="numbers">
-                                <p class="card-category">Nouveautés</p>
+                                <p class="card-category"><a href="/news">Nouveautés</a></p>
                                 <p class="card-title"><?= $count_new_books ?><p>
                             </div>
                         </div>
@@ -113,7 +113,7 @@
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                        <a href="#">
+                        <a href="/news">
                             <i class="fa fa-eye"></i>
                             Voir
                         </a>
@@ -134,7 +134,7 @@
                         </div>
                         <div class="col-7 col-md-8">
                             <div class="numbers">
-                                <p class="card-category">Les plus Populaires</p>
+                                <p class="card-category"><a href="/populars">Les plus Populaires</a></p>
                                 <p class="card-title"><?= 0 ?><p>
                             </div>
                         </div>
@@ -143,7 +143,7 @@
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                        <a href="#">
+                        <a href="/populars">
                             <i class="fa fa-eye"></i>
                             Voir
                         </a>
@@ -164,7 +164,7 @@
                         </div>
                         <div class="col-7 col-md-8">
                             <div class="numbers">
-                                <p class="card-category">Nos Catégories</p>
+                                <p class="card-category"><a href="/categories">Nos Catégories</a></p>
                                 <p class="card-title" id="count-category"><i class="fa fa-spinner fa-pulse"></i><p>
                             </div>
                         </div>
@@ -173,7 +173,7 @@
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                        <a href="#">
+                        <a href="/categories">
                             <i class="fa fa-eye"></i>
                             Voir
                         </a>
