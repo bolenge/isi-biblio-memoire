@@ -56,7 +56,17 @@
             'title' => "Liste de catégories de livres",
             'active' => 'others'
         ]);
-        
+    });
+
+    /**
+     * Route des auteurs
+     */
+    $router->get('/login', function (Request $req, Response $res) {
+        $res->extends('layouts/blank');
+        $res->render('dashboard/admin/login', [
+            'title' => "Connexion administrateur",
+            'active' => 'admin'
+        ]);
     });
     
     return $router;
