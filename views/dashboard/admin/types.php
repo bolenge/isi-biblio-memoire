@@ -2,7 +2,7 @@
     <div class="col-sm-4 col-xs-12">
         <div class="box-content card white">
             <h4 class="box-title">Nouveau type</h4>
-            <!-- /.box-title -->
+            <!-- /.box-title animate__animated animate__wobble -->
             <div class="card-content">
                 <form>
                     <div class="form-group">
@@ -44,17 +44,22 @@
                     </tr>
                 </tfoot>
                 <tbody>
-                    <?php for ($i = 1;$i < 6;$i++) : ?>
-                    <tr>
-                        <td class="text-center"><?= $i ?></td>
-                        <td>Livre</td>
-                        <td>Alex</td>
-                        <td class="text-center">
-                            <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>
-                        </td>
-                    </tr>
-                    <?php endfor ?>
+                    <!-- types -->
+                    <?php if (!empty($types)) : ?>
+                        <?php $i = 1 ?>
+                        <?php foreach ($types as $type) : ?>
+                            <tr>
+                                <td class="text-center"><?= $i ?></td>
+                                <td><?= $type->intituled ?></td>
+                                <td><?= $type->description ?></td>
+                                <td class="text-center">
+                                    <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                                    <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>
+                                </td>
+                            </tr>
+                            <?php $i++ ?>
+                        <?php endforeach ?>
+                    <?php endif ?>
                 </tbody>
             </table>
         </div>

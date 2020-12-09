@@ -5,10 +5,11 @@
     use Models\UsersModel;
     use Core\Validator;
     use Core\Out;
+    use Core\Model;
 
-
-    $router = new Router;
     $adminMiddleware = require('./middlewares/admins.php');
+    $router = new Router;
+    $model = new Model;
     
     $router->get('/', function (Request $req, Response $res) {
         $res->redirect('/admin/dashboard');
@@ -33,10 +34,14 @@
         global $adminMiddleware;
         $adminMiddleware['auth']($req, $res);
 
+        global $model;
+        
+        
         $res->extends('layouts/dashboard_admin');
         $res->render('dashboard/admin/types', [
             'title' => "Liste de type de catégories",
-            'active' => 'categories'
+            'active' => 'categories',
+            'types' => $model->findExists([], "types")
         ]);
         
     });

@@ -38,6 +38,7 @@
 
     <!-- Color Picker -->
     <link rel="stylesheet" href="/public/admin/color-switcher/color-switcher.min.css">
+    <link rel="stylesheet" href="/public/node_modules/animate.css/animate.min.css">
     <link rel="stylesheet" href="/public/css/style.css">
     <link href="/public/css/loader.css" rel="stylesheet" />
 </head>
