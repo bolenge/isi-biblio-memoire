@@ -44,4 +44,40 @@
         $res->json($out);
     });
 
+    /**
+     * Route Edition type
+     */
+    $router->put('/update/:id', function (Request $req, Response $res) {
+        $model = new TypesModel;
+        $out = new Out;
+        $validator = new Validator($req);
+
+        $validator->setRules([
+            'intituled' => 'required|min:3|max:200',
+            'description' => 'required|min:5'
+        ]);
+
+        if ($validator->validator()) {
+            $result = $model->update([
+                'id' => $req->params()->get('id'),
+                'intituled' => $req->body()->intituled,
+                'description' => $req->body()->description,
+            ]);
+
+            if ($result) {
+                $out->state = true;
+                $out->message = "Mise à jou réussie !";
+                $out->result = $result;
+            } else {
+                $out->message = "Une erreur est survenue lors de la mise à jour !";
+            }
+            
+        }else {
+            $out->message = implode("<br>", session('errors'));
+            $out->message = str_replace('intituled', 'Intitulé', $out->message);
+        }
+
+        $res->json($out);
+    });
+
     return $router;
