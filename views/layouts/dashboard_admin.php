@@ -321,7 +321,7 @@
     <script src="/public/admin/plugin/bootstrap/js/bootstrap.min.js"></script>
     <script src="/public/admin/plugin/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="/public/admin/plugin/nprogress/nprogress.js"></script>
-    <script src="/public/admin/plugin/sweet-alert/sweetalert.min.js"></script>
+    <script src="/public/node_modules/sweetalert/dist/sweetalert.min.js"></script>
     <script src="/public/admin/plugin/waves/waves.min.js"></script>
     <!-- Full Screen Plugin -->
     <script src="/public/admin/plugin/fullscreen/jquery.fullscreen-min.js"></script>

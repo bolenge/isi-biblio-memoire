@@ -1,13 +1,13 @@
 <div class="row small-spacing">
-    <div class="col-sm-4 col-xs-12">
-        <div class="box-content card white">
+    <div class="col-sm-4 col-xs-12" id="col-create-type">
+        <div class="box-content card white" id="card-create-type">
             <h4 class="box-title">Nouveau type</h4>
             <!-- /.box-title animate__animated animate__wobble -->
             <div class="card-content">
-                <form>
+                <form action="#" id="form-create-type" method="POST">
                     <div class="form-group">
                         <label for="intituled">Intitulé <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="intituled" />
+                        <input type="text" class="form-control" id="intituled" name="intituled" />
                     </div>
                     <div class="form-group">
                         <label for="description">Description (facultatif)</label>

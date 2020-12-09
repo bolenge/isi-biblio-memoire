@@ -2,6 +2,7 @@ import { getCategoriesActives } from "./categories.js";
 import { initDashboard, loadCategoriesOnNavbar } from "./dashboard.js";
 import { loginUser, logOutUser, registerUser, updateUser } from "./users.js";
 import { initBooks, searchBooksForUser } from "./books.js";
+import { initTypes } from "./types.js";
 
 loadCategoriesOnNavbar();
 logOutUser();
@@ -31,23 +32,7 @@ router('/my-books/create', () => {
 
 // Admin Routing
 router('/admin/types', () => {
-    if ($('#table-types-categories').length){
-        $('#table-types-categories').DataTable({
-            "language": {
-                "search": "Recherche",
-                "lengthMenu": "Affiche _MENU_ types par page",
-                "zeroRecords": "Aucune information enregistrée pour l'instant",
-                "info": "Affichage _PAGE_ sur _PAGES_",
-                "infoEmpty": "Aucune information disponible",
-                "infoFiltered": "(filtered from _MAX_ total records)",
-                "paginate": {
-                    "next": "Suivant",
-                    "previous": "Précédent"
-                }
-            }
-        });
-		$('#table-types-categories').editableTableWidget();
-	}
+    initTypes();
 })
 
 router('/admin/categories', () => {
