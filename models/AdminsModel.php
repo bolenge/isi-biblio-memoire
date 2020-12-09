@@ -57,7 +57,7 @@
         {
             $out = new Out;
             $Admin = $this->findOne([
-                'cond' => 'email="'.$req->body()->email.'"'
+                'cond' => 'username="'.$req->body()->username.'"'
             ]);
             
             if (!empty($Admin)) {
@@ -70,10 +70,10 @@
                     }
 
                     $logged = $this->add([
-                        'idAdmin' => $Admin->id,
+                        'id_ddmin' => $Admin->id,
                         'kit' => $AdminAgent,
                         'system' => $system
-                    ], 'session_Admin');
+                    ], 'session_admins');
 
                     if ($logged) {
                         $out->state = true;
