@@ -78,35 +78,30 @@
     });
 
      /**
-     * Connexion d'un utilisateur
+     * Connexion d'un admin
      */
     $router->post('/login', function (Request $req, Response $res) {
+        global $modelAdmin;
+        global $out;
 
-        $model = new UsersModel;
-        $out = new Out;
         $validator = new Validator($req);
 
         $validator->setRules([
-            'email' => 'required|email',
+            'username' => 'required',
             'password' => 'required|min:8'
         ]);
 
         if ($validator->validator()) {
-            $out = $model->loginUser($req);
+            $out = $modelAdmin->loginAdmin($req);
 
             if ($out->state) {
-                session('user', [
+                session('admin', [
                     'state' => $out->result->state,
                     'name' => $out->result->name,
                     'firstName' => $out->result->firstName,
-                    'lastName' => $out->result->lastName,
                     'email' => $out->result->email,
                     'id' => $out->result->id
                 ]);
-
-                // if ($req->body()->remember) {
-                //     setcookie('user_remember', base64_encode(encode_id($out->result->id).'_'.$out->result->email), 3600 * 30);
-                // }
             }
         }else {
             $out->message = implode("<br>", session('errors'));

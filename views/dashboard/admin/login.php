@@ -39,6 +39,7 @@
     <!-- Color Picker -->
     <link rel="stylesheet" href="/public/admin/color-switcher/color-switcher.min.css">
     <link rel="stylesheet" href="/public/css/style.css">
+    <link href="/public/css/loader.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -48,7 +49,7 @@
             <img src="/public/img/logos/logo-congo-book.png" alt="Logo de CongoBook" width="40px">
             <strong style="font-size: 20px;" class="text-primary"><?= config('app.name') ?></strong>
         </div>
-        <form action="#" class="frm-single">
+        <form action="#" class="frm-single" id="form-login-admin">
             <div class="inside">
                 <div class="title margin-bottom-20"><strong>Connexion Admin</strong></div>
                 <!-- /.frm-title -->

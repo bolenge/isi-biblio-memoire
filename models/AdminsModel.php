@@ -70,7 +70,7 @@
                     }
 
                     $logged = $this->add([
-                        'id_ddmin' => $Admin->id,
+                        'id_admin' => $Admin->id,
                         'kit' => $AdminAgent,
                         'system' => $system
                     ], 'session_admins');

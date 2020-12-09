@@ -5,7 +5,7 @@
     use Ekolo\Builder\Bin\Application;
 
     $app = new Application;
-
+    
     // routers
     $pages = require('./routes/pages.php');
     $users = require('./routes/users.php');
