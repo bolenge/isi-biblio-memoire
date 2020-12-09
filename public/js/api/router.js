@@ -6,6 +6,16 @@ import { initBooks } from "./books.js";
 loadCategoriesOnNavbar();
 logOutUser();
 
+$('#input-search').on('focus', function (e) {
+    $('#block-search').addClass('call-block-search');
+    $('#block-search').removeClass('close-call-block-search');
+})
+
+$('#btn-close-search').on('click', function (e) {
+    $('#block-search').removeClass('call-block-search');
+    $('#block-search').addClass('close-call-block-search');
+})
+
 router('/register', () => {
     registerUser()
 })

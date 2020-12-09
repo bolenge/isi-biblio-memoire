@@ -138,13 +138,77 @@ a,
 
 #block-search {
     width: 80%;
-    height: 1000px;
     overflow: auto;
     background: rgba(255,255,255,1);
     position: absolute;
-    top: 10%;
-    z-index: 999999;
     right: 0;
     padding: 1.5rem;
     box-shadow: 2px solid #ccc;
+    /* opacity: 0; 
+    visibility: hidden;*/
+}
+
+.call-block-search {
+    top: 10%;
+    height: 1000px;
+    z-index: 999999;
+    opacity: 1;
+    visibility: visible;
+    animation: searchBook linear .45;
+}
+
+.close-call-block-search {
+    top: -80%;
+    z-index: 0;
+    opacity: 1;
+    visibility: hidden;
+    animation: StopSearchBook linear .45;
+}
+
+@keyframes searchBook {
+    0% {
+        top: -80%;
+        opacity: 0.4;
+        visibility: visible;
+    }
+
+    25% {
+        top: -40%;
+        opacity: 0.6;
+        visibility: visible;
+    }
+
+    50% {
+        top: -20%;
+        opacity: 0.8;
+        visibility: visible;
+    }
+
+    100% {
+        top: 10%;
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@keyframes StopSearchBook {
+    0% {
+        top: -20%;
+        opacity: 0.8;
+    }
+
+    25% {
+        top: -40%;
+        opacity: 0.6;
+    }
+
+    50% {
+        top: -80%;
+        opacity: 0.2;
+    }
+
+    100% {
+        top: 10%;
+        opacity: 0;
+    }
 }
