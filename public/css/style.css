@@ -135,3 +135,16 @@ a,
 .menu-mobile-button {
     background:  #ffae13 !important;
 }
+
+#block-search {
+    width: 80%;
+    height: 1000px;
+    overflow: auto;
+    background: rgba(255,255,255,1);
+    position: absolute;
+    top: 10%;
+    z-index: 999999;
+    right: 0;
+    padding: 1.5rem;
+    box-shadow: 2px solid #ccc;
+}

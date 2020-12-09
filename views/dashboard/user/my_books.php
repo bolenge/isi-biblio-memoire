@@ -84,6 +84,10 @@
                                         </tr>
                                         <?php $i++ ?>
                                     <?php endforeach ?>
+                                <?php else: ?>
+                                    <tr>
+                                        <td colspan="8" class="lead text-center">Vous n'avez publié aucun livre</td>
+                                    </tr>
                                 <?php endif ?>
                             </tbody>
                         </table>
