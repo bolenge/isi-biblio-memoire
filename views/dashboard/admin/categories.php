@@ -56,18 +56,21 @@
                     </tr>
                 </tfoot>
                 <tbody>
-                    <?php for ($i = 1;$i < 6;$i++) : ?>
-                    <tr>
-                        <td class="text-center"><?= $i ?></td>
-                        <td>Type</td>
-                        <td>Livre</td>
-                        <td>Alex</td>
-                        <td class="text-center">
-                            <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>
-                        </td>
-                    </tr>
-                    <?php endfor ?>
+                    <?php if (!empty($categories)) : ?>
+                        <?php $i = 1; ?>
+                        <?php foreach ($categories as $categorie) : ?>
+                            <tr>
+                                <td class="text-center"><?= $i ?></td>
+                                <td><?= $categorie->type ?></td>
+                                <td><?= $categorie->intituled ?></td>
+                                <td><?= $categorie->description ?></td>
+                                <td class="text-center">
+                                    <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                                    <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>
+                                </td>
+                            </tr>
+                        <?php endforeach ?>
+                    <?php endif ?>
                 </tbody>
             </table>
         </div>

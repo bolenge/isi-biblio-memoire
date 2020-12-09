@@ -36,7 +36,6 @@
 
         global $model;
         
-        
         $res->extends('layouts/dashboard_admin');
         $res->render('dashboard/admin/types', [
             'title' => "Liste de type de catégories",
@@ -53,10 +52,17 @@
         global $adminMiddleware;
         $adminMiddleware['auth']($req, $res);
 
+        global $model;
+
         $res->extends('layouts/dashboard_admin');
         $res->render('dashboard/admin/categories', [
             'title' => "Liste de catégories de livres",
-            'active' => 'categories'
+            'active' => 'categories',
+            'types' => $model->findExists([], "types"),
+            'categories' => $model->find([
+                'champs' => 'C.id, C.intituled, C.description, T.intituled AS type',
+                'cond' => 'C.idType = T.id AND C.flag = "true"'
+            ], "categories AS C, types AS T")
         ]);
         
     });
