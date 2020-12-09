@@ -113,7 +113,7 @@
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
                         <form>
                             <div class="input-group no-border">
-                                <input type="text" value="" class="form-control" placeholder="Recherche..." style="width: 350px;" id="input-search">
+                                <input type="text" class="form-control" placeholder="Recherche..." style="width: 350px;" id="input-search">
                                 <div class="input-group-append">
                                     <div class="input-group-text">
                                         <i class="nc-icon nc-zoom-split"></i>

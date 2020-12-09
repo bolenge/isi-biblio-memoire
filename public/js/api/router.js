@@ -6,6 +6,7 @@ import { initBooks } from "./books.js";
 loadCategoriesOnNavbar();
 logOutUser();
 
+// Searching book
 $('#input-search').on('focus', function (e) {
     $('#block-search').addClass('call-block-search');
     $('#block-search').removeClass('close-call-block-search');
@@ -14,6 +15,30 @@ $('#input-search').on('focus', function (e) {
 $('#btn-close-search').on('click', function (e) {
     $('#block-search').removeClass('call-block-search');
     $('#block-search').addClass('close-call-block-search');
+})
+
+$('#input-search').on('keyup', function (e) {
+    let value = this.value;
+
+    value = value.trim();
+
+    if (value.length > 0) {
+
+        $.ajax({
+            type: "POST",
+            url: "/api/books/search",
+            data: {
+                query: value
+            },
+            dataType: "json",
+            success: function (response) {
+                console.log(response);
+            },
+            error: (err) => {
+                console.log(err);
+            }
+        });
+    }
 })
 
 router('/register', () => {

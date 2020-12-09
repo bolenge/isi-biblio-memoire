@@ -88,10 +88,9 @@
         $res->json($out);
     });
 
-    $router->get('/news', function (Request $req, Response $res) {
+    $router->post('/search', function (Request $req, Response $res) {
         $model = new BooksModel;
-
-        $out = new Out;
+        $res->json($model->searchBooks($req->body()->query));
     });
 
     return $router;
