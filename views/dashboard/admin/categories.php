@@ -8,8 +8,13 @@
                     <div class="form-group">
                         <label for="intituled">Type <span class="text-danger">*</span></label>
                         <select name="type" id="type" class="form-control">
-                            <option value="1">Type 1</option>
-                            <option value="1">Type 2</option>
+                            <?php if (!empty($types)) : ?>
+                                <?php foreach ($types as $type) : ?>
+                                    <option value="<?= $type->id ?>"><?= $type->intituled ?></option>
+                                <?php endforeach ?>
+                            <?php else: ?>
+                                <option value="">Aucun type disponible</option>
+                            <?php endif ?>
                         </select>
                     </div>
 
@@ -63,7 +68,7 @@
                                 <td class="text-center"><?= $i ?></td>
                                 <td><?= $categorie->type ?></td>
                                 <td><?= $categorie->intituled ?></td>
-                                <td><?= $categorie->description ?></td>
+                                <td><?= sub_string($categorie->description, 12) ?></td>
                                 <td class="text-center">
                                     <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
                                     <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>
