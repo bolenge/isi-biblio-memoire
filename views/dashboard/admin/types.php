@@ -1,9 +1,9 @@
 <div class="row small-spacing">
     <div class="col-sm-4 col-xs-12" id="col-create-type">
         <div class="box-content card white" id="card-create-type">
-            <h4 class="box-title">Nouveau type</h4>
-            <!-- /.box-title animate__animated animate__wobble -->
-            <div class="card-content">
+            <h4 class="box-title" id="title-create-type">Nouveau type</h4>
+            <!-- /.box-title  -->
+            <div class="card-content" id="content-card-create-type">
                 <form action="#" id="form-create-type" method="POST">
                     <div class="form-group">
                         <label for="intituled">Intitulé <span class="text-danger">*</span></label>
@@ -53,7 +53,7 @@
                                 <td><?= $type->intituled ?></td>
                                 <td><?= $type->description ?></td>
                                 <td class="text-center">
-                                    <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                                    <a href="#" class="btn btn-primary btn-xs btn-edit-type" data-id="<?= $type->id ?>"><i class="fa fa-pencil"></i></a>
                                     <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>
                                 </td>
                             </tr>

@@ -28,4 +28,20 @@
         $res->json($out);
     });
 
+    $router->get('/:id', function (Request $req, Response $res) {
+        $model = new TypesModel;
+        $out = new Out;
+        $type = $model->findOneExistsById($req->params()->get('id'));
+
+        if (!empty($type)) {
+            $out->state = true;
+            $out->message = "Type trouvé avec succès";
+            $out->result = $type;
+        }else {
+            $out->message = "Aucun type trouvé";
+        }
+
+        $res->json($out);
+    });
+
     return $router;

@@ -22,7 +22,8 @@ export function initTypes() {
 		$('#table-types-categories').editableTableWidget();
     }
     
-   createType()
+    createType();
+    editType();
 }
 
 /**
@@ -177,5 +178,67 @@ export function searchtypesForUser() {
                 }
             });
         }
+    })
+}
+
+
+/**
+ * Edition d'un type
+ */
+export function editType() {
+    $('.btn-edit-type').on('click', function (e) { 
+        e.preventDefault();
+
+        const id_type = $(this).attr('data-id');
+
+        swal({
+            title: "Editer ce type ?",
+            text: "",
+            icon: "warning",
+            buttons: ["Non","Oui"],
+            dangerMode: true
+        }).then((yes) => {
+            if (yes) {
+                $.ajax({
+                    type: "GET",
+                    url: "/api/types/"+id_type,
+                    dataType: "json",
+                    success: function (response) {
+                        console.log(response);
+                        if (response) {
+                            if (response.state) {
+                                $('#title-create-type').html('Edition du type');
+                                $('#content-card-create-type').html(`<form action="#" id="form-update-type" method="POST">
+                                    <input type="hidden" id="id_type" name="id_type" value="${response.result.id}" />
+                                    <div class="form-group">
+                                        <label for="intituled">Intitulé <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="intituled" name="intituled" value="${response.result.intituled || ""}" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="description">Description (facultatif)</label>
+                                        <textarea name="description" id="description" class="form-control">${response.result.description}</textarea>
+                                    </div>
+                                    
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-primary btn-sm waves-effect waves-light">Modifier <i class="fa fa-pencil"></i></button>
+                                    </div>
+                                </form>`);
+
+                                $('#card-create-type').removeClass('animate__animated animate__wobble');
+                                $('#card-create-type').addClass('animate__animated animate__wobble');
+                            } else {
+                                swal("Alert !", response.message, "warning")
+                            }
+                        } else {
+                            swal("Alert !", "Une erreur est survenue, réessayez !", "warning");
+                        }
+                    },
+                    error: (err) => {
+                        swal("Alert !", "Une erreur est survenue, réessayez !", "warning");
+                    }
+                });
+                
+            }
+        })
     })
 }

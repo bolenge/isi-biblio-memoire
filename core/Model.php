@@ -120,4 +120,17 @@
                 'cond' => 'id='.$id
             ], $table);
         }
+
+        /**
+         * Récupération d'une entrée qui existe par son id
+         * @param int $id L'ID de la ressource
+         * @param string $table La table où récuperer (par défaut ca prend la table assigné au model)
+         * @return object
+         */
+        public function findOneExistsById(int $id, string $table = null)
+        {
+            return current($this->findExists([
+                'cond' => 'id='.$id
+            ], $table));
+        }
     }
