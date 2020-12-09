@@ -24,6 +24,7 @@ export function initTypes() {
     
     createType();
     editType();
+    deleteType();
 }
 
 /**
@@ -222,6 +223,53 @@ export function updateType(type) {
                 }).then((ok) => {
                     // 
                 })
+            }
+        })
+    })
+}
+
+/**
+ * Suppression d'un type
+ */
+export function deleteType() {
+    $('.btn-delete-type').on('click', function (e) {
+        e.preventDefault();
+
+        const $this = this;
+
+        swal({
+            title: "Supprimer ce type ?",
+            text: "Cette suppression peut entrainer la disparition de certains livres ou catégories",
+            icon: "warning",
+            buttons: ["Non", "Oui"],
+            dangerMode: true
+        }).then((yes) => {
+            if (yes) {
+                const id_type = $($this).attr('data-id');
+
+                $.ajax({
+                    type: "DELETE",
+                    url: "/api/types/delete/"+id_type,
+                    dataType: "json",
+                    success: function (response) {
+                        console.log(response);
+                        if (response) {
+                            if (response.state) {
+                                swal("Suppression réussie !", "", "success").then((ok) => {
+                                    window.location.reload();
+                                })
+                            } else {
+                                swal("Erreur !", response.message, "warning");
+                            }
+                        } else {
+                            swal("Erreur !", "Une erreur est survenue, réessayez !", "warning");
+                        }
+                    },
+                    error: (err) => {
+                        console.log(err);
+                        swal("Erreur !", "Une erreur est survenue, réessayez !", "warning");
+                    }
+                });
             }
         })
     })

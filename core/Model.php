@@ -35,6 +35,8 @@
                 }else {
                     $req['cond'] .= 'flag="true"';
                 }
+            }else {
+                $req['cond'] = 'flag="true"';
             }
 
             return $this->find($req, $table);
