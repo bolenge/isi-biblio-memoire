@@ -511,4 +511,38 @@
 
             return $this->out;
         }
+
+        /**
+         * Récupération de livres en attente
+         * @param int $limit
+         * @return Out
+         */
+        public function getBooksWaiting(int $limit = null)
+        {
+            $sql = 'SELECT B.id, B.title, B.description, B.createdAt, B.updatedAt, B.state, B.flag, B.statePub, B.other, 
+                           B.idUserOwner, B.idCategory, B.fileDoc, B.fileAudio, B.cover, B.dateOfficial, B.datePub,
+                           C.intituled AS category, C.description AS descCategory
+                    FROM books AS B, categories AS C
+                    WHERE B.idCategory = C.id
+                      AND B.flag="true"
+                      AND B.statePub="flase"
+                      AND B.state="true"';
+
+            $sql .= ' ORDER BY id DESC';
+            $sql .= !empty($limit) ? ' LIMIT '.$limit : '';
+
+            $q = $this->db->prepare($sql);
+            $q->execute();
+            $books = $q->fetchAll(\PDO::FETCH_OBJ);
+
+            if (!empty($books)) {
+                $this->out->state = true;
+                $this->out->message = "Livres trouvés avec succès";
+                $this->out->result = $books;
+            }else {
+                $this->out->message = "Aucun nouveau livre trouvé";
+            }
+
+            return $this->out;
+        }
     }

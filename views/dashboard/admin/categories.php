@@ -1,13 +1,13 @@
 <div class="row small-spacing">
-    <div class="col-sm-4 col-xs-12">
-        <div class="box-content card white">
+    <div class="col-sm-4 col-xs-12" id="col-create-category">
+        <div class="box-content card white" id="card-create-category">
             <h4 class="box-title">Nouvelle catégorie</h4>
             <!-- /.box-title -->
             <div class="card-content">
-                <form>
+                <form action="#" id="form-create-category">
                     <div class="form-group">
                         <label for="intituled">Type <span class="text-danger">*</span></label>
-                        <select name="type" id="type" class="form-control">
+                        <select name="type" id="type" class="form-control" required>
                             <?php if (!empty($types)) : ?>
                                 <?php foreach ($types as $type) : ?>
                                     <option value="<?= $type->id ?>"><?= $type->intituled ?></option>
@@ -20,7 +20,7 @@
 
                     <div class="form-group">
                         <label for="intituled">Intitulé <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="intituled" />
+                        <input type="text" class="form-control" id="intituled" name="intituled" required minlength="2" />
                     </div>
 
                     <div class="form-group">
