@@ -112,4 +112,27 @@
         $res->json($out);
     });
 
+    /**
+     * Route de suppression d'une catégorie
+     */
+    $router->delete('/delete/:id', function (Request $req, Response $res) {
+        $model = new CategoriesModel;
+        $out = new Out;
+
+        $result = $model->update([
+            'id' => $req->params()->get('id'),
+            'flag' => 'false'
+        ]);
+
+        if ($result) {
+            $out->state = true;
+            $out->message = "Suppression réussie !";
+            $out->result = $result;
+        } else {
+            $out->message = "Une erreur est survenue lors de la suppression !";
+        }
+
+        $res->json($out);
+    });
+
     return $router;

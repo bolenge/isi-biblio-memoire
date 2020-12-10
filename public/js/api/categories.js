@@ -23,7 +23,8 @@ export function initCategories() {
     }
     
     createCategory();
-    editCategory()
+    editCategory();
+    deleteCategory();
 }
 
 /**
@@ -280,6 +281,53 @@ export function updateCategory(category) {
                 }).then((ok) => {
                     // 
                 })
+            }
+        })
+    })
+}
+
+/**
+ * Suppression d'un type
+ */
+export function deleteCategory() {
+    $('.btn-delete-category').on('click', function (e) {
+        e.preventDefault();
+
+        const $this = this;
+
+        swal({
+            title: "Supprimer cette catégorie ?",
+            text: "Cette suppression peut entrainer la disparition de certains livres",
+            icon: "warning",
+            buttons: ["Non", "Oui"],
+            dangerMode: true
+        }).then((yes) => {
+            if (yes) {
+                const id_category = $($this).attr('data-id');
+
+                $.ajax({
+                    type: "DELETE",
+                    url: "/api/categories/delete/"+id_category,
+                    dataType: "json",
+                    success: function (response) {
+                        console.log(response);
+                        if (response) {
+                            if (response.state) {
+                                swal("Suppression réussie !", "", "success").then((ok) => {
+                                    window.location.reload();
+                                })
+                            } else {
+                                swal("Erreur !", response.message, "warning");
+                            }
+                        } else {
+                            swal("Erreur !", "Une erreur est survenue, réessayez !", "warning");
+                        }
+                    },
+                    error: (err) => {
+                        console.log(err);
+                        swal("Erreur !", "Une erreur est survenue, réessayez !", "warning");
+                    }
+                });
             }
         })
     })

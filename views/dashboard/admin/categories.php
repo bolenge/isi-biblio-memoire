@@ -71,7 +71,7 @@
                                 <td><?= sub_string($categorie->description, 12) ?></td>
                                 <td class="text-center">
                                     <a href="#" data-id="<?= $categorie->id ?>" class="btn btn-primary btn-xs btn-edit-category"><i class="fa fa-pencil"></i></a>
-                                    <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>
+                                    <a href="#" data-id="<?= $categorie->id ?>" class="btn btn-danger btn-xs btn-delete-category"><i class="fa fa-trash-o"></i></a>
                                 </td>
                             </tr>
                             <?php $i++ ?>
