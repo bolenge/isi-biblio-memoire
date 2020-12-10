@@ -62,7 +62,7 @@
                     <div class="control-list">
                         <div class="control-item"><a href="/admin/profile"><i class="fa fa-user"></i> Profile</a></div>
                         <div class="control-item"><a href="/admin/reset-password"><i class="fa fa-gear"></i> Changer mot de passe</a></div>
-                        <div class="control-item"><a href="/admin/logout"><i class="fa fa-sign-out"></i> Déconnexion</a></div>
+                        <div class="control-item"><a href="/admin/logout" class="btn_logout"><i class="fa fa-sign-out"></i> Déconnexion</a></div>
                     </div>
                     <!-- /.control-list -->
                 </div>
@@ -149,7 +149,7 @@
             <!-- /.ico-item  pulse : Pour l'effet -->
             <a href="#" class="ico-item "><span class="ico-item fa fa-bell notice-alarm js__toggle_open"
                     data-target="#notification-popup"></span></a>   
-            <a href="#" class="ico-item fa fa-power-off js__logout"></a>
+            <a href="#" class="ico-item fa fa-power-off btn_logout"></a>
         </div>
         <!-- /.pull-right -->
     </div>

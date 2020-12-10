@@ -112,20 +112,19 @@
     });
 
     /**
-     * Déconnexion d'un utilisateur
+     * Déconnexion d'un admin
      */
     $router->put('/logout', function (Request $req, Response $res) {
+        global $modelAdmin;
 
-        $model = new UsersModel;
-
-        $out = $model->logout([
-            'id_user' => session('user')['id'],
+        $out = $modelAdmin->logout([
+            'id_admin' => session('admin')['id'],
             'dateLogout' => date('Y-m-d h:i:s')
         ]);
 
         if ($out->state) {
-            session('user', null);
-            session()->remove('user');
+            session('admin', null);
+            session()->remove('admin');
         }
 
         $res->json($out);

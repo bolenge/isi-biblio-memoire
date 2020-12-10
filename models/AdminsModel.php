@@ -93,22 +93,22 @@
         }
 
         /**
-         * Déconnexion d'un utilisateur
+         * Déconnexion d'un admin
          * @param array $data
          * @return Out
          */
         public function logout(array $data)
         {
             $out = new Out;
-            $Admin = $this->update([
-                'idAdmin' => $data['id_Admin'],
+            $admin = $this->update([
+                'id_admin' => $data['id_admin'],
                 'dateLogout' => $data['dateLogout']
-            ], 'session_Admin', 'id_Admin');
+            ], 'session_admins', 'id_admin');
             
-            if ($Admin) {
+            if ($admin) {
                 $out->state = true;
                 $out->message = "Vous êtes déconnecté avec succès";
-                $out->result = $Admin;
+                $out->result = $admin;
             }else {
                 $out->message = "Une erreur est survenue lors de la déconnexion !";
             }

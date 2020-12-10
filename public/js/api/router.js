@@ -3,6 +3,7 @@ import { initDashboard, loadCategoriesOnNavbar } from "./dashboard.js";
 import { loginUser, logOutUser, registerUser, updateUser } from "./users.js";
 import { initBooks, searchBooksForUser } from "./books.js";
 import { initTypes } from "./types.js";
+import { logoutAdmin } from "./admins.js";
 
 loadCategoriesOnNavbar();
 logOutUser();
@@ -166,4 +167,8 @@ router('/admin/login', () => {
             }
         });
     })
+})
+
+routerRegex("/admin/", function () {
+    logoutAdmin();
 })
