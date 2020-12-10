@@ -34,10 +34,17 @@
      * Route de livres publiés
      */
     $router->get('/published', function (Request $req, Response $res) {
+        global $userMiddleware;
+
+        $userMiddleware["auth"]($req, $res);
+
+        global $booksModel;
+
         $res->extends('layouts/dashboard_admin');
         $res->render('dashboard/admin/books/published', [
             'title' => "Administration ".config('app.name'),
-            'active' => 'books'
+            'active' => 'books',
+            'books' => $booksModel->getBooksPublished()->result
         ]);
         
     });
