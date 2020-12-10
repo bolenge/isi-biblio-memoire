@@ -23,6 +23,7 @@ export function initCategories() {
     }
     
     createCategory();
+    editCategory()
 }
 
 /**
@@ -100,6 +101,148 @@ export function createCategory() {
                         
                         swal({
                             title: "Création catégorie réussie !",
+                            text: "",
+                            icon: "success",
+                            button: "Ok",
+                        }).then((ok) => {
+                            window.location.reload();
+                        })
+                    } else {
+                        swal({
+                            title: "Alert !",
+                            text: response.message,
+                            icon: "warning",
+                            button: true
+                        }).then((ok) => {
+                            // 
+                        })
+                    }
+                } else {
+                    swal({
+                        title: "Alert !",
+                        text: "Une erreur est survenue, réessayez",
+                        icon: "warning",
+                        button: true
+                    }).then((ok) => {
+                        // 
+                    })
+                }
+            },
+            error: (err) => {
+                console.log(err)
+                swal({
+                    title: "Alert !",
+                    text: "Une erreur est survenue, réessayez",
+                    icon: "warning",
+                    button: true
+                }).then((ok) => {
+                    // 
+                })
+            }
+        })
+    })
+}
+
+/**
+ * Edition d'une categorie
+ */
+export function editCategory() {
+    $('.btn-edit-category').on('click', function (e) { 
+        e.preventDefault();
+
+        const id_category = $(this).attr('data-id');
+
+        swal({
+            title: "Editer cette categorie ?",
+            text: "",
+            icon: "warning",
+            buttons: ["Non","Oui"],
+            dangerMode: true
+        }).then((yes) => {
+            if (yes) {
+                ajaxGet("/api/categories/for/update/" + id_category, function (response) {
+                    console.log(response);
+                        if (response) {
+                            if (response.state) {
+                                let options = "";
+
+                                if (response.result.types.length > 0) {
+                                    for (let i = 0; i < response.result.types.length; i++) {
+                                        options += `<option value="${response.result.types[i].id}" ${response.result.types[i].id == response.result.category.idType ? "selected" : ""}>${response.result.types[i].intituled}</option>`;
+                                    }
+                                } else {
+                                    options += `<option value="">Aucun type</option>`;
+                                }
+
+                                $('#title-create-category').html('Edition d\'une catégorie');
+                                $('#content-card-create-type').html(`<form action="#" id="form-update-category">
+                                    <div class="form-group">
+                                        <label for="intituled">Type <span class="text-danger">*</span></label>
+                                        <select name="type" id="type" class="form-control" required>
+                                            ${options}
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="intituled">Intitulé <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="intituled" name="intituled" required minlength="2" value="${response.result.category.intituled || ""}" />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="description">Description (facultatif)</label>
+                                        <textarea name="description" id="description" class="form-control">${response.result.category.description || ""}</textarea>
+                                    </div>
+
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-primary btn-sm waves-effect waves-light">Modifier <i class="fa fa-save"></i></button>
+                                    </div>
+                                </form>`);
+
+                                $('#card-create-category').removeClass('animate__animated animate__wobble');
+                                $('#card-create-category').addClass('animate__animated animate__wobble');
+
+                                updateCategory(response.result.category.id);
+                            } else {
+                                swal("Alert !", response.message, "warning")
+                            }
+                        } else {
+                            swal("Alert !", "Une erreur est survenue, réessayez !", "warning");
+                        }
+                })
+                
+            }
+        })
+    })
+}
+
+/**
+ * Modification d'une catégorie
+ * @param {Number} category L'ID de la catégorie à modifier
+ */
+export function updateCategory(category) {
+    $('#form-update-category').on('submit', function (e) {
+        e.preventDefault();
+        const $this = this;
+        
+        $.ajax({
+            url: '/api/categories/update/'+category,
+            type: "PUT",
+            data: $(this).serialize(),
+            dataType: 'json',
+            beforeSend: () => {
+                makeSuperLoader($('#card-create-category'))
+            },
+            complete: () => {
+                stopSuperLoader($('#card-create-category'))
+            },
+            success: (response) => {
+                console.log(response);
+                if (response) {
+                    if (response.state) {
+                        $this.reset();
+                        
+                        swal({
+                            title: "Mise à jour réussie !",
                             text: "",
                             icon: "success",
                             button: "Ok",

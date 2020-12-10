@@ -1,9 +1,9 @@
 <div class="row small-spacing">
     <div class="col-sm-4 col-xs-12" id="col-create-category">
         <div class="box-content card white" id="card-create-category">
-            <h4 class="box-title">Nouvelle catégorie</h4>
+            <h4 class="box-title" id="title-create-category">Nouvelle catégorie</h4>
             <!-- /.box-title -->
-            <div class="card-content">
+            <div class="card-content" id="content-card-create-type">
                 <form action="#" id="form-create-category">
                     <div class="form-group">
                         <label for="intituled">Type <span class="text-danger">*</span></label>
@@ -70,10 +70,11 @@
                                 <td><?= $categorie->intituled ?></td>
                                 <td><?= sub_string($categorie->description, 12) ?></td>
                                 <td class="text-center">
-                                    <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                                    <a href="#" data-id="<?= $categorie->id ?>" class="btn btn-primary btn-xs btn-edit-category"><i class="fa fa-pencil"></i></a>
                                     <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>
                                 </td>
                             </tr>
+                            <?php $i++ ?>
                         <?php endforeach ?>
                     <?php endif ?>
                 </tbody>

@@ -179,3 +179,35 @@ function alertNoReadUnPubBook() {
         button: "Ok"
     })
 }
+
+/**
+ * Renvoi les données stockées dans l'element #data
+ * @returns {Object}
+ */
+function getData() {
+    return $('#data').length ? JSON.parse($('#data').attr('data')) : null;
+}
+
+/**
+ * Requête rapide ajax
+ * @param {String} url L'uri vers la source
+ * @param {Function} callback 
+ */
+function ajaxGet(url, callback) {
+    $.ajax({
+        url: url,
+        type: "GET",
+        dataType: "json",
+        success: function (response) {
+            callback(response);
+        },
+        error: (err) => {
+            console.log(err);
+            callback({
+                state: false,
+                message: "Une erreur est survenue, réessayez",
+                result: null
+            })
+        }
+    });
+}

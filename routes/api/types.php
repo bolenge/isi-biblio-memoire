@@ -28,6 +28,9 @@
         $res->json($out);
     });
 
+    /**
+     * Route de récupération d'un type par son ID
+     */
     $router->get('/:id', function (Request $req, Response $res) {
         $model = new TypesModel;
         $out = new Out;
@@ -101,6 +104,13 @@
         }
 
         $res->json($out);
+    });
+
+    /**
+     * Route de récupération de types actives
+     */
+    $router->get('/all/actives', function (Request $req, Response $res){
+        $res->json((new TypesModel)->allActives());
     });
 
     return $router;
