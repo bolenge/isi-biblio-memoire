@@ -525,7 +525,7 @@
                     FROM books AS B, categories AS C
                     WHERE B.idCategory = C.id
                       AND B.flag="true"
-                      AND B.statePub="flase"
+                      AND B.statePub="false"
                       AND B.state="true"';
 
             $sql .= ' ORDER BY id DESC';
@@ -540,7 +540,7 @@
                 $this->out->message = "Livres trouvés avec succès";
                 $this->out->result = $books;
             }else {
-                $this->out->message = "Aucun nouveau livre trouvé";
+                $this->out->message = "Aucun livre trouvé";
             }
 
             return $this->out;

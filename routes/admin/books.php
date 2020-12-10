@@ -2,22 +2,30 @@
     use Ekolo\Builder\Routing\Router;
     use Ekolo\Builder\Http\Request;
     use Ekolo\Builder\Http\Response;
-    use Models\UsersModel;
+    use Models\BooksModel;
     use Core\Validator;
     use Core\Out;
 
 
     $router = new Router;
-    $userMiddleware = require('./middlewares/users.php');
+    $userMiddleware = require('./middlewares/admins.php');
+    $booksModel = new BooksModel;
 
     /**
      * Route de livres en attente
      */
     $router->get('/waiting', function (Request $req, Response $res) {
+        global $userMiddleware;
+
+        $userMiddleware["auth"]($req, $res);
+
+        global $booksModel;
+
         $res->extends('layouts/dashboard_admin');
         $res->render('dashboard/admin/books/waiting', [
             'title' => "Administration ".config('app.name'),
-            'active' => 'books'
+            'active' => 'books',
+            'books' => $booksModel->getBooksWaiting()->result
         ]);
         
     });
