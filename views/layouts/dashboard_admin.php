@@ -77,8 +77,7 @@
                 <!-- /.title --> 
                 <ul class="menu js__accordion">
                     <li class="<?= get_active_menu('dashboard', $active, 'current') ?>">
-                        <a class="waves-effect" href="index.html"><i
-                                class="menu-icon fa fa-home"></i><span>Dashboard</span></a>
+                        <a class="waves-effect" href="/admin/dashboard"><i class="menu-icon fa fa-home"></i><span>Dashboard</span></a>
                     </li>
 
                     <li class="<?= get_active_menu('categories', $active, 'current') ?>">

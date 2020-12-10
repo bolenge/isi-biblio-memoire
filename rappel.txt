@@ -1,3 +1,4 @@
 > Travailler le design de la disposition d'un book
 > Nombre de books Les Plus Populaires dans le dashboard client
 > Vérifier si le compte de l'utilisateur est activé pour l'exiger de le faire
+> Reprendre la lecture au chapitre encours
