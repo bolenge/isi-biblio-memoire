@@ -31,8 +31,8 @@
 
                             <textarea name="content" id="editor"></textarea>
 
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary">Enregistrer <i class="fa fa-save"></i></button>
+                            <div class="form-group text-center pt-5">
+                                <button type="submit" class="btn btn-primary mt-5">Enregistrer <i class="fa fa-save"></i></button>
                             </div>
                         </form>
                     </div>
@@ -40,7 +40,17 @@
                 <div class="col-lg-3">
                     <p>
                         <strong>Chapitres enregistrés</strong><br>
-                        <span>Intitule livre</span>
+                        <?php if (!empty($book->chapters)) : ?>
+                            <ul>
+                                <?php foreach ($book->chapters as $chapter) : ?>
+                                    <li><a href="/admin/books/<?= $id_book ?>/chapters/<?= $chapter->id ?>"><?= $chapter->title ?></a></li>
+                                <?php endforeach ?>
+                            </ul>
+
+                            <div class="text-center">
+                                <button type="button" class="btn btn-primary">Publier ce livre <i class="fa fa-send"></i></button>
+                            </div>
+                        <?php endif ?>
                     </p>
                 </div>
             </div>

@@ -63,7 +63,7 @@
             'title' => "Publication du livre ",
             'active' => 'books',
             'id_book' => $req->params()->get('id'),
-            'book' => $booksModel->getBooksById($req->params()->get('id'))->result
+            'book' => $booksModel->getBookWithChapters($req->params()->get('id'))->result
         ]);
         
     });
