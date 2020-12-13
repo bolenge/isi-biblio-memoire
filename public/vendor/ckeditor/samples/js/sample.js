@@ -5,6 +5,8 @@
 
 /* exported initSample */
 
+let SuperEditor;
+
 if ( CKEDITOR.env.ie && CKEDITOR.env.version < 9 )
 	CKEDITOR.tools.enableHtml5Elements( document );
 
@@ -30,7 +32,7 @@ var initSample = ( function() {
 
 		// Depending on the wysiwygarea plugin availability initialize classic or inline editor.
 		if ( wysiwygareaAvailable ) {
-			CKEDITOR.replace( 'editor' );
+			SuperEditor = CKEDITOR.replace( 'editor' );
 		} else {
 			editorElement.setAttribute( 'contenteditable', 'true' );
 			CKEDITOR.inline( 'editor' );

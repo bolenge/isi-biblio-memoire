@@ -579,4 +579,24 @@
 
             return $this->out;
         }
+
+        /**
+         * Récupération de books par ID
+         * @param int $id
+         * @return Out
+         */
+        public function getBooksById(int $id)
+        {
+            $product = $this->findOneActiveById($id, 'books');
+
+            if (!empty($product )) {
+                $product->category = $this->findOneActiveById($product->idCategory, 'categories');
+
+                $this->out->result = $product;
+            }else {
+                $this->out->message = "Catégorie envoyée est invalide";
+            }
+
+            return $this->out;
+        }
     }

@@ -349,10 +349,11 @@
     <script src="/public/admin/scripts/main.min.js"></script>
     <script src="/public/admin/color-switcher/color-switcher.min.js"></script>
     
-    <script src="/public/js/utils/functions.js"></script>
-    <script src="/public/js/api/router.js" type="module"></script>
     <script src="/public/vendor/ckeditor/ckeditor.js"></script>
     <script src="/public/vendor/ckeditor/samples/js/sample.js"></script>
+    
+    <script src="/public/js/utils/functions.js"></script>
+    <script src="/public/js/api/router.js" type="module"></script>
 </body>
 
 </html>

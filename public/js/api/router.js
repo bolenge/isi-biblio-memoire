@@ -157,6 +157,70 @@ routerRegex("/admin/", function () {
     logoutAdmin();
 })
 
-router('/admin/books/publish', () => {
+routerRegex('/admin/books/', () => {
     initSample();
+
+    $('#form-create-chapter').on('submit', function (e) {
+        e.preventDefault();
+
+        const $this = this;
+        const data = {
+            admin: $('#admin').val(),
+            book: $('#book').val(),
+            title: $('#chapter').val(),
+            content: SuperEditor.getData()
+        }
+        
+        $.ajax({
+            type: "POST",
+            url: "/api/books/chapters/create",
+            data: data,
+            dataType: "json",
+            beforeSend: () => {
+                makeSuperLoader($this);
+            },
+            complete: () => {
+                stopSuperLoader($this);
+            },
+            success: function (response) {
+                console.log(response);
+
+                if (response) {
+                    if (response.state) {
+                        swal({
+                            title: "Succès !",
+                            text: "Chapitre enregistré avec succès",
+                            icon: "success",
+                            button: true
+                        }).then((ok) => {
+                            window.location.reload();
+                        })
+                    } else {
+                        swal({
+                            title: "Alert !",
+                            text: response.message,
+                            icon: "warning",
+                            button: true
+                        })
+                    }
+                } else {
+                    swal({
+                        title: "Alert !",
+                        text: "Une erreur est survenue, réessayez !",
+                        icon: "warning",
+                        button: true
+                    })
+                }
+            },
+            error: (err) => {
+                console.log(err);
+                swal({
+                    title: "Alert !",
+                    text: "Une erreur est survenue, réessayez !",
+                    icon: "warning",
+                    button: true
+                })
+            }
+        });
+    })
 })

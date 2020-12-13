@@ -51,7 +51,7 @@
     /**
      * Route de la publication d'un livre
      */
-    $router->get('/publish', function (Request $req, Response $res) {
+    $router->get('/:id/publish', function (Request $req, Response $res) {
         global $adminMiddleware;
 
         $adminMiddleware["auth"]($req, $res);
@@ -62,6 +62,8 @@
         $res->render('dashboard/admin/books/publish', [
             'title' => "Publication du livre ",
             'active' => 'books',
+            'id_book' => $req->params()->get('id'),
+            'book' => $booksModel->getBooksById($req->params()->get('id'))->result
         ]);
         
     });
