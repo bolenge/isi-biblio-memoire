@@ -1,9 +1,0 @@
-<?php if (!empty($books)) : ?>
-        <?php foreach ($books as $book) : ?>
-            <tr>
-                <td></td>
-            </tr>
-        <?php endforeach ?>
-    <?php endif ?>
-
-    

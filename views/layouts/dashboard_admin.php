@@ -351,6 +351,8 @@
     
     <script src="/public/js/utils/functions.js"></script>
     <script src="/public/js/api/router.js" type="module"></script>
+    <script src="/public/vendor/ckeditor/ckeditor.js"></script>
+    <script src="/public/vendor/ckeditor/samples/js/sample.js"></script>
 </body>
 
 </html>

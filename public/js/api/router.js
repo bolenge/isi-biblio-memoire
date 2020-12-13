@@ -156,3 +156,7 @@ router('/admin/login', () => {
 routerRegex("/admin/", function () {
     logoutAdmin();
 })
+
+router('/admin/books/publish', () => {
+    initSample();
+})
