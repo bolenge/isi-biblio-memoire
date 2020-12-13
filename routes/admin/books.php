@@ -6,18 +6,17 @@
     use Core\Validator;
     use Core\Out;
 
-
     $router = new Router;
-    $userMiddleware = require('./middlewares/admins.php');
+    $adminMiddleware = require('./middlewares/admins.php');
     $booksModel = new BooksModel;
 
     /**
      * Route de livres en attente
      */
     $router->get('/waiting', function (Request $req, Response $res) {
-        global $userMiddleware;
+        global $adminMiddleware;
 
-        $userMiddleware["auth"]($req, $res);
+        $adminMiddleware["auth"]($req, $res);
 
         global $booksModel;
 
@@ -34,9 +33,9 @@
      * Route de livres publiés
      */
     $router->get('/published', function (Request $req, Response $res) {
-        global $userMiddleware;
+        global $adminMiddleware;
 
-        $userMiddleware["auth"]($req, $res);
+        $adminMiddleware["auth"]($req, $res);
 
         global $booksModel;
 

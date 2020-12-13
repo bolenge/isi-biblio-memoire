@@ -5,14 +5,14 @@
     use Ekolo\Builder\Bin\Application;
 
     $app = new Application;
-    
-    // routers
-    $pages = require('./routes/pages.php');
-    $users = require('./routes/users.php');
 
     // Routers admin
     $pagesAdminRouter = require('./routes/admin/pages.php');
     $booksAdminRouter = require('./routes/admin/books.php');
+    
+    // Routers users
+    $pagesRouter = require('./routes/pages.php');
+    $usersRouter = require('./routes/users.php');
 
     // Router Api
     $usersApiRouter = require('./routes/api/users.php');
@@ -32,8 +32,8 @@
     });
 
     // Routing
-    $app->use('/', $pages);
-    $app->use('/users', $users);
+    $app->use('/', $pagesRouter);
+    $app->use('/users', $usersRouter);
 
     // Routing admin
     $app->use('/admin', $pagesAdminRouter);

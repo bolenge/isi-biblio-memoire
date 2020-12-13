@@ -8,7 +8,7 @@
 
 
     $router = new Router;
-    $userMiddleware = require('./middlewares/users.php');
+    $adminMiddleware = require('./middlewares/admins.php');
 
     /**
      * Route de livres en attente
