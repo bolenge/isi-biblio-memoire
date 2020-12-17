@@ -148,37 +148,46 @@
          * Signalisation de la lecture du livre
          * @param int $id_user ID de l'utilisateur qui lit
          * @param int $id_book ID du livre
+         * @param int $id_chapter ID du chapitre
          * @return Out
          */
-        public function readBook(int $id_user, int $id_book)
+        public function readBook(int $id_user, int $id_book, int $id_chapter)
         {
-            $book_read = $this->findOneActive([
-                'cond' => 'id_user='.$id_user.' AND id_book='.$id_book
-            ], 'books_read');
+            $chapter_read = $this->findOneActive([
+                'cond' => 'id_user='.$id_user.' AND id_book='.$id_book.' AND id_chapter='.$id_chapter
+            ], 'user_chapter_book_read');
 
-            $book = $this->findOneActiveById($id_book, 'books');
-            $reader = null;
-
-            if (empty($book_read)) {
-                $reader = $this->add([
-                    'id_user' => $id_user,
-                    'id_book' => $id_book,
-                    'nbrChapter' => $this->countActives([
-                        'cond' => 'id_book='.$id_book
-                    ], 'book_chapters'),
-                    'nbrChapterRead' => 1
+            if (empty($chapter_read)) {
+                $book_read = $this->findOneActive([
+                    'cond' => 'id_user='.$id_user.' AND id_book='.$id_book
                 ], 'books_read');
-            }else {
-                if ($book_read->nbrChapterRead < $book_read->nbrChapter) {
-                    $nbrChapterRead = $book_read->nbrChapterRead + 1;
-                    $reader = $this->update([
-                        'id' => $book_read->id,
-                        'nbrChapterRead' => $nbrChapterRead,
-                        'dateEndRead' => $nbrChapterRead == $book_read->nbrChapter ? date('Y-m-d h:i:s') : null
+                
+                $book = $this->findOneActiveById($id_book, 'books');
+                $reader = null;
+                
+                if (empty($book_read)) {
+                    $reader = $this->add([
+                        'id_user' => $id_user,
+                        'id_book' => $id_book,
+                        'nbrChapter' => $this->countActives([
+                            'cond' => 'id_book='.$id_book
+                        ], 'book_chapters'),
+                        'nbrChapterRead' => 1
                     ], 'books_read');
-                } else {
-                    $reader = true;
+                }else {
+                    if ($book_read->nbrChapterRead < $book_read->nbrChapter) {
+                        $nbrChapterRead = $book_read->nbrChapterRead + 1;
+                        $reader = $this->update([
+                            'id' => $book_read->id,
+                            'nbrChapterRead' => $nbrChapterRead,
+                            'dateEndRead' => $nbrChapterRead == $book_read->nbrChapter ? date('Y-m-d h:i:s') : null
+                        ], 'books_read');
+                    } else {
+                        $reader = true;
+                    }
                 }
+            }else {
+                $reader = true;
             }
 
             if ($reader) {

@@ -187,7 +187,7 @@
 
         if (!empty($result)) {
             $chapters = !empty($result->chapters) ? $result->chapters : null;
-            $booksModel->readBook(session('user')['id'], (int) $req->params()->get('id'));
+            $booksModel->readBook(session('user')['id'], (int) $req->params()->get('id'), $chapters[0]->id);
 
             if (!empty($chapters)) {
                 $booksModel->readBookChapter(session('user')['id'], (int) $req->params()->get('id'), $chapters[0]->id);
@@ -217,7 +217,7 @@
         if (!empty($result)) {
             $chapters = !empty($result->chapters) ? $result->chapters : null;
 
-            $booksModel->readBook(session('user')['id'], (int) $req->params()->get('id'));
+            $booksModel->readBook(session('user')['id'], (int) $req->params()->get('id'), (int) $req->params()->get('id_chapter'));
 
             if (!empty($chapters)) {
                 $booksModel->readBookChapter(session('user')['id'], (int) $req->params()->get('id'), (int) $req->params()->get('id_chapter'));
