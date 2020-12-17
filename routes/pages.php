@@ -12,6 +12,9 @@
     $booksModel = new BooksModel;
     $userModel = new UsersModel;
 
+    /**
+     * Route menant a la page d'accueil
+     */
     $router->get('/', function (Request $req, Response $res) {
         global $userMiddleware;
         $userMiddleware['auth']($req, $res);
@@ -19,6 +22,9 @@
         $res->redirect('/dashboard');
     });
 
+    /**
+     * Route menant à la page dashboard de l'utilisateur
+     */
     $router->get('/dashboard', function (Request $req, Response $res) {
         global $userMiddleware;
         $userMiddleware['auth']($req, $res);
@@ -37,6 +43,9 @@
         ]);
     });
     
+    /**
+     * Route menant à la page login de l'utilisateur
+     */
     $router->get('/login', function (Request $req, Response $res) {
         global $userMiddleware;
         $userMiddleware['gess']($req, $res);
@@ -74,6 +83,9 @@
         ]);
     });
 
+    /**
+     * Route menant à la page de l'inscription de l'utilisateur
+     */
     $router->get('/register', function (Request $req, Response $res) {
         global $userMiddleware;
         $userMiddleware['gess']($req, $res);
@@ -84,6 +96,9 @@
         ]);
     });
 
+    /**
+     * Route menant à la page de livres de k'utilisateur
+     */
     $router->get('/my\-books', function (Request $req, Response $res) {
         global $userMiddleware;
         $userMiddleware['auth']($req, $res);
@@ -98,6 +113,9 @@
         ]);
     });
 
+    /**
+     * Route menant à la page de creation d'un livre
+     */
     $router->get('/my\-books/create', function (Request $req, Response $res) {
         global $userMiddleware;
         $userMiddleware['auth']($req, $res);
@@ -112,6 +130,9 @@
         ]);
     });
 
+    /**
+     * Route menant à la page de la librairie de l'utilisateur
+     */
     $router->get('/my\-library', function (Request $req, Response $res) {
         global $userMiddleware;
         $userMiddleware['auth']($req, $res);
@@ -126,6 +147,9 @@
         ]);
     });
 
+    /**
+     * Route menant à la page de livres en plein lecture de l'utilisateur
+     */
     $router->get('/my\-reader', function (Request $req, Response $res) {
         global $userMiddleware;
         $userMiddleware['auth']($req, $res);
