@@ -115,7 +115,7 @@
     <div class="content content-read-book mt-5 pt-3">
         <?php if (!empty($book)) : ?>
         <div class="card-header bg-primary px-10">
-            <img src="/public/img/books/semaine-4-heures.jpg" alt="" class="float-left w-100px mr-5" />
+            <img src="/<?= !empty($book->cover) ? $book->cover : 'public/img/books/semaine-4-heures.jpg' ?>" alt="" class="float-left w-100px mr-5" />
             <h2 class="card-title font-weight-bold"><?= $book->title ?></h2>
             <p class="card-card-description">
                 Catégorie : <?= !empty($book->category) ? $book->category->intituled : "" ?> <br>
