@@ -57,7 +57,9 @@ router('/admin/books/published', () => {
             }
         });
 		$('#table-books-published').editableTableWidget();
-	}
+    }
+    
+    deleteBookByAdmin();
 })
 
 router('/admin/books/waiting', () => {

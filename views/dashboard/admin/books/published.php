@@ -46,7 +46,7 @@
                                 </td>
                                 <td class="text-center">
                                     <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-                                    <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>
+                                    <a href="#" class="btn btn-danger btn-xs btn-delete-book" data-id="<?= $book->id ?>"><i class="fa fa-trash-o"></i></a>
                                 </td>
                             </tr>
                         <?php $i++ ?>
