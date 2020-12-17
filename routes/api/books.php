@@ -93,4 +93,9 @@
         $res->json($model->searchBooks($req->body()->query));
     });
 
+    $router->post('/publish', function (Request $req, Response $res) {
+        $model = new BooksModel;
+        $res->json($model->publishBook((int) $req->body()->book));
+    });
+
     return $router;

@@ -600,6 +600,11 @@
             return $this->out;
         }
 
+        /**
+         * Publication de livre
+         * @param int $id_book
+         * @return void
+         */
         public function publishBook(int $id_book)
         {
             $has_cahpters = $this->countActives([
@@ -607,17 +612,24 @@
             ], 'book_chapters');
 
             if (!empty($has_cahpters)) {
-                $published = $this->update([
-                    'datePub' => \date('Y-m-d h:i:s')
-                ]);
 
-                if ($published) {
-                    $this->out->state = true;
-                    $this->out->message = "Publication du livre réussi !";
-                    $this->out->result = $published;
-                }else {
-                    $this->out->message = "Une erreur est survenue lors de la publication";
-                }
+                if (!empty($this->findOneExistsById($id_book, 'books'))) {
+                    $published = $this->update([
+                        'datePub' => \date('Y-m-d h:i:s')
+                    ], 'books');
+                    
+                    if ($published) {
+                        $this->out->state = true;
+                        $this->out->message = "Publication du livre réussi !";
+                        $this->out->result = $published;
+                    }else {
+                        $this->out->message = "Une erreur est survenue lors de la publication";
+                    }
+                } else {
+                    $this->out->message = "Ce livre n'existe pas";
+                }   
+            }else {
+                $this->out->message = "Ce livre ne peut pas être publié, il n'a aucun chapitre";
             }
         }
     }
