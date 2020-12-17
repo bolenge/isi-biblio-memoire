@@ -292,14 +292,16 @@ export function publishChapter() {
  * Suppression d'un livre par l'admin
  */
 export function deleteBookByAdmin() {
+    
     $('.btn-delete-book').on('click', function (e) {
         e.preventDefault();
 
         const $this = this;
+        const btnTxt = $($this).html();
 
         swal({
             title: "Supprimer ce livre ?",
-            text: "Une fois supprimé, vous ne pouvez le récupérer",
+            text: "Une fois supprimé, vous ne pouvez plus le récupérer",
             icon: "warning",
             buttons: ["Non", "Oui"],
             dangerMode: true
@@ -311,6 +313,12 @@ export function deleteBookByAdmin() {
                     type: "DELETE",
                     url: "/api/books/delete/"+id_book,
                     dataType: "json",
+                    beforeSend: () => {
+                        $($this).html('fa fa-spinner fa-pulse');
+                    },
+                    complete: () => {
+                        $($this).html(btnTxt);
+                    },
                     success: function (response) {
                         console.log(response);
                         if (response) {

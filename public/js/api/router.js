@@ -1,7 +1,7 @@
 import { createCategory, getCategoriesActives, initCategories } from "./categories.js";
 import { initDashboard, loadCategoriesOnNavbar } from "./dashboard.js";
 import { loginUser, logOutUser, registerUser, updateUser } from "./users.js";
-import { initBooks, publishBook, publishChapter, searchBooksForUser } from "./books.js";
+import { deleteBookByAdmin, initBooks, publishBook, publishChapter, searchBooksForUser } from "./books.js";
 import { initTypes } from "./types.js";
 import { logoutAdmin } from "./admins.js";
 
@@ -77,7 +77,9 @@ router('/admin/books/waiting', () => {
             }
         });
 		$('#table-books-waiting').editableTableWidget();
-	}
+    }
+    
+    deleteBookByAdmin();
 })
 
 router('/admin/others', () => {

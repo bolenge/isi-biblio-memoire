@@ -108,13 +108,13 @@
      * Route de suppression d'un livre
      */
     $router->delete('/delete/:id', function (Request $req, Response $res) {
-        $model = new CategoriesModel;
+        $model = new BooksModel;
         $out = new Out;
 
         $result = $model->update([
             'id' => $req->params()->get('id'),
             'flag' => 'false'
-        ]);
+        ], 'books');
 
         if ($result) {
             $out->state = true;
