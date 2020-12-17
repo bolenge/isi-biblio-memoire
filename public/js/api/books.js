@@ -218,3 +218,119 @@ export function publishBook() {
         })
     })
 }
+
+/**
+ * Publication d'un chapitre
+ */
+export function publishChapter() {
+    $('#form-create-chapter').on('submit', function (e) {
+        e.preventDefault();
+
+        const $this = this;
+        const data = {
+            admin: $('#admin').val(),
+            book: $('#book').val(),
+            title: $('#chapter').val(),
+            content: SuperEditor.getData()
+        }
+        
+        $.ajax({
+            type: "POST",
+            url: "/api/books/chapters/create",
+            data: data,
+            dataType: "json",
+            beforeSend: () => {
+                makeSuperLoader($this);
+            },
+            complete: () => {
+                stopSuperLoader($this);
+            },
+            success: function (response) {
+                console.log(response);
+
+                if (response) {
+                    if (response.state) {
+                        swal({
+                            title: "Succès !",
+                            text: "Chapitre enregistré avec succès",
+                            icon: "success",
+                            button: true
+                        }).then((ok) => {
+                            window.location.reload();
+                        })
+                    } else {
+                        swal({
+                            title: "Alert !",
+                            text: response.message,
+                            icon: "warning",
+                            button: true
+                        })
+                    }
+                } else {
+                    swal({
+                        title: "Alert !",
+                        text: "Une erreur est survenue, réessayez !",
+                        icon: "warning",
+                        button: true
+                    })
+                }
+            },
+            error: (err) => {
+                console.log(err);
+                swal({
+                    title: "Alert !",
+                    text: "Une erreur est survenue, réessayez !",
+                    icon: "warning",
+                    button: true
+                })
+            }
+        });
+    })
+}
+
+/**
+ * Suppression d'un livre par l'admin
+ */
+export function deleteBookByAdmin() {
+    $('.btn-delete-book').on('click', function (e) {
+        e.preventDefault();
+
+        const $this = this;
+
+        swal({
+            title: "Supprimer ce livre ?",
+            text: "Une fois supprimé, vous ne pouvez le récupérer",
+            icon: "warning",
+            buttons: ["Non", "Oui"],
+            dangerMode: true
+        }).then((yes) => {
+            if (yes) {
+                const id_book = $($this).attr('data-id');
+
+                $.ajax({
+                    type: "DELETE",
+                    url: "/api/books/delete/"+id_book,
+                    dataType: "json",
+                    success: function (response) {
+                        console.log(response);
+                        if (response) {
+                            if (response.state) {
+                                swal("Suppression réussie !", "", "success").then((ok) => {
+                                    window.location.reload();
+                                })
+                            } else {
+                                swal("Erreur !", response.message, "warning");
+                            }
+                        } else {
+                            swal("Erreur !", "Une erreur est survenue, réessayez !", "warning");
+                        }
+                    },
+                    error: (err) => {
+                        console.log(err);
+                        swal("Erreur !", "Une erreur est survenue, réessayez !", "warning");
+                    }
+                });
+            }
+        })
+    })
+}

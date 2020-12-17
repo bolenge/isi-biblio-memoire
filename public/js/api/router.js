@@ -1,7 +1,7 @@
 import { createCategory, getCategoriesActives, initCategories } from "./categories.js";
 import { initDashboard, loadCategoriesOnNavbar } from "./dashboard.js";
 import { loginUser, logOutUser, registerUser, updateUser } from "./users.js";
-import { initBooks, publishBook, searchBooksForUser } from "./books.js";
+import { initBooks, publishBook, publishChapter, searchBooksForUser } from "./books.js";
 import { initTypes } from "./types.js";
 import { logoutAdmin } from "./admins.js";
 
@@ -162,69 +162,6 @@ routerRegex('/admin/books/', () => {
         initSample();
     }
 
-    $('#form-create-chapter').on('submit', function (e) {
-        e.preventDefault();
-
-        const $this = this;
-        const data = {
-            admin: $('#admin').val(),
-            book: $('#book').val(),
-            title: $('#chapter').val(),
-            content: SuperEditor.getData()
-        }
-        
-        $.ajax({
-            type: "POST",
-            url: "/api/books/chapters/create",
-            data: data,
-            dataType: "json",
-            beforeSend: () => {
-                makeSuperLoader($this);
-            },
-            complete: () => {
-                stopSuperLoader($this);
-            },
-            success: function (response) {
-                console.log(response);
-
-                if (response) {
-                    if (response.state) {
-                        swal({
-                            title: "Succès !",
-                            text: "Chapitre enregistré avec succès",
-                            icon: "success",
-                            button: true
-                        }).then((ok) => {
-                            window.location.reload();
-                        })
-                    } else {
-                        swal({
-                            title: "Alert !",
-                            text: response.message,
-                            icon: "warning",
-                            button: true
-                        })
-                    }
-                } else {
-                    swal({
-                        title: "Alert !",
-                        text: "Une erreur est survenue, réessayez !",
-                        icon: "warning",
-                        button: true
-                    })
-                }
-            },
-            error: (err) => {
-                console.log(err);
-                swal({
-                    title: "Alert !",
-                    text: "Une erreur est survenue, réessayez !",
-                    icon: "warning",
-                    button: true
-                })
-            }
-        });
-    })
-
+    publishChapter();
     publishBook();
 })
