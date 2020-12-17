@@ -172,6 +172,16 @@
         $userMiddleware['auth']($req, $res);
 
         global $booksModel;
+
+        $last_chapter_read = $booksModel->findOneActive([
+            'cond' => 'id_user='.session('user')['id'].' AND id_book='.$req->params()->get('id'),
+            'order'=> 'id DESC'
+        ], 'user_chapter_book_read');
+
+        if (!empty($last_chapter_read)) {
+            $res->redirect('/books/'.$req->params()->get('id').'/chapters/'.$last_chapter_read->id_chapter);
+        }
+
         $result = $booksModel->getBookWithChapters((int) $req->params()->get('id'))->result;
         $chapters = null;
 

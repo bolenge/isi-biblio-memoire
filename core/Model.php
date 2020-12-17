@@ -135,4 +135,15 @@
                 'cond' => 'id='.$id
             ], $table));
         }
+
+        /**
+		 * Permet d'enregistrer des données (update si ca existe ou crée si non)
+		 * @param array $data Les données à sauvegarger
+		 * @param string $table
+		 * @return mixed
+		 */
+		public function save2(array $data, string $table = null, string $primaryKey = null)
+		{
+			return !empty($primaryKey) ? $this->update($data, $table, $primaryKey) : $this->add($data, $table);
+		}
     }

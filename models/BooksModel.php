@@ -169,12 +169,16 @@
                     'nbrChapterRead' => 1
                 ], 'books_read');
             }else {
-                $nbrChapterRead = $book_read->nbrChapterRead + 1;
-                $reader = $this->update([
-                    'id' => $book_read->id,
-                    'nbrChapterRead' => $nbrChapterRead,
-                    'dateEndRead' => $nbrChapterRead == $book_read->nbrChapter ? date('Y-m-d h:i:s') : null
-                ], 'books_read');
+                if ($book_read->nbrChapterRead < $book_read->nbrChapter) {
+                    $nbrChapterRead = $book_read->nbrChapterRead + 1;
+                    $reader = $this->update([
+                        'id' => $book_read->id,
+                        'nbrChapterRead' => $nbrChapterRead,
+                        'dateEndRead' => $nbrChapterRead == $book_read->nbrChapter ? date('Y-m-d h:i:s') : null
+                    ], 'books_read');
+                } else {
+                    $reader = true;
+                }
             }
 
             if ($reader) {
@@ -399,7 +403,7 @@
         {
             $book = $this->findOneActive([
                 'cond' => 'id='.$id_book
-            ]);
+            ], 'books');
 
             if (!empty($book)) {
                 $book->category = $this->findOneActive([
