@@ -51,7 +51,7 @@
     /**
      * Route de la publication d'un livre
      */
-    $router->get('/:id/publish', function (Request $req, Response $res) {
+    $router->put('/:id/publish', function (Request $req, Response $res) {
         global $adminMiddleware;
 
         $adminMiddleware["auth"]($req, $res);

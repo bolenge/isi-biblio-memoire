@@ -599,4 +599,25 @@
 
             return $this->out;
         }
+
+        public function publishBook(int $id_book)
+        {
+            $has_cahpters = $this->countActives([
+                'cond' => 'id_book='.$id_book
+            ], 'book_chapters');
+
+            if (!empty($has_cahpters)) {
+                $published = $this->update([
+                    'datePub' => \date('Y-m-d h:i:s')
+                ]);
+
+                if ($published) {
+                    $this->out->state = true;
+                    $this->out->message = "Publication du livre réussi !";
+                    $this->out->result = $published;
+                }else {
+                    $this->out->message = "Une erreur est survenue lors de la publication";
+                }
+            }
+        }
     }
