@@ -37,7 +37,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3" id="col-publish-book">
                     <p>
                         <strong>Chapitres enregistrés</strong><br>
                         <?php if (!empty($book->chapters)) : ?>
@@ -48,7 +48,7 @@
                             </ul>
 
                             <div class="text-center">
-                                <button type="button" class="btn btn-primary">Publier ce livre <i class="fa fa-send"></i></button>
+                                <button type="button" class="btn btn-primary" id="btn-publish-book" data-book="<?= $id_book ?>">Publier ce livre <i class="fa fa-send"></i></button>
                             </div>
                         <?php endif ?>
                     </p>

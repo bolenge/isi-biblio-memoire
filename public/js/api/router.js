@@ -1,7 +1,7 @@
 import { createCategory, getCategoriesActives, initCategories } from "./categories.js";
 import { initDashboard, loadCategoriesOnNavbar } from "./dashboard.js";
 import { loginUser, logOutUser, registerUser, updateUser } from "./users.js";
-import { initBooks, searchBooksForUser } from "./books.js";
+import { initBooks, publishBook, searchBooksForUser } from "./books.js";
 import { initTypes } from "./types.js";
 import { logoutAdmin } from "./admins.js";
 
@@ -158,7 +158,9 @@ routerRegex("/admin/", function () {
 })
 
 routerRegex('/admin/books/', () => {
-    initSample();
+    if ($('#editor').length) {
+        initSample();
+    }
 
     $('#form-create-chapter').on('submit', function (e) {
         e.preventDefault();
@@ -223,4 +225,6 @@ routerRegex('/admin/books/', () => {
             }
         });
     })
+
+    publishBook();
 })

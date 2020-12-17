@@ -603,7 +603,7 @@
         /**
          * Publication de livre
          * @param int $id_book
-         * @return void
+         * @return Out
          */
         public function publishBook(int $id_book)
         {
@@ -615,9 +615,11 @@
 
                 if (!empty($this->findOneExistsById($id_book, 'books'))) {
                     $published = $this->update([
-                        'datePub' => \date('Y-m-d h:i:s')
+                        'id' => $id_book,
+                        'datePub' => \date('Y-m-d h:i:s'),
+                        'statePub' => 'true'
                     ], 'books');
-                    
+
                     if ($published) {
                         $this->out->state = true;
                         $this->out->message = "Publication du livre réussi !";
@@ -631,5 +633,7 @@
             }else {
                 $this->out->message = "Ce livre ne peut pas être publié, il n'a aucun chapitre";
             }
+
+            return $this->out;
         }
     }

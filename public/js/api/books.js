@@ -168,3 +168,53 @@ export function searchBooksForUser() {
         }
     })
 }
+
+/**
+ * Publication d'un livre par l'admin
+ */
+export function publishBook() {
+    $('#btn-publish-book').on('click', function (e) {
+        // e.preventDefault();
+        const $this = this;
+        const book = $(this).attr('data-book');
+        const btnText = $(this).html();
+        
+        $.ajax({
+            url: '/api/books/publish',
+            type: "POST",
+            data: {
+                book: parseInt(book)
+            },
+            dataType: 'json',
+            beforeSend: () => {
+                $($this).html('Chargement...');
+            },
+            complete: () => {
+                $($this).html(btnText);
+            },
+            success: (response) => {
+                console.log(response);
+                if (response) {
+                    if (response.state) {
+                        swal({
+                            title: "Success",
+                            text: "Livre publié avec succès",
+                            icon: "success",
+                            button: true
+                        }).then((ok) => {
+                            redirect('/admin/books/waiting');
+                        })
+                    } else {
+                        swal("Alert !", response.message, 'danger');
+                    }
+                } else {
+                    swal("Alert !", "Une erreur est survenue, réessayez", 'danger');
+                }
+            },
+            error: (err) => {
+                swal("Alert !", "Une erreur est survenue, réessayez", 'danger');
+                console.log(err)
+            }
+        })
+    })
+}

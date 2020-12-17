@@ -88,11 +88,17 @@
         $res->json($out);
     });
 
+    /**
+     * Route de recherche d'un livre
+     */
     $router->post('/search', function (Request $req, Response $res) {
         $model = new BooksModel;
         $res->json($model->searchBooks($req->body()->query));
     });
 
+    /**
+     * Route d epublication d'un livre
+     */
     $router->post('/publish', function (Request $req, Response $res) {
         $model = new BooksModel;
         $res->json($model->publishBook((int) $req->body()->book));
