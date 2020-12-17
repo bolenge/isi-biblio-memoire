@@ -166,6 +166,11 @@
                 $reader = null;
                 
                 if (empty($book_read)) {
+                    $this->add([
+                        'id_user' => $id_user,
+                        'id_book' => $id_book
+                    ], 'user_library');
+                    
                     $reader = $this->add([
                         'id_user' => $id_user,
                         'id_book' => $id_book,
