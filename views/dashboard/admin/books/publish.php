@@ -10,8 +10,7 @@
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         
                         <p class="">Vous devez savoir que le premier chapitre que vous allez enregistrer sera
-                            consideré comme
-                            <strong>Le Quatrième de Couverture</strong> qui parle brièvement de l'auteur et son oeuvre.
+                            consideré comme <strong>Le Quatrième de Couverture</strong> qui parle brièvement de l'auteur et son oeuvre. <br>Qui peut être intitulé <strong>A Propos</strong> ou <strong>Quatrième De Couverture</strong>
                         </p>
                     </div>
 

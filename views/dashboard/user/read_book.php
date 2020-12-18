@@ -132,29 +132,12 @@
                                     <div class="card shadow-none mt-3">
                                         <div class="card-body" style="">
 
-                                            <div class="mb-5">
-                                                <?php if (!empty($chapters)) : ?>
-                                                    <h1><?= $chapters[0]->title ?></h1>
-                                                    
-                                                    <div>
-                                                        <!-- <?php if (file_exists($chapters[0]->filename)) : ?>
-                                                            <?php include('./'.$chapters[0]->filename) ?>
-                                                        <?php endif ?> -->
-
-                                                        <?php if (!empty($book->cover)) : ?>
-                                                            <img src="/<?= $book->cover ?>" alt="">
-                                                        <?php endif ?>
-                                                    </div>
-                                                <?php else : ?>
-                                                    <h3 class="text-center font-weight-bold">Ce livre n'a aucun chapitre...</h3>
+                                            <div class="mb-5 text-center">
+                                                <?php if (!empty($book->cover)) : ?>
+                                                    <img src="/<?= $book->cover ?>" alt="">
                                                 <?php endif ?>
-                                            </div>
 
-                                            <div class="mt-5 pt-5">
-                                                            
-                                                <?php if (!empty($chapters[1])) : ?>
-                                                    <a href="/books/<?= $book->id.'/chapters/'. $chapters[1]->id ?>" class="btn btn-primary float-right"><?= $chapters[1]->title ?> &nbsp;&nbsp;<i class="fa fa-chevron-right"></i> </a>
-                                                <?php endif ?>
+                                                <a href="/books/read/<?= $book->id ?>" class="btn btn-primary mt-5">Commencer la lecture</a>
                                             </div>
                                         </div>
                                     </div>
@@ -168,7 +151,7 @@
                                             <?php if (!empty($chapters)) : ?>
                                                 <ul>
                                                     <?php foreach ($chapters as $chapter) : ?>
-                                                        <li class="<?= $chapter->id === $chapters[0]->id ? 'active-chapter' : '' ?>"><a href="/books/<?= $book->id.'/chapters/'. $chapter->id ?>"><?= $chapter->title ?></a></li>
+                                                        <li><a href="/books/<?= $book->id.'/chapters/'. $chapter->id ?>"><?= $chapter->title ?></a></li>
                                                     <?php endforeach ?>
                                                 </ul>
                                             <?php else : ?>
