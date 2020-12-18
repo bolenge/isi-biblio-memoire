@@ -14,7 +14,7 @@
                             </a>
 
                             <div class="description pt-3">
-                                <h6 class="title-book"><?= sub_string($book->title, 35) ?></h6>
+                                <h6 class="title-book"><?= sub_string($book->title, 29) ?></h6>
                                 <p class="pb-0 mb-0"><?= sub_string($book->other, 35) ?></p>
                             </div>
                         </div>

@@ -60,6 +60,9 @@ a,
 
 .img-book {
     width: 130px;
+    height: 190px;
+    max-width: 130px;
+    max-height: 190px;
 }
 
 .title-book {
