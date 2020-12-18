@@ -64,7 +64,7 @@
                                         <td class="text-center"><?= $book->createdUserLibray ?></td>
                                         <td class="text-center">
                                             <a href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a>
-                                            <a href="/my-library/<?= $i ?>" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
+                                            <a href="/books/<?= $book->id ?>" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
                                         </td>
                                     </tr>
                                     <?php $i++ ?>
