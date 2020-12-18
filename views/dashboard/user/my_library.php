@@ -52,6 +52,7 @@
                             </thead>
                             <tbody>
                                 <?php if (!empty($books)) : ?>
+                                    <?php $i = 1; ?>
                                     <?php foreach ($books as $book) : ?>
                                     <tr>
                                         <td><?= $i ?></td>
@@ -66,6 +67,7 @@
                                             <a href="/my-library/<?= $i ?>" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
                                         </td>
                                     </tr>
+                                    <?php $i++ ?>
                                     <?php endforeach ?>
                                 <?php else: ?>
                                     <tr>
