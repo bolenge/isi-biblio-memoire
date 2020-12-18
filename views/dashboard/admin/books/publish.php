@@ -4,6 +4,18 @@
             <h3>Publication du livre</h3><br>
 
             <div class="row">
+                <div class="col-lg-12">
+
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        
+                        <p class="">Vous devez savoir que le premier chapitre que vous allez enregistrer sera
+                            consideré comme
+                            <strong>Le Quatrième de Couverture</strong> qui parle brièvement de l'auteur et son oeuvre.
+                        </p>
+                    </div>
+
+                </div>
                 <div class="col-lg-9">
                     <div class="row">
                         <div class="col-lg-6">

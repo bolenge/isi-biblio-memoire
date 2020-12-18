@@ -137,8 +137,12 @@
                                                     <h1><?= $chapters[0]->title ?></h1>
                                                     
                                                     <div>
-                                                        <?php if (file_exists($chapters[0]->filename)) : ?>
+                                                        <!-- <?php if (file_exists($chapters[0]->filename)) : ?>
                                                             <?php include('./'.$chapters[0]->filename) ?>
+                                                        <?php endif ?> -->
+
+                                                        <?php if (!empty($book->cover)) : ?>
+                                                            <img src="/<?= $book->cover ?>" alt="">
                                                         <?php endif ?>
                                                     </div>
                                                 <?php else : ?>

@@ -187,11 +187,11 @@
 
         if (!empty($result)) {
             $chapters = !empty($result->chapters) ? $result->chapters : null;
-            $booksModel->readBook(session('user')['id'], (int) $req->params()->get('id'), $chapters[0]->id);
+            // $booksModel->readBook(session('user')['id'], (int) $req->params()->get('id'), $chapters[0]->id);
 
-            if (!empty($chapters)) {
-                $booksModel->readBookChapter(session('user')['id'], (int) $req->params()->get('id'), $chapters[0]->id);
-            }
+            // if (!empty($chapters)) {
+            //     $booksModel->readBookChapter(session('user')['id'], (int) $req->params()->get('id'), $chapters[0]->id);
+            // }
         }
 
         $res->extends('layouts/blank');
@@ -335,6 +335,41 @@
             'active' => "dashboard",
             'books' => $booksModel->getNewBooks()->result,
         ]);
+    });
+
+    /**
+     * Route du début de la lecture d'un livre
+     */
+    $router->get('/books/read/:id', function (Request $req, Response $res) {
+        global $userMiddleware;
+        $userMiddleware['auth']($req, $res);
+
+        global $booksModel;
+
+        $last_chapter_read = $booksModel->findOneActive([
+            'cond' => 'id_user='.session('user')['id'].' AND id_book='.$req->params()->get('id'),
+            'order'=> 'id DESC'
+        ], 'user_chapter_book_read');
+
+        if (!empty($last_chapter_read)) {
+            $res->redirect('/books/'.$req->params()->get('id').'/chapters/'.$last_chapter_read->id_chapter);
+        }
+
+        $result = $booksModel->getBookWithChapters((int) $req->params()->get('id'))->result;
+        $chapters = null;
+
+        if (!empty($result)) {
+            $chapters = !empty($result->chapters) ? $result->chapters : null;
+            $booksModel->readBook(session('user')['id'], (int) $req->params()->get('id'), $chapters[0]->id);
+
+            if (!empty($chapters)) {
+                $booksModel->readBookChapter(session('user')['id'], (int) $req->params()->get('id'), $chapters[0]->id);
+            }
+
+            $res->redirect('/books/'.$req->params()->get('id').'/chapters/'.$chapters[0]->id);
+        }else {
+            $res->redirect('/books/'.$req->params()->get('id'));
+        }
     });
     
     return $router;
