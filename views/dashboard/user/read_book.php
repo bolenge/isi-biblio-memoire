@@ -127,29 +127,6 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="row">
-                                <div class="col-lg-3">
-                                    <div class="card mt-5">
-                                        <div class="card-header bg-primary">
-                                            <h6 class="card-title text-center">CHAPITRES</h6>
-                                        </div>
-                                        <div class="card-body">
-                                            <?php if (!empty($chapters)) : ?>
-                                                <ul>
-                                                    <?php foreach ($chapters as $chapter) : ?>
-                                                        <li class="<?= $chapter->id === $chapters[0]->id ? 'active-chapter' : '' ?>"><a href="/books/<?= $book->id.'/chapters/'. $chapter->id ?>"><?= $chapter->title ?></a></li>
-                                                    <?php endforeach ?>
-                                                </ul>
-                                            <?php else : ?>
-                                                <p class="text-center">Ce livre n'a aucun chapitre</p>
-                                            <?php endif ?>
-
-                                            <div class="text-center">
-                                                <a href="#" class="btn btn-primary-light btn-sm"><i class="fa fa-download"></i> Télécharger le pdf</a>
-                                                <a href="/my-library" class="btn btn-primary btn-sm"><i class="fa fa-arrow-left"></i> Tableau de bord</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
                                 <div class="col-lg-9">
                                     <div class="card shadow-none mt-3">
@@ -174,6 +151,29 @@
                                                 <?php if (!empty($chapters[1])) : ?>
                                                     <a href="/books/<?= $book->id.'/chapters/'. $chapters[1]->id ?>" class="btn btn-primary float-right"><?= $chapters[1]->title ?> &nbsp;&nbsp;<i class="fa fa-chevron-right"></i> </a>
                                                 <?php endif ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="card mt-5">
+                                        <div class="card-header bg-primary">
+                                            <h6 class="card-title text-center">CHAPITRES</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <?php if (!empty($chapters)) : ?>
+                                                <ul>
+                                                    <?php foreach ($chapters as $chapter) : ?>
+                                                        <li class="<?= $chapter->id === $chapters[0]->id ? 'active-chapter' : '' ?>"><a href="/books/<?= $book->id.'/chapters/'. $chapter->id ?>"><?= $chapter->title ?></a></li>
+                                                    <?php endforeach ?>
+                                                </ul>
+                                            <?php else : ?>
+                                                <p class="text-center">Ce livre n'a aucun chapitre</p>
+                                            <?php endif ?>
+
+                                            <div class="text-center">
+                                                <a href="#" class="btn btn-primary-light btn-sm"><i class="fa fa-download"></i> Télécharger le pdf</a>
+                                                <a href="/my-library" class="btn btn-primary btn-sm"><i class="fa fa-arrow-left"></i> Tableau de bord</a>
                                             </div>
                                         </div>
                                     </div>

@@ -114,91 +114,91 @@
 
     <div class="content content-read-book mt-5 pt-3">
         <?php if (!empty($book)) : ?>
-        <div class="card-header bg-primary px-10">
-            <img src="/<?= !empty($book->cover) ? $book->cover : 'public/img/books/semaine-4-heures.jpg' ?>" alt="" class="float-left w-100px mr-5" />
-            <h2 class="card-title font-weight-bold"><?= $book->title ?></h2>
-            <p class="card-card-description">
-                Catégorie : <?= !empty($book->category) ? $book->category->intituled : "" ?> <br>
-                Par : <?= $book->other ?>
-            </p>
-        </div>
+            <div class="card-header bg-primary px-10">
+                <img src="/<?= !empty($book->cover) ? $book->cover : 'public/img/books/semaine-4-heures.jpg' ?>" alt="" class="float-left w-100px mr-5" />
+                <h2 class="card-title font-weight-bold"><?= $book->title ?></h2>
+                <p class="card-card-description">
+                    Catégorie : <?= !empty($book->category) ? $book->category->intituled : "" ?> <br>
+                    Par : <?= $book->other ?>
+                </p>
+            </div>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-lg-3">
-                            <div class="card mt-5">
-                                <div class="card-header bg-primary">
-                                    <h6 class="card-title text-center">CHAPITRES</h6>
-                                </div>
-                                <div class="card-body">
-                                    <?php if (!empty($chapters)) : ?>
-                                        <ul>
-                                            <?php foreach ($chapters as $key => $chapter) : ?>
-                                                <?php 
-                                                    if ($chapter->id == $chapter_active->id) {
-                                                        $key_active = $key;
-                                                    }
-                                                 ?>
-                                                
-                                                <li class="<?= $chapter->id === $chapter_active->id ? 'active-chapter' : '' ?>">
-                                                    <a href="/books/<?= $book->id.'/chapters/'. $chapter->id ?>"><?= $chapter->title ?></a>
-                                                </li>
-                                            <?php endforeach ?>
+            <div class="container">
+                <div class="row">
 
-                                            
-                                        </ul>
+                    <div class="col-lg-9">
+                        <div class="card shadow-none mt-3">
+                            <div class="card-body" style="">
+
+                                <div class="mb-5">
+                                    <?php if (!empty($chapter_active)) : ?>
+                                    <h1><?= $chapter_active->title ?></h1>
+
+                                    <div>
+                                        <?php if (file_exists($chapter_active->filename)) : ?>
+                                        <?php include('./'.$chapter_active->filename) ?>
+                                        <?php endif ?>
+                                    </div>
                                     <?php else : ?>
-                                        <p class="text-center">Ce livre n'a aucun chapitre</p>
+                                    <h3 class="text-center font-weight-bold">Ce chapitre semble être supprimé ou n'a pas
+                                        de contenu...</h3>
+                                    <?php endif ?>
+                                </div>
+
+                                <div class="mt-5 pt-5">
+                                    <?php if (!empty($chapters[$key_active - 1])) : ?>
+                                    <a href="/books/<?= $book->id.'/chapters/'.$chapters[$key_active - 1]->id ?>"
+                                        class="btn btn-primary float-left"><i class="fa fa-chevron-left"></i>
+                                        &nbsp;&nbsp;<?= $chapters[$key_active - 1]->title ?></a>
                                     <?php endif ?>
 
-                                    <div class="text-center">
-                                        <a href="#" class="btn btn-primary-light btn-sm"><i class="fa fa-download"></i>
-                                            Télécharger le pdf</a>
-                                        <a href="/my-library" class="btn btn-primary btn-sm"><i
-                                                class="fa fa-arrow-left"></i> Tableau de bord</a>
-                                    </div>
+                                    <?php if (!empty($chapters[$key_active + 1])) : ?>
+                                    <a href="/books/<?= $book->id.'/chapters/'. $chapters[$key_active + 1]->id ?>"
+                                        class="btn btn-primary float-right"><?= $chapters[$key_active + 1]->title ?>
+                                        &nbsp;&nbsp;<i class="fa fa-chevron-right"></i> </a>
+                                    <?php endif ?>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card mt-5">
+                            <div class="card-header bg-primary">
+                                <h6 class="card-title text-center">CHAPITRES</h6>
+                            </div>
+                            <div class="card-body">
+                                <?php if (!empty($chapters)) : ?>
+                                <ul>
+                                    <?php foreach ($chapters as $key => $chapter) : ?>
+                                    <?php 
+                                                        if ($chapter->id == $chapter_active->id) {
+                                                            $key_active = $key;
+                                                        }
+                                                    ?>
 
-                        
+                                    <li class="<?= $chapter->id === $chapter_active->id ? 'active-chapter' : '' ?>">
+                                        <a
+                                            href="/books/<?= $book->id.'/chapters/'. $chapter->id ?>"><?= $chapter->title ?></a>
+                                    </li>
+                                    <?php endforeach ?>
 
-                        <div class="col-lg-9">
-                            <div class="card shadow-none mt-3">
-                                <div class="card-body" style="">
 
-                                    <div class="mb-5">
-                                        <?php if (!empty($chapter_active)) : ?>
-                                            <h1><?= $chapter_active->title ?></h1>
+                                </ul>
+                                <?php else : ?>
+                                <p class="text-center">Ce livre n'a aucun chapitre</p>
+                                <?php endif ?>
 
-                                            <div>
-                                                <?php if (file_exists($chapter_active->filename)) : ?>
-                                                    <?php include('./'.$chapter_active->filename) ?>
-                                                <?php endif ?>
-                                            </div>
-                                        <?php else : ?>
-                                            <h3 class="text-center font-weight-bold">Ce chapitre semble être supprimé ou n'a pas de contenu...</h3>
-                                        <?php endif ?>
-                                    </div>
-
-                                    <div class="mt-5 pt-5">
-                                        <?php if (!empty($chapters[$key_active - 1])) : ?>
-                                            <a href="/books/<?= $book->id.'/chapters/'.$chapters[$key_active - 1]->id ?>" class="btn btn-primary float-left"><i class="fa fa-chevron-left"></i> &nbsp;&nbsp;<?= $chapters[$key_active - 1]->title ?></a>
-                                        <?php endif ?>
-
-                                        <?php if (!empty($chapters[$key_active + 1])) : ?>
-                                            <a href="/books/<?= $book->id.'/chapters/'. $chapters[$key_active + 1]->id ?>" class="btn btn-primary float-right"><?= $chapters[$key_active + 1]->title ?> &nbsp;&nbsp;<i class="fa fa-chevron-right"></i> </a>
-                                        <?php endif ?>
-                                    </div>
+                                <div class="text-center">
+                                    <a href="#" class="btn btn-primary-light btn-sm"><i class="fa fa-download"></i>
+                                        Télécharger le pdf</a>
+                                    <a href="/my-library" class="btn btn-primary btn-sm"><i
+                                            class="fa fa-arrow-left"></i> Tableau de bord</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         <?php endif ?>
     </div>
 
