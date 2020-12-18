@@ -66,7 +66,7 @@
                                         <td><?= sub_string($book->category, 30) ?></td>
                                         <td class="text-center"><?= $book->dateRead ?></td>
                                         <td class="text-center">
-                                            <span class="font-weight-bold"><?= ($book->nbrChapterRead * 100) / $book->nbrChapter ?> %</span>
+                                            <span class="font-weight-bold"><?= ceil(($book->nbrChapterRead * 100) / $book->nbrChapter) ?> %</span>
                                         </td>
                                         <td class="text-center">
                                             <?= $book->dateEndRead ? format_date($book->dateEndRead) : "---" ?>
