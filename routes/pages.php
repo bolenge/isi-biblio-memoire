@@ -319,5 +319,22 @@
             'category' => $result
         ]);
     });
+
+    /**
+     * Route menant à la page des nouveaux livres
+     */
+    $router->get('/news', function (Request $req, Response $res) {
+        global $userMiddleware;
+        $userMiddleware['auth']($req, $res);
+
+        global $booksModel;
+        
+        $res->extends('layouts/dashboard_user');
+        $res->render('dashboard/user/new_books', [
+            'title' => 'Tableau de bord',
+            'active' => "dashboard",
+            'books' => $booksModel->getNewBooks()->result,
+        ]);
+    });
     
     return $router;
