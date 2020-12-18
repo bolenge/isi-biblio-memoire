@@ -52,13 +52,13 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#home">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link active" href="#home">Accueil <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#overview">Overview</a>
+                        <a class="nav-link" href="#overview">Livres</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#feedback">Feedback</a>
+                        <a class="nav-link" href="#feedback">Témoignages</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#author">Author</a>
@@ -232,8 +232,8 @@
     <section id="feedback">
         <div class="container">
             <div class="section-title">
-                <h2>What Readers Say</h2>
-                <p>List of chapters included in the ebook</p>
+                <h2>Quelques Témoignages</h2>
+                <p>Certains utilisateurs ont parlés de nous</p>
                 <hr class="left"><i class="icon icon-basic-spread-text"></i>
                 <hr class="right">
             </div>
@@ -241,9 +241,8 @@
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="review-list">
-                            <img src="/public/home/assets/reader-1.jpg" alt="">
-                            <h4>Jhon Doe</h4>
-                            <h5>Designer</h5>
+                            <img src="https://scontent.ffih1-2.fna.fbcdn.net/v/t1.0-9/123138890_220667616148471_4116174576955064713_o.jpg?_nc_cat=108&ccb=2&_nc_sid=09cbfe&_nc_eui2=AeH6DKQ6d5e-_O7a8UTmFj_Ua1qKiNQVSAlrWoqI1BVICU0cHsDEzs4uTdlYrsha3KN9GbZQu4cdYSjIrbMOwbM7&_nc_ohc=vHYAGPRISk0AX9XAP_r&_nc_ht=scontent.ffih1-2.fna&oh=4d34f47d49c6a7518d90e8c9345088bd&oe=6003C4A6" alt="" width="50px">
+                            <h4>Don de Dieu</h4>
                             <p>“Love the content in the book, consectetuer adipiscing elit. Aenean commodo ligula eget
                                 dolor. Aenean massa.”</p>
                         </div>
@@ -252,7 +251,6 @@
                         <div class="review-list">
                             <img src="/public/home/assets/reader-2.jpg" alt="">
                             <h4>Michel Smith</h4>
-                            <h5>Developer</h5>
                             <p>“Perfect explation in every topic, consectetuer adipiscing elit. Aenean commodo ligula
                                 eget dolor. Aenean massa.”</p>
                         </div>
@@ -261,7 +259,6 @@
                         <div class="review-list">
                             <img src="/public/home/assets/reader-3.jpg" alt="">
                             <h4>Root Stark</h4>
-                            <h5>Designer</h5>
                             <p>“Gifted it to my childrens - they love it, consectetuer adipiscing elit. Aenean commodo
                                 ligula eget dolor. Aenean massa.”</p>
                         </div>
@@ -276,34 +273,33 @@
     <section id="author">
         <div class="container">
             <div class="section-title">
-                <h2>About The Author</h2>
-                <p>List of chapters included in the ebook</p>
+                <h2>A propos de nous</h2>
+                <p>Un petit apperçu sur <strong><?= config('app.name') ?></strong></p>
                 <hr class="left"><i class="icon icon-basic-spread-text"></i>
                 <hr class="right">
             </div>
             <div class="row">
                 <div class="col-lg-5 author-details">
-                    <img src="/public/home/assets/Author.jpg" class="author-picture img-fluid" alt="">
+                    <img src="/public/img/logos/logo-congo-book.png" class="author-picture img-fluid" alt="">
                     <div class="author-name">
-                        <h4>J.R.R. Tolkien</h4>
+                        <h4>Siuvez-nous sur : </h4>
                         <div class="author-social-icons">
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
                             <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-behance"></i></a>
-                            <a href="#"><i class="fab fa-dribbble"></i></a>
-                            <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-7">
-                    <h4>A Note From the Author</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus iusto, optio pariatur
-                        obcaecati maxime possimus dolorum cum. Illum pariatur sunt numquam, voluptatum, odit dicta,
-                        porro enim, aspernatur molestias iure nemo!
-                        Porem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus iusto, optio pariatur
-                        obcaecati maxime possimus dolorum cum.</p>
+                    <h4>Qui sommes-nous ?</h4>
+                    <p><strong><?= config('app.name') ?></strong> est une bibliothèque numérique qui permet à tout le monde de lire et de publier de livres dans tous les domaines.</p>
+
+                    <p>Après que vous ayez souscrit à un abonnement, ceci vous permet d'avoir accès aux livres offerts par cette souscription.</p>
                     <br>
-                    <h4>Author Career Biography</h4>
+
+                    <h4>Que faisons-nous ?</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus iusto, optio pariatur
                         obcaecati maxime possimus dolorum cum. Illum pariatur sunt numquam, voluptatum, odit dicta,
                         porro enim, aspernatur molestias iure nemo!</p>
