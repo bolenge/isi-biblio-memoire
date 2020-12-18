@@ -147,18 +147,17 @@ a,
     right: 0;
     padding: 1.5rem;
     box-shadow: 2px solid #ccc;
-    /* opacity: 0; */
-    /* opacity: 0; 
-    visibility: hidden;*/
+    top: 10%;
+    opacity: 0;
 }
 
 .call-block-search {
-    top: 10%;
+    top: 50%;
     height: 1000px;
     z-index: 999999;
     opacity: 1;
     visibility: visible;
-    animation: searchBook linear .45;
+    /* animation: searchBook linear .45; */
 }
 
 .close-call-block-search {
@@ -171,13 +170,13 @@ a,
 
 @keyframes searchBook {
     0% {
-        top: -80%;
+        top: -40%;
         opacity: 0.4;
         visibility: visible;
     }
 
     25% {
-        top: -40%;
+        top: -30%;
         opacity: 0.6;
         visibility: visible;
     }

@@ -89,6 +89,9 @@ export function createBook() {
 export function searchBooksForUser() {
     $('#input-search').on('focus', function (e) {
         $('#block-search').addClass('call-block-search');
+        $('#block-search').css({
+            opacity: 1
+        })
         $('#block-search').removeClass('close-call-block-search');
     })
 
