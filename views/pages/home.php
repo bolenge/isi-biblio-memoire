@@ -55,22 +55,16 @@
                         <a class="nav-link active" href="#home">Accueil <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#overview">Livres</a>
+                        <a class="nav-link mx-4" href="#overview">Livres</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#feedback">Témoignages</a>
+                        <a class="nav-link mr-4" href="#author">A propos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#author">Author</a>
+                        <a class="btn btn-secondary mr-3" href="/register">Créer un compte</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#pricing">Price</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#blog">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
+                        <a class="btn btn-primary" href="/login">Connexion</a>
                     </li>
                 </ul>
             </div>
@@ -177,8 +171,8 @@
         <div class="video-review">
             <div class="container">
                 <div class="section-title">
-                    <h2>Video Overview</h2>
-                    <p>List of chapters included in the ebook</p>
+                    <h2>Video D'Apperçu</h2>
+                    <p>Une vidéo qui explique tout</p>
                     <hr class="left"><i class="icon icon-basic-spread-text"></i>
                     <hr class="right">
                 </div>
@@ -198,8 +192,8 @@
         <div class="read-in-all">
             <div class="container">
                 <div class="section-title">
-                    <h2>Read it in All Devices</h2>
-                    <p>List of chapters included in the ebook</p>
+                    <h2>Futures</h2>
+                    <p>Arrive bientôt...</p>
                     <hr class="left"><i class="icon icon-basic-spread-text"></i>
                     <hr class="right">
                 </div>
@@ -210,15 +204,13 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="compatibility-text">
-                            <h2>Browse Anywhere Any Device</h2>
-                            <p>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat
-                                massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
-                                dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
-                                nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,
-                                sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec,
-                                vulputate eget, arcu.</p>
-                            <a href="#" class="btn btn-lg btn-primary material-ripple">Buy Now</a>
+                            <h2>Application Mobile</h2>
+                            
+                            <p>Bientôt vous pourriez télécharger directement votre application mobile sur toutes vos plateformes, vous donnant la possibilité de lire vos livres en temps réel.</p>
+
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint quo magni autem quia eum a veniam consequatur labore ex! Magnam animi asperiores nihil eligendi modi repudiandae, quasi sint dolor dolore?</p>
+
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores ratione earum temporibus similique in fugiat reiciendis labore culpa! Facere sed labore doloribus magnam soluta ea qui tempore inventore quasi nulla?</p>
                         </div>
                     </div>
                 </div>
@@ -314,8 +306,8 @@
     <section id="pricing">
         <div class="container">
             <div class="section-title light">
-                <h2>Pricing Plans</h2>
-                <p>List of chapters included in the ebook</p>
+                <h2>Nos Abonnements</h2>
+                <p>Souscrivez et ayez accès aux livres de votre choix</p>
                 <hr class="left"><i class="icon icon-basic-spread-text"></i>
                 <hr class="right">
             </div>
