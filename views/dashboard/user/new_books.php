@@ -1,5 +1,6 @@
 <div class="content">
-    <h5 class="card-title my-5">Découvrez notre nouvelle collection</h5>
+    <a href="/dashboard" class="btn btn-primary btn-sm my-0"><i class="fa fa-arrow-left"></i> Retour</a>
+    <h5 class="card-title mb-5 mt-2">Découvrez notre nouvelle collection</h5>
 
     <?php if (!empty($books)) : ?>
 
