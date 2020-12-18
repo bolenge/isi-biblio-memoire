@@ -1,0 +1,881 @@
+/*
+==============
+Template Name : JPhotography Minimal Photographey Portfolio HTML5 Template
+Author Name : Muse-Master (Dasagani Ramesh Goud)
+Version : 1.0
+==============
+CSS Styles Content Table
+00. Global Styles
+01. Header/Home Section
+02. Statics
+03. Chapters List
+04. Video Review
+05. Read in All Devices
+06. Feedback/Reviews
+07. Author Details
+08. Pricing Tables
+09. Blog Posts
+10. Simple Banner
+11. Contact Section
+12. Footer
+13. Responsive Media styles
+*/
+
+/*===============
+00. Global Styles
+=================
+*/
+body {
+    font-family: 'Raleway', sans-serif;
+    color: #202020;
+    position: relative;
+}
+
+h1 {
+    font-size: 68px;
+    font-weight: 800;
+}
+
+h2 {
+	font-size: 30px;
+	font-weight: 600;
+	letter-spacing: 2px;
+	margin-bottom: 4px;
+}
+h3 {
+	font-size: 22px;
+	font-weight: 300;
+	letter-spacing: 2px;
+}
+h4	{
+	font-size: 18px;
+	font-weight: 600;
+	letter-spacing: 2px;
+}
+h5 {
+	font-size: 15px;
+	font-weight: 300;
+}
+
+p {
+	font-family: 'Work Sans', sans-serif;
+    line-height: 24px;
+    font-size: 15px;
+    color: #606060;
+    font-weight: 300;
+}
+
+hr {
+    border-top: 1px solid rgba(0,0,0,.2);
+}
+
+header, section, footer{
+    position: relative;
+    overflow: hidden;
+}
+
+
+.img-center {
+    display: block;
+    margin: 0 auto;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.btn.btn-lg {
+    padding: 16px 40px;
+}
+.btn {
+	font-weight: 600;
+    padding: 10px 40px;
+    letter-spacing: 1px;
+    border:none;
+}
+
+.btn.post-btn {
+    padding: 0;
+    color: #202020;
+}
+.post-btn:hover, .post-btn:hover i {
+    color: #EE5A3F;
+}
+
+.btn-primary {
+    background-color: #EE5A3F;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #202020;
+    color: #EE5A3F;
+}
+
+.btn-light {
+    background-color: #fff;
+    color: #202020;
+}
+.btn-light:hover {
+    background-color: #EE5A3F;
+    color: #fff;
+}
+
+.btn-dark {
+	background-color: #202020;
+	color: #fff;
+}
+.btn-dark:hover {
+	background-color: #EE5A3F;
+	color: #fff;
+}
+
+.mgR-20px {
+    margin-right: 20px;
+}
+
+.t-cap {
+	text-transform: uppercase;
+}
+
+.fab, .fas {
+    font-size: 18px;
+    color: #202020;
+    padding: 4px;
+}
+.fab:hover, .fas:hover {
+    color: #EE5A3F;
+}
+sub, sup {
+    font-size: 66%;
+}
+
+.btn-primary:disabled {
+    color: #fff;
+    background-color: #555555;
+    border-color: #555555;
+}
+
+
+/*Title styles for all sections*/
+.section-title {
+	text-align: center;
+	padding-bottom: 90px;
+}
+.section-title h2 {
+	text-transform: uppercase;
+}
+.section-title p {
+	padding-bottom: 8px;
+    margin-bottom: 0;
+}
+.section-title hr {
+    display: inline-block;
+    top: 4px;
+}
+.section-title.light p{
+    color: #fff;
+}
+.section-title.light hr {
+    border-color: rgba(255,255,255, .5);
+}
+.section-title i {
+    background-color: transparent;
+    padding-left: 11px;
+    padding-right: 10px;
+    font-size: 24px;
+}
+hr.left {
+    position: relative;
+    max-width: 250px;
+    width: 100%;
+}
+hr.right {
+    max-width: 250px;
+    width: 100%;
+    position: relative;
+}
+
+/*Sections Top And Bottom Padding*/
+section, .video-review {
+    padding-top: 90px;
+    padding-bottom: 90px;
+}
+.read-in-all {
+    padding-top: 90px;
+}
+#overview > .container > .row {
+    padding-bottom: 60px;
+}
+
+#overview .section-title {
+    padding-bottom: 60px
+}
+
+
+
+/*=============================
+CSS Smooth Aiimation Transition
+=============================*/
+.btn, a, i{
+    -webkit-transition: all 0.25s ease-in;
+    -moz-transition: all 0.25s ease-in;
+    -ms-transition: all 0.25s ease-in;
+    -o-transition: all 0.25s ease-in;
+    transition: all 0.25s ease-in;
+}
+/*Smooth Color only Transition*/
+h4 {
+	-webkit-transition: color 0.2s ease-in;
+    -moz-transition: color 0.2s ease-in;
+    -ms-transition: color 0.2s ease-in;
+    -o-transition: color 0.2s ease-in;
+    transition: color 0.2s ease-in;
+}
+
+/*
+=======================
+01. Header/Home Section
+=======================
+*/
+/*Nav bar*/
+/*.navbar {
+	padding-top: 40px;
+}*/
+.navbar {
+    padding-top: 40px;
+}
+.navbar.alt {
+
+    padding-top: 14px;
+    padding-bottom: 14px;
+    background-color: #fff;
+    box-shadow: 0px 8px 8px rgba(0,0,0,0.1);
+    -webkit-animation-name: slideInDown;
+    animation-name: slideInDown;
+}
+.navbar-dark .navbar-nav .nav-link {
+	color: #fff;
+	text-transform: uppercase;
+}
+.navbar-dark .navbar-nav .nav-link:hover {
+	color: #EE5A3F;
+}
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 12px;
+    padding-left: 12px;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+.navbar-dark .navbar-nav .active > .nav-link, 
+.navbar-dark .navbar-nav .nav-link.active, 
+.navbar-dark .navbar-nav .nav-link.show, 
+.navbar-dark .navbar-nav .show > .nav-link {
+    color: #EE5A3F;
+}
+
+.navbar-toggler > .i1{
+    top:9px;
+}
+
+.navbar-toggler > .i2{
+    top:17px;
+}
+
+.navbar-toggler > .i3{
+    top:25px;
+}
+
+.navbar-toggler.active > .i2{
+    opacity:0;
+}
+.navbar-toggler.active > .i1,
+.navbar-toggler.active > .i3{
+    top:17px;
+}
+
+.navbar-toggler.active > .i1{
+    -webkit-transform:rotate(45deg);
+    -moz-transform:rotate(45deg);
+    -ms-transform:rotate(45deg);
+    -o-transform:rotate(45deg);
+    transform:rotate(45deg);
+}
+.navbar-toggler.active > .i3{
+    -webkit-transform:rotate(-45deg);
+    -moz-transform:rotate(-45deg);
+    -ms-transform:rotate(-45deg);
+    -o-transform:rotate(-45deg);
+    transform:rotate(-45deg);
+}
+
+.navbar-toggler {
+    position: relative;
+    width: 50px;
+    height: 40px;
+}
+.navbar-toggler > .icon-bar {
+    position: absolute;
+    width: 30px;
+    left: 10px;
+    margin: 0 !important;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    transition: all .3s ease;
+    background-color: #888;
+    height: 3px;
+}
+
+header {
+	background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.4)),
+                url(../assets/hero-bg.jpg);
+    background-color: #202020;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: top;
+	color: #fff;
+	padding-top: 280px;
+	padding-bottom: 200px;
+}
+
+h1 {
+	text-transform: uppercase;
+}
+
+header p {
+	font-size: 18px;
+	padding-right: 70px;
+	color: #fff;
+}
+
+.hero-text {
+	padding-top: 32px;
+}
+
+/*
+===========
+02. Statics
+===========
+*/
+.statics {
+	background-color: #EE5A3F;
+	color: #fff;
+	padding-top: 44px;
+	padding-bottom:44px;
+    text-align: center;
+}
+
+.stats-list {
+	text-align: center;
+	display: inline-flex;
+	text-align: left;
+}
+.stats-list .icon {
+    font-size: 54px;
+    text-align: center;
+    position: relative;
+    top: 4px;
+}
+.stats-list-icon {
+	padding-right: 20px;
+}
+
+.stats-list h3 {
+	text-transform: uppercase;
+}
+
+
+/*
+=================
+03. Chapters List
+=================
+*/
+.chapters-list {
+    display: inline-flex;
+    padding-right: 40px;
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+.chapters-list .icon {
+	font-size: 30px;
+	color: #fff;
+	position: relative;
+}
+.chapters-list .chapter-list-icon {
+    background-image: url("../assets/chapter-list-icon-bg.svg");
+    background-repeat: no-repeat;
+    background-position: top left;
+    height: 80px;
+    width: 62px;
+    text-align: center;
+    position: relative;
+    display: table;
+    padding-top: 20px;
+    margin-right: 20px;
+}
+
+.chapters-list h4 {
+	text-transform: uppercase;
+}
+
+.chapters-list:hover h4 {
+	color: #EE5A3F;
+}
+
+/*
+================
+04. Video Review
+================
+*/
+.video-review {
+	background-color: #f9f9f9;
+}
+
+/*
+=======================
+05. Read in All Devices
+=======================
+*/
+.compatibility-text {
+    padding-top: 50px;
+}
+.compatibility-text .btn {
+    margin-top: 6px;
+}
+
+/*
+====================
+06. Feedback/Reviews
+====================
+*/
+
+#feedback {
+    background-color: #f9f9f9;
+}
+
+#feedback {
+    padding-bottom: 50px;
+}
+
+.reviews-lists {
+    padding-top: 20px;
+}
+
+.review-list {
+    padding: 36px 20px 20px;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.1);
+    margin-bottom: 60px;
+}
+.review-list p {
+    margin-top: 30px;
+}
+.review-list img {
+    top: -40px;
+    position: absolute;
+    border: 2px solid #fff;
+}
+
+
+/*
+==================
+07. Author Details
+==================
+*/
+#author h4 {
+    text-transform: uppercase;
+}
+
+.author-details {
+    text-align: center;
+}
+
+.author-picture {
+    border: 1px solid #C1C1C1;
+}
+
+.autor-signature {
+    max-width: 270px;
+    width: 100%;
+}
+
+.author-name {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.author-social-icons a i {
+    border: 1px solid #C1C1C1;
+    padding: 8px 10px 10px;
+    vertical-align: middle;
+}
+
+.autor-signature {
+    margin-top: 40px;
+}
+
+/*
+===================
+08. Pricing Tables
+===================
+*/
+#pricing {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.55)), 
+    url("../assets/pricing-tables-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    background-color: #202020;
+    color: #fff;
+}
+#pricing .section-title {
+    padding-bottom: 75px;
+}
+
+.pricing-table ul {
+    padding-left: 0;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+.pricing-table li {
+    list-style-type: none;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #C1C1C1;
+    color: #606060;
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 22px;
+    font-size: 18px;
+}
+
+.pricing-table {
+    text-align: center;
+    background-color: #fff;
+    padding-bottom: 50px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+.pricing-table.big {
+    padding-bottom: 60px;
+    margin-top: -25px;
+}
+
+
+.pricing-table h4 {
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #292929;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-bottom: 0;
+}
+
+.pricing-table.big h4 {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.pricing-table .price {
+    font-family: 'Work Sans', sans-serif;
+    background-color: #292929;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    font-size: 46px;
+    line-height: 50px;
+    font-weight: 600;
+}
+
+.pricing-table.big .price {
+    background-color: #EE5A3F;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.pricing-table.popular .price {
+    background-color: #EE5A3F;
+}
+
+
+/*
+===================
+09. Blog Posts
+===================
+*/
+
+.post-date {
+    color: #A0A0A0;
+    font-size: 18px;
+}
+
+.post-content h4 {
+    text-transform: uppercase;
+}
+
+.post-content {
+    padding-top: 20px;
+}
+
+
+/*
+===================
+10. Simple Banner
+===================
+*/
+.simple-banner {
+    background-color: #EE5A3F;
+    text-align: center;
+    padding-top: 48px;
+    padding-bottom: 48px;
+    color: #fff;
+}
+
+.simple-banner h3 {
+    font-weight: 600;
+}
+
+.sb-title {
+    vertical-align: middle;
+    padding-top: 16px;
+}
+
+.simple-banner .btn-light:hover {
+    background-color: #202020;
+}
+
+/*
+===================
+11. Contact Section
+===================
+*/
+#contact form {
+    text-align: center;
+}
+.form-control-lg {
+    font-size: 16px;
+    border-radius: 10px;
+    border-color: #606060;
+}
+
+.has-error .form-control-lg {
+    border-color: #a94442;
+}
+.has-success .form-control-lg {
+    border-color: #3c763d;
+}
+
+.has-feedback {
+    position: relative;
+}
+
+.form-control-feedback {
+    position: absolute;
+    top: 3px;
+    right: 7px;
+    z-index: 2;
+    display: block;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    pointer-events: none;
+}
+
+.has-success .form-control-feedback {
+    color: #3c763d;
+}
+.has-error .form-control-feedback {
+    color: #a94442;
+}
+.has-error .help-block {
+    color: #a94442;
+}
+
+.form-group-lg .form-control + .form-control-feedback,
+.input-group-lg + .form-control-feedback,
+.input-lg + .form-control-feedback {
+    padding-right: 20px;
+}
+
+.form-group {
+    text-align: left;
+}
+.form-group.has-error {
+    margin-bottom: 6px;
+}
+
+.form-message .form-msg {
+    padding: 16px;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    transition: all .2s ease;
+}
+
+/*
+===================
+12. Footer
+===================
+*/
+footer {
+    background-color: #292929;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+footer .copy-line  {
+    padding-top: 6px;
+    margin-bottom: 0;
+    color: #f9f9f9;
+}
+.footer-social-links {
+    text-align: right;
+}
+
+.footer-social-links a{
+    color: #f9f9f9;
+    border: 1px solid #606060;
+    border-radius: 0px;
+    padding: 6px 8px 4px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.footer-social-links a i{
+    color: #f9f9f9;
+}
+
+.footer-social-links a:hover {
+    border-color: #EE5A3F;
+}
+
+.footer-social-links a:hover i{
+    color: #EE5A3F;
+}
+
+
+
+/*
+===========================
+13. Responsive Media styles
+===========================
+*/
+@media only screen and (max-width: 991px) {
+    .navbar-nav {
+        text-align: center;
+        border-top: 1px solid rgba(255,255,255, .3);
+        margin-top: 15px;
+        padding-top: 15px;
+    }
+    header {
+        padding-top: 200px;
+        padding-bottom: 90px;
+        text-align: center;
+    }
+    h1 {
+        font-size: 58px;
+    }
+    .book-mockup {
+        margin-top: 40px;
+    }
+    .hero-text .mt-3, .my-3 {
+        margin-top: 0 !important;
+    }
+    header p {
+        padding-right: 0;
+    }
+    section, .video-review {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+    #pricing .section-title {
+        padding-bottom: 70px;
+    }
+    .compatibility-text {
+        padding-top: 50px;
+    }
+    .pricing-table.big {
+        margin-top: 15px;
+    }
+    footer, .footer-social-links {
+        text-align: center;
+    }
+    .footer-social-links {
+        margin-top: 16px;
+    }
+    hr.right, hr.left {
+        max-width: 200px;
+    }
+}
+
+
+@media only screen and (max-width: 767px) {
+    h1 {
+        font-size: 52px;
+    }
+    .hero-text {
+        padding-top: 0;
+    }
+    .statics {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    .stats-list {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .chapters-list {
+        padding-right: 0;
+        padding-bottom: 15px;
+        padding-top: 15px;
+
+    }
+    .pricing-table h4, .pricing-table.big h4 {
+        padding-top: 34px;
+        padding-bottom: 30px;
+    }
+    .pricing-table .price, .pricing-table.big .price {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        font-size: 38px;
+    }
+    .pricing-table li {
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+    .blog-post {
+        margin-bottom: 30px;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    h1 {
+        font-size: 42px;
+    }
+    h3 {
+        font-size: 18px;
+        letter-spacing: 1px;
+    }
+    h2 {
+        font-size: 26px;
+        letter-spacing: 1px;
+    }
+    hr.right, hr.left {
+        max-width: 100px;
+    }
+    .section-title {
+        padding-bottom: 70px;
+    }
+    .read-in-all {
+        padding-top: 70px;
+    }
+    section, .video-review {
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+    #feedback {
+        padding-bottom: 30px;
+    }
+}

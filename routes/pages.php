@@ -16,10 +16,18 @@
      * Route menant a la page d'accueil
      */
     $router->get('/', function (Request $req, Response $res) {
-        global $userMiddleware;
-        $userMiddleware['auth']($req, $res);
-
-        $res->redirect('/dashboard');
+        $booksModel = new BooksModel;
+        
+        $res->extends('layouts/blank');
+        $res->render('pages/home', [
+            'title' => config('app.name'),
+            'active' => "home",
+            'new_books' => $booksModel->getNewBooks()->result,
+            'count_books' => $booksModel->getCountBooksPublished()->result,
+            'count_users' => $booksModel->countActives([], "users"),
+            'count_categories' => $booksModel->countActives([], "categories"),
+            'count_new_books' => $booksModel->getCountNewBooks()->result,
+        ]);
     });
 
     /**
