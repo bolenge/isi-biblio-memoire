@@ -53,8 +53,8 @@ h4	{
 	letter-spacing: 2px;
 }
 h5 {
-	font-size: 15px;
-	font-weight: 300;
+	font-size: 18px;
+	font-weight: 600;
 }
 
 p {
@@ -406,12 +406,13 @@ header p {
     background-image: url("../assets/chapter-list-icon-bg.svg");
     background-repeat: no-repeat;
     background-position: top left;
+    background-size: cover;
     height: 80px;
     width: 62px;
     text-align: center;
     position: relative;
     display: table;
-    padding-top: 20px;
+    padding-top: 10px;
     margin-right: 20px;
 }
 

@@ -147,78 +147,28 @@
         <!-- Start Chapters List -->
         <div class="container">
             <div class="section-title">
-                <h2>Overview</h2>
-                <p>List of chapters included in the ebook</p>
+                <h2>Nouveautés</h2>
+                <p>Découvrez de nouveaux livres publiés</p>
                 <hr class="left"><i class="icon icon-basic-spread-text"></i>
                 <hr class="right">
             </div>
             <div class="row">
-                <div class="col-lg-4">
-                    <div class="chapters-list">
-                        <div class="chapter-list-icon">
-                            <i class="icon icon-basic-anchor"></i>
+                <?php if (!empty($new_books)) : ?>
+                    <?php foreach ($new_books as $book) : ?>
+                        <div class="col-lg-4">
+                            <div class="chapters-list">
+                                <div class="chapter-list-icon">
+                                    <!-- <i class="icon icon-basic-anchor"></i> -->
+                                    <img src="/<?= !empty($book->cover) ? $book->cover : 'public/img/books/semaine-4-heures.jpg' ?>" alt="" class="icon" style="width: 50px;">
+                                </div>
+                                <div class="chapter-list-text">
+                                    <h5><?= sub_string(ucfirst($book->title), 20) ?></h5>
+                                    <p><strong>Auteur</strong> : <?= sub_string(ucfirst($book->other), 20) ?></p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="chapter-list-text">
-                            <h4>Chapter 1</h4>
-                            <p>About the author and book designer, consectetuer adipiscing elit.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="chapters-list">
-                        <div class="chapter-list-icon">
-                            <i class="icon icon-basic-sheet-pencil"></i>
-                        </div>
-                        <div class="chapter-list-text">
-                            <h4>Chapter 2</h4>
-                            <p>Sell best ebooks for everyone, consectetuer adipiscing elit. Aenean commodo.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="chapters-list">
-                        <div class="chapter-list-icon">
-                            <i class="icon icon-basic-pencil-ruler"></i>
-                        </div>
-                        <div class="chapter-list-text">
-                            <h4>Chapter 3</h4>
-                            <p>How to draw perfect shapes, consectetuer adipiscing elit. Aenean commodo.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="chapters-list">
-                        <div class="chapter-list-icon">
-                            <i class="icon icon-basic-pencil-ruler-pen"></i>
-                        </div>
-                        <div class="chapter-list-text">
-                            <h4>Chapter 4</h4>
-                            <p>Required tools for artists, consectetuer adipiscing elit.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="chapters-list">
-                        <div class="chapter-list-icon">
-                            <i class="icon icon-basic-picture-multiple"></i>
-                        </div>
-                        <div class="chapter-list-text">
-                            <h4>Chapter 5</h4>
-                            <p>Best ways to get good photos, adipiscing elit.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="chapters-list">
-                        <div class="chapter-list-icon">
-                            <i class="icon icon-basic-cup"></i>
-                        </div>
-                        <div class="chapter-list-text">
-                            <h4>Chapter 6</h4>
-                            <p>How to win everything, consectetuer adipiscing elit.</p>
-                        </div>
-                    </div>
-                </div>
+                    <?php endforeach ?>
+                <?php endif ?>
             </div>
         </div>
         <!-- End Chapters List -->

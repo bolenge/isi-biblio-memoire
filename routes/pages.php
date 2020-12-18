@@ -22,7 +22,7 @@
         $res->render('pages/home', [
             'title' => config('app.name'),
             'active' => "home",
-            'new_books' => $booksModel->getNewBooks()->result,
+            'new_books' => $booksModel->getNewBooks(6)->result,
             'count_books' => $booksModel->getCountBooksPublished()->result,
             'count_users' => $booksModel->countActives([], "users"),
             'count_categories' => $booksModel->countActives([], "categories"),
