@@ -137,7 +137,7 @@
                                                     <img src="/<?= $book->cover ?>" alt="">
                                                 <?php endif ?>
 
-                                                <a href="/books/read/<?= $book->id ?>" class="btn btn-primary mt-5">Commencer la lecture</a>
+                                                <button type="button" class="btn btn-primary mt-5" id="btn-begin-reading" data-book="<?= $book->id ?>">Commencer la lecture</button>
                                             </div>
                                         </div>
                                     </div>

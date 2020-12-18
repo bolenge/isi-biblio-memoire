@@ -1,7 +1,7 @@
 import { createCategory, getCategoriesActives, initCategories } from "./categories.js";
 import { initDashboard, loadCategoriesOnNavbar } from "./dashboard.js";
 import { loginUser, logOutUser, registerUser, updateUser } from "./users.js";
-import { deleteBookByAdmin, initBooks, publishBook, publishChapter, searchBooksForUser } from "./books.js";
+import { begingReadingBook, deleteBookByAdmin, initBooks, publishBook, publishChapter, searchBooksForUser } from "./books.js";
 import { initTypes } from "./types.js";
 import { logoutAdmin } from "./admins.js";
 
@@ -29,6 +29,10 @@ router('/profile', () => {
 
 router('/my-books/create', () => {
     initBooks();
+})
+
+routerRegex('/books/', () => {
+    begingReadingBook();
 })
 
 // Admin Routing

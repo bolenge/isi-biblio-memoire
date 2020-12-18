@@ -127,4 +127,28 @@
         $res->json($out);
     });
 
+    /**
+     * Route du début de la lecture d'un livre
+     */
+    $router->post('/read/:id', function (Request $req, Response $res) {
+        $booksModel = new BooksModel;
+        $out = new Out;
+
+        $result = $booksModel->getBookWithChapters((int) $req->params()->get('id'))->result;
+        $chapters = null;
+
+        if (!empty($result)) {
+            $chapters = !empty($result->chapters) ? $result->chapters : null;
+            $out = $booksModel->readBook(session('user')['id'], (int) $req->params()->get('id'), $chapters[0]->id);
+
+            if (!empty($chapters)) {
+                $booksModel->readBookChapter(session('user')['id'], (int) $req->params()->get('id'), $chapters[0]->id);
+            }
+        }else {
+            $out->message = "Erreur de lecture, réessayez ou actualisez la page";
+        }
+
+        $res->json($out);
+    });
+
     return $router;
