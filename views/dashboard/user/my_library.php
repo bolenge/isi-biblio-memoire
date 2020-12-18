@@ -57,7 +57,7 @@
                                     <tr>
                                         <td><?= $i ?></td>
                                         <td>
-                                            <img src="/public/img/books/semaine-4-heures.jpg" alt="Book cover" class="cover-book-list">
+                                            <img src="<?= $book->cover ? $book->cover : "public/img/books/default-bookcover.png" ?>" alt="Book cover" class="cover-book-list">
                                             <span><?= sub_string($book->title, 30) ?></span>
                                         </td>
                                         <td><?= sub_string($book->category, 30) ?></td>
