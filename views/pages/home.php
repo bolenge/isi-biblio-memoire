@@ -61,10 +61,10 @@
                         <a class="nav-link mr-4" href="#author">A propos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-secondary mr-3" href="/register">Créer un compte</a>
+                        <a class="btn btn-secondary mr-3" href="/register">Créer un compte <i class="fa fa-pencil-alt"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-primary" href="/login">Connexion</a>
+                        <a class="btn btn-primary" href="/login">Connexion <i class="fa fa-sign-in-alt"></i></a>
                     </li>
                 </ul>
             </div>
@@ -355,49 +355,6 @@
         </div>
     </section>
     <!-- End Pricing Tables Section -->
-
-    <!-- Start Recent Blog Posts Section -->
-    <section id="blog">
-        <div class="container">
-            <div class="section-title">
-                <h2>Latest News</h2>
-                <p>List of chapters included in the ebook</p>
-                <hr class="left"><i class="icon icon-basic-spread-text"></i>
-                <hr class="right">
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="blog-post">
-                        <div class="post-img">
-                            <img src="/public/home/assets/blog1.jpg" alt="" class="img-fluid">
-                        </div>
-                        <div class="post-content">
-                            <h4>Cats Lover Books</h4>
-                            <p class="post-date">26 Aug, 2018 | By Author</p>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
-                                dolor. Aenean massa.</p>
-                            <a href="#" class="btn post-btn">Read More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="blog-post">
-                        <div class="post-img">
-                            <img src="/public/home/assets/blog3.jpg" alt="" class="img-fluid">
-                        </div>
-                        <div class="post-content">
-                            <h4>Must Read Digital Books</h4>
-                            <p class="post-date">26 Aug, 2018 | By Author</p>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
-                                dolor. Aenean massa.</p>
-                            <a href="#" class="btn post-btn">Read More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Recent Blog Posts Section -->
 
     <!-- Small/Simple Download Banner -->
     <div class="simple-banner">

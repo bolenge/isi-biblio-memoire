@@ -1,6 +1,12 @@
-<div class="container mt-5 pt-5">
+<div class="container mt-5 pt-3">
     <div class="row">
         <div class="col-lg-4 offset-lg-4" id="col-login-user">
+            <div class="text-center">
+                <a href="/" style="text-decoration: none;">
+                    <img src="/public/img/logos/logo-congo-book.png" alt="" width="45px" />
+                    <strong class="text-primary"><?= config('app.name') ?></strong>
+                </a>
+            </div>
             <div class="card card-user" id="card-login-user">
                 <div class="card-body p-5">
                     <h5 class="card-title text-center mb-4">Connexion</h5>
@@ -32,6 +38,8 @@
                                 <button type="submit" class="btn bgc-primary">Connexion <i class="fa fa-sign-in"></i></button>
 
                                 <p class="mt-2"><a href="/register">Je veux m'inscrire <i class="fa fa-pencil"></i></a></p>
+
+                                <p><a href="/"><i class="fa fa-arrow-left"></i> Retour à l'accueil</a></p>
                             </div>
                         </div>
                     </form>
