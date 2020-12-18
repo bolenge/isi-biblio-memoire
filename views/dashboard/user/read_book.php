@@ -134,10 +134,12 @@
 
                                             <div class="mb-5 text-center">
                                                 <?php if (!empty($book->cover)) : ?>
-                                                    <img src="/<?= $book->cover ?>" alt="">
+                                                    <img src="/<?= $book->cover ?>" alt="" width="450px" height="550px">
                                                 <?php endif ?>
 
-                                                <button type="button" class="btn btn-primary mt-5" id="btn-begin-reading" data-book="<?= $book->id ?>">Commencer la lecture</button>
+                                                <div>
+                                                    <button type="button" class="btn btn-primary mt-5" id="btn-begin-reading" data-book="<?= $book->id ?>">Commencer la lecture</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

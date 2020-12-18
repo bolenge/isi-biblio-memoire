@@ -148,7 +148,7 @@ a,
     padding: 1.5rem;
     box-shadow: 2px solid #ccc;
     top: 10%;
-    opacity: 0;
+    visibility: hidden;
 }
 
 .call-block-search {

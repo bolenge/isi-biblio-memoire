@@ -132,7 +132,7 @@
 
                                 <div class="mb-5">
                                     <?php if (!empty($chapter_active)) : ?>
-                                    <h1><?= $chapter_active->title ?></h1>
+                                    <h2><?= $chapter_active->title ?></h2>
 
                                     <div>
                                         <?php if (file_exists($chapter_active->filename)) : ?>
@@ -147,13 +147,13 @@
 
                                 <div class="mt-5 pt-5">
                                     <?php if (!empty($chapters[$key_active - 1])) : ?>
-                                    <a href="/books/<?= $book->id.'/chapters/'.$chapters[$key_active - 1]->id ?>"
+                                        <a href="/books/<?= $book->id.'/chapters/'.$chapters[$key_active - 1]->id ?>"
                                         class="btn btn-primary float-left"><i class="fa fa-chevron-left"></i>
                                         &nbsp;&nbsp;<?= $chapters[$key_active - 1]->title ?></a>
                                     <?php endif ?>
 
                                     <?php if (!empty($chapters[$key_active + 1])) : ?>
-                                    <a href="/books/<?= $book->id.'/chapters/'. $chapters[$key_active + 1]->id ?>"
+                                        <a href="/books/<?= $book->id.'/chapters/'. $chapters[$key_active + 1]->id ?>"
                                         class="btn btn-primary float-right"><?= $chapters[$key_active + 1]->title ?>
                                         &nbsp;&nbsp;<i class="fa fa-chevron-right"></i> </a>
                                     <?php endif ?>

@@ -90,7 +90,7 @@ export function searchBooksForUser() {
     $('#input-search').on('focus', function (e) {
         $('#block-search').addClass('call-block-search');
         $('#block-search').css({
-            opacity: 1
+            visibility: "visible"
         })
         $('#block-search').removeClass('close-call-block-search');
     })

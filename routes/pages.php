@@ -219,14 +219,17 @@
             }
         }
 
+        $chapter_active = $booksModel->getBookChapterByIdChapter((int) $req->params()->get('id_chapter'))->result;
+        $key_active = array_search($chapter_active, $chapters);
+
         $res->extends('layouts/blank');
         $res->render('dashboard/user/read_book_chapter', [
             'title' => 'Lecture du livre',
             'active' => 'dashboard',
             'book' => $result,
             'chapters' => $chapters,
-            'key_active' => 0,
-            'chapter_active' => $booksModel->getBookChapterByIdChapter((int) $req->params()->get('id_chapter'))->result
+            'key_active' => $key_active == 0 || $key_active != null ? $key_active : 1,
+            'chapter_active' => $chapter_active
         ]);
     });
 
