@@ -29,7 +29,8 @@
 
     <link rel="stylesheet" href="/public/home/css/styles.css">
 
-    <link rel="icon" href="/public/home/assets/fevicon.png" type="image/gif">
+    <link rel="apple-touch-icon" sizes="76x76" href="/public/img/logos/logo-congo-book.png">
+    <link rel="icon" type="image/png" href="/public/img/logos/logo-congo-book.png">
 
 </head>
 
