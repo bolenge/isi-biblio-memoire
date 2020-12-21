@@ -314,41 +314,41 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="pricing-table">
-                        <h4>BASIC E-BOOK</h4>
-                        <h2 class="price"><sup>$</sup>89.00</h2>
+                        <h4>Premium Solo</h4>
+                        <h3 class="price">3 $ Pour 3 mois</h3>
                         <ul>
-                            <li>Printable Color PDF Book</li>
-                            <li>Our Online Library Access</li>
-                            <li>Bonus Ebooks Included</li>
+                            <li>Accès à 25 Livres</li>
+                            <li>Téléchargement Livres gratuits en PDF</li>
+                            <li>Ecouter Livres Audios Gratuits</li>
                         </ul>
-                        <a href="#" class="btn btn-dark btn-lg material-ripple">Purchase Now</a>
+                        <a href="#" class="btn btn-secondary btn-lg material-ripple">Souscrire</a>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="pricing-table popular">
-                        <h4>ADVANCED E-BOOK</h4>
-                        <h2 class="price"><sup>$</sup>149.00</h2>
+                        <h4>Premium Médium</h4>
+                        <h2 class="price">5 $ Pour 6 Mois</h2>
                         <ul>
-                            <li>With Basic Package</li>
-                            <li>Hard Copy of the Book</li>
-                            <li>Author Autograph</li>
-                            <li>Gift From the Author</li>
+                            <li>Accès à 55 Livres</li>
+                            <li>Téléchargement Livres gratuits en PDF</li>
+                            <li>Ecouter Livres Audios Gratuits</li>
+                            <li>Débloquage de 20 Livres à lire pendant 2 mois après expiration de l'abonnement</li>
                         </ul>
-                        <a href="#" class="btn btn-primary btn-lg material-ripple">Purchase Now</a>
+                        <a href="#" class="btn btn-primary btn-lg material-ripple">Souscrire</a>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="pricing-table">
-                        <h4>ULTIMATE E-BOOK</h4>
-                        <h2 class="price"><sup>$</sup>199.00</h2>
+                        <h4>Premium Plus</h4>
+                        <h2 class="price">15 $ Pour 12 Mois</h2>
                         <ul>
-                            <li>With Advanced Package</li>
-                            <li>Limited Edition Book</li>
-                            <li>Collector Edition Book</li>
-                            <li>Personalised Pen</li>
-                            <li>Hand Crafted Sketch Book</li>
+                            <li>Accès à Tous Nos Livres</li>
+                            <li>Téléchargement Livres gratuits en PDF</li>
+                            <li>Ecouter Livres Audios Gratuits</li>
+                            <li>Débloquage de 30 Livres à lire pendant 3 mois après expiration de l'abonnement</li>
+                            <li>Avoir Contact à un mentor Pour Rédaction de votre livre</li>
                         </ul>
-                        <a href="#" class="btn btn-dark btn-lg material-ripple">Purchase Now</a>
+                        <a href="#" class="btn btn-secondary btn-lg material-ripple">Souscrire</a>
                     </div>
                 </div>
             </div>
@@ -356,27 +356,11 @@
     </section>
     <!-- End Pricing Tables Section -->
 
-    <!-- Small/Simple Download Banner -->
-    <div class="simple-banner">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="sb-title">
-                        <h3>“There is no friend as loyal as book”</h3>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <a href="#" class="btn btn-lg btn-light material-ripple">Purchase Now</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <section id="contact">
         <div class="container">
             <div class="section-title">
-                <h2>DROP A MESSAGE</h2>
-                <p>Any Questions ? feel free to drop a message to us</p>
+                <h2>LAISSEZ-NOUS UN MESSAGE</h2>
+                <p>Avez-vous une question, une requête ? N'hésitez pas de la soumettre.</p>
                 <hr class="left"><i class="icon icon-basic-spread-text"></i>
                 <hr class="right">
             </div>
@@ -384,26 +368,26 @@
                 <div class="col-lg-6 col-md-12 offset-lg-3 offset-md-0">
                     <form id="contact-form" method="POST">
                         <div class="form-group">
-                            <label for="fullName" class="sr-only">Your Full Name</label>
+                            <label for="fullName" class="sr-only">Votre nom complet</label>
                             <input type="text" class="form-control form-control-lg" name="fullName" id="fullName"
-                                placeholder="Your Full Name" required="required">
+                                placeholder="Votre nom complet" required="required">
                         </div>
                         <div class="form-group">
-                            <label for="email" class="sr-only">Email ID</label>
+                            <label for="email" class="sr-only">Votre Email</label>
                             <input type="email" class="form-control form-control-lg" name="email" id="email"
-                                placeholder="Email ID" required="required">
+                                placeholder="Votre Email" required="required">
                         </div>
                         <div class="form-group">
-                            <label for="phoneNo" class="sr-only">Phone Number</label>
+                            <label for="phoneNo" class="sr-only">Numero Téléphone</label>
                             <input type="text" class="form-control form-control-lg" name="phoneNo" id="phoneNo"
-                                placeholder="Phone Number" required="required">
+                                placeholder="Numero Téléphone" required="required">
                         </div>
                         <div class="form-group">
-                            <label for="message" class="sr-only">MEssage</label>
+                            <label for="message" class="sr-only">Votre message</label>
                             <textarea class="form-control form-control-lg" name="message" id="message" rows="4"
-                                placeholder="Message" required="required"></textarea>
+                                placeholder="Votre message" required="required"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary material-ripple">Send Message</button>
+                        <button type="submit" class="btn btn-primary material-ripple">Envoyer</button>
                         <div class="form-message"></div>
                     </form>
                 </div>
@@ -415,14 +399,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <p class="copy-line">© 2019 - All Rights reserved.</p>
+                    <p class="copy-line">© <?= date('Y') ?> - <?= config('app.name') ?> - Tous droits reservés.</p>
                 </div>
                 <div class="col-lg-6">
                     <div class="footer-social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i
-                                class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-behance"></i></a><a
-                            href="#"><i class="fab fa-dribbble"></i></a><a href="#"><i
-                                class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>

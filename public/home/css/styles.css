@@ -359,7 +359,7 @@ header p {
 ===========
 */
 .statics {
-	background-color: #EE5A3F;
+	background-color: #581c7e !important;
 	color: #fff;
 	padding-top: 44px;
 	padding-bottom:44px;
@@ -586,7 +586,7 @@ header p {
     background-color: #292929;
     padding-top: 25px;
     padding-bottom: 25px;
-    font-size: 46px;
+    font-size: 30px;
     line-height: 50px;
     font-weight: 600;
 }
@@ -902,5 +902,9 @@ a,
 }
 
 .btn-secondary {
+    color: #fff !important;
+}
+
+.btn-dark {
     color: #fff !important;
 }
