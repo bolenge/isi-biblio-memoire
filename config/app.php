@@ -4,7 +4,7 @@
      * @author Don de Dieu BOLENGE <dondedieubolenge@gmail.com>
      */
     return [
-        'name' => 'Congo Book',
+        'name' => 'ISI-Biblio',
         'webiste_url' => 'http://localhost:3000',
         'locale' => 'fr',
 

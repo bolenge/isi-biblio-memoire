@@ -212,7 +212,7 @@
                 </nav>
                 <div class="credits ml-auto">
                     <span class="copyright">
-                        Powered by <a href="#">Ümoja Foundation</a>
+                        Powered by <a href="#">ISI-Biblio</a>
                     </span>
                 </div>
             </div>

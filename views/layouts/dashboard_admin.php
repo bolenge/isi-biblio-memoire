@@ -300,7 +300,7 @@
                 <ul class="list-inline">
                     <li>&copy; <?= date('Y').' '.config('app.name') ?> </li>
 
-                    <li class=" pull-right">Powred by <a href="#"><strong>Ümoja Foundation</strong></a></li>
+                    <li class=" pull-right">Powred by <a href="#"><strong>ISI-Biblio</strong></a></li>
                 </ul>
             </footer>
         </div>

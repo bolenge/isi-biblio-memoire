@@ -68,7 +68,7 @@
                     <div class="text-center"><a href="page-recoverpw.html" class="a-link"><i class="fa fa-unlock-alt"></i>Mot de passe oublié ?</a></div>
                 </div>
                 
-                <div class="frm-footer text-center">Powered <strong class="text-primary">Umoja Technology</strong> &copy; <?= date('Y') ?></div>
+                <div class="frm-footer text-center">Powered <strong class="text-primary">ISI-Biblio</strong> &copy; <?= date('Y') ?></div>
                 <!-- /.footer -->
             </div>
             <!-- .inside -->
