@@ -59,6 +59,9 @@
                         <a class="nav-link mx-4" href="#overview">Livres</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link mx-4" href="#overview">Catégories</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link mr-4" href="#author">A propos</a>
                     </li>
                     <li class="nav-item">

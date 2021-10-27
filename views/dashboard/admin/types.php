@@ -1,7 +1,7 @@
 <div class="row small-spacing">
     <div class="col-sm-4 col-xs-12" id="col-create-type">
         <div class="box-content card white" id="card-create-type">
-            <h4 class="box-title" id="title-create-type">Nouveau type</h4>
+            <h4 class="box-title" id="title-create-type">Nouveau domaine</h4>
             <!-- /.box-title  -->
             <div class="card-content" id="content-card-create-type">
                 <form action="#" id="form-create-type" method="POST">
@@ -25,7 +25,7 @@
     </div>
     <div class="col-sm-8 col-xs-12">
         <div class="box-content">
-            <h3 class="box-title">Liste de types de catégories</h3>
+            <h3 class="box-title">Liste de domaines</h3>
             <table id="table-types-categories" class="display" style="width: 100%">
                 <thead>
                     <tr>

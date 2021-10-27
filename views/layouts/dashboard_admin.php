@@ -83,10 +83,10 @@
                     <li class="<?= get_active_menu('categories', $active, 'current') ?>">
 
                         <a class="waves-effect parent-item js__control" href="#"><i
-                                class="menu-icon fa fa-th-large"></i><span>Types & Catégories</span><span
+                                class="menu-icon fa fa-th-large"></i><span>Domaines & Catégories</span><span
                                 class="menu-arrow fa fa-angle-down"></span></a>
                         <ul class="sub-menu js__content">
-                            <li><a href="/admin/types"><i class="fa fa-bars"></i>&nbsp;&nbsp;Types</a>
+                            <li><a href="/admin/types"><i class="fa fa-bars"></i>&nbsp;&nbsp;Domaines</a>
                             </li>
                             <li><a href="/admin/categories"><i class="fa fa-th-large"></i>&nbsp;&nbsp;Catégories</a></li>
                         </ul>
@@ -104,14 +104,9 @@
                         </ul>
                     </li>
 
-                    <li class="<?= get_active_menu('others', $active, 'current') ?>">
-                        <a class="waves-effect" href="/admin/others"><i
-                                class="menu-icon fa fa-user"></i><span>Auteurs</span></a>
-                    </li>
-
-                    <li class="<?= get_active_menu('users', $active, 'current') ?>">
-                        <a class="waves-effect" href="/admin/users"><i
-                                class="menu-icon fa fa-users"></i><span>Utilisateurs</span></a>
+                    <li class="<?= get_active_menu('abonnes', $active, 'current') ?>">
+                        <a class="waves-effect" href="/admin/abonnes"><i
+                                class="menu-icon fa fa-users"></i><span>Abonnés</span></a>
                     </li>
 
                     <li class="<?= get_active_menu('subscriptions', $active, 'current') ?>">

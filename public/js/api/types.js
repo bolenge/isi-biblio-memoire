@@ -8,7 +8,7 @@ export function initTypes() {
         $('#table-types-categories').DataTable({
             "language": {
                 "search": "Recherche",
-                "lengthMenu": "Affiche _MENU_ types par page",
+                "lengthMenu": "Affiche _MENU_ domaines par page",
                 "zeroRecords": "Aucune information enregistrée pour l'instant",
                 "info": "Affichage _PAGE_ sur _PAGES_",
                 "infoEmpty": "Aucune information disponible",
@@ -121,7 +121,7 @@ export function editType() {
                         console.log(response);
                         if (response) {
                             if (response.state) {
-                                $('#title-create-type').html('Edition du type');
+                                $('#title-create-type').html('Edition du domaine');
                                 $('#content-card-create-type').html(`<form action="#" id="form-update-type" method="POST">
                                     <div class="form-group">
                                         <label for="intituled">Intitulé <span class="text-danger">*</span></label>

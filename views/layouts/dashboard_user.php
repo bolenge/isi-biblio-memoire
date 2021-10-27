@@ -39,7 +39,7 @@
                     <?= config('app.name') ?>
                 </a>
             </div>
-            <div class="sidebar-wrapper">
+            <div class="sidebar-wrapper" style="overflow: hidden;">
                 <ul class="nav">
                     <li class="<?= get_active_menu("dashboard", $active) ?>">
                         <a href="/dashboard">
@@ -51,7 +51,7 @@
                     <li class="<?= get_active_menu("my-books", $active) ?>">
                         <a href="/my-books">
                             <i class="nc-icon nc-book-bookmark"></i>
-                            <p>Mes Livres</p>
+                            <p>Tous les Livres</p>
                         </a>
                     </li>
 
@@ -169,7 +169,7 @@
 
             <?= $content ?>
             
-            <footer class="footer footer-black  footer-white ">
+            <footer class="footer footer-black  footer-white">
                 <div class="container-fluid">
                     <div class="row">
                         <nav class="footer-nav">

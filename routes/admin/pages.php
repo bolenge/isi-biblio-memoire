@@ -82,6 +82,20 @@
     });
 
     /**
+     * Route des abonnes
+     */
+    $router->get('/abonnes', function (Request $req, Response $res) {
+        global $adminMiddleware;
+        $adminMiddleware['auth']($req, $res);
+
+        $res->extends('layouts/dashboard_admin');
+        $res->render('dashboard/admin/abonnes', [
+            'title' => "Liste de catégories de livres",
+            'active' => 'abonnes'
+        ]);
+    });
+
+    /**
      * Route des auteurs
      */
     $router->get('/login', function (Request $req, Response $res) {

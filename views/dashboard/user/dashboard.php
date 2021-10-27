@@ -12,7 +12,7 @@
                         </div>
                         <div class="col-7 col-md-8">
                             <div class="numbers">
-                                <p class="card-category"><a href="/my-books">Mes Livres</a></p>
+                                <p class="card-category"><a href="/my-books">Livres en Lignes</a></p>
                                 <p class="card-title">
                                     <?= is_array($count_user_books) ? 0 : $count_user_books ?>
                                 <p>
@@ -183,11 +183,10 @@
         </div>
     </div>
 
-    <?php if (!empty($new_books)) : ?>
+    <!-- <?php if (!empty($new_books)) : ?>
         <h5 class="card-title my-5">Découvrez notre nouvelle collection</h5>
 
         <div class="row">
-            <!-- new_products -->
             <?php foreach ($new_books as $book) : ?>
                 <div class="col-xl-3 col-lg-4 col-md-4">
                     <div class="card">
@@ -218,5 +217,5 @@
                 </div>
             <?php endforeach ?>
         </div>
-    <?php endif ?>
+    <?php endif ?> -->
 </div>

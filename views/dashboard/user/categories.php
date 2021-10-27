@@ -40,7 +40,7 @@
         <?php endif ?>
     <?php endif ?>
 
-    <h5 class="card-title my-5">Livres de catégories similaires</h5>
+    <!-- <h5 class="card-title my-5">Livres de catégories similaires</h5> -->
 
     <?php if (!empty($similaires)) : ?>
         <?php foreach ($similaires as $category) : ?>
