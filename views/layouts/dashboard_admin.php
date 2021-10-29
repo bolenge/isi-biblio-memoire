@@ -99,8 +99,8 @@
                                 class="menu-icon fa fa-book"></i><span>Livres</span><span
                                 class="menu-arrow fa fa-angle-down"></span></a>
                         <ul class="sub-menu js__content">
-                            <li class="active"><a href="/admin/books/waiting"><i class="fa fa-clock-o"></i>&nbsp;&nbsp;En attentes</a></li>
-                            <li><a href="/admin/books/published"><i class="fa fa-send"></i>&nbsp;&nbsp;Publiés</a></li>
+                            <li><a href="/admin/books/create"><i class="fa fa-send"></i>&nbsp;&nbsp;Publier</a></li>
+                            <li><a href="/admin/books/published"><i class="fa fa-list"></i>&nbsp;&nbsp;Tous les livres</a></li>
                         </ul>
                     </li>
 

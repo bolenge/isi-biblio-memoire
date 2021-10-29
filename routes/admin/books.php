@@ -11,6 +11,25 @@
     $booksModel = new BooksModel;
 
     /**
+     * Route de publication de livres
+     */
+    $router->get('/create', function (Request $req, Response $res) {
+        global $adminMiddleware;
+
+        $adminMiddleware["auth"]($req, $res);
+
+        global $booksModel;
+
+        $res->extends('layouts/dashboard_admin');
+        $res->render('dashboard/admin/books/create', [
+            'title' => "Administration ".config('app.name'),
+            'active' => 'books',
+            'books' => $booksModel->getBooksPublished()->result
+        ]);
+        
+    });
+
+    /**
      * Route de livres en attente
      */
     $router->get('/waiting', function (Request $req, Response $res) {
